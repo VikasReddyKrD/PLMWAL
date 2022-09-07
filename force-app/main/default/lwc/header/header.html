@@ -1,0 +1,204 @@
+<template>
+
+    <div class="content-wrapper nav-is-vertical slds-no-print">
+        <header class="header-banner header-banner-sticky position-fixed w-100" role="banner">
+            <!-- <noscript>
+                <div class="row">
+                    <div class="columns large-24 medium-24 small-centered padding-vertical-half">
+                        <div class="flash-message warning" role="alert">
+                            <div class="flag-content">
+                                You appear to have JavaScript disabled in your browser.
+                                PatientsLikeMe relies on JavaScript and Cookies to deliver the best possible experience to you.
+                                <a href="http://support.patientslikeme.com/hc/en-us/articles/201187414">How do I enable JavaScript?
+                                    <img class="dingbat-icon" src="assets/information.png" />
+                                </a>
+                            </div>
+                            <span class="flash-message-icon">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </noscript> -->
+            <div class="row">
+                <div class="small-12 medium-12 large-12 columns pl-30p pt-15p pb-5p">
+                    <div class="logged-in-logo-container">
+                        <a class="d-block site-logo" title="Return to the Home Page" href="https://www.patientslikeme.com">
+                            <div class="is-hidden-visually">
+                                PatientsLikeMe ®
+                            </div>
+                            <div class="icon icon-plm-logo-reversed float-left"></div>
+                            <span class="utility-nav align-left-medium m-0 float-left pl-3 line-height-12 hide-for-small-only mt-7p fs-12">community<br/>research tools</span>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="small-12 medium-12 large-12 columns utility-wrapper d-flex justify-content-end pt-26p pb-20p pr-30p">
+                    <ul class="utility-nav align-right-medium m-0" > <!--Rahul change the role to list -->
+                        <li class="preserve-float p-0">
+                           <!-- <a href="javascrpt:void(0);">BlueskyUsername</a>  -->
+                           <a target="_blank"   aria-label="Name of the user">{name} | </a>
+                           <!-- <a target="_blank" title="Click here to log out" onclick={logoutLink} aria-label="click here to logout" style="color:rgb(0, 162, 255)">Go to PatientsLikeMe</a> -->
+                           <a href="https://www.patientslikeme.com/" aria-label="click here to logout" style="color:rgb(0, 162, 255)" onclick={handleBackClick}>Go to PatientsLikeMe</a>
+                           <lightning-button variant="brand" label="LOGOUT" title="Logout the Account" style="position:relative; padding-left:15px; margin:-10px 0px;" onclick={handleClick}></lightning-button>
+
+                           <!-- <a href="https://wal-servicecloudtrial-155c0807bf-16246540dc1.cs15.force.com/wal/secur/logout.jsp?retUrl">Go to Patients Like Me</a> -->
+                        </li>
+
+                        <!-- <li class="preserve-float">
+                            <a title="Frequently Asked Questions" href="http://support.patientslikeme.com/">FAQ</a>
+                        </li>
+                        <li class="preserve-float">
+                            <a href="http://support.patientslikeme.com/hc/en-us/categories/200085220-Crisis-resources">Crisis</a>
+                        </li>-->
+                        <li style='margin-top:-10px;' class="preserve-float">
+                            <!-- <a data-fn-click="logout.is_logging_out" data-initialize="add_click_metric" data-metric-event-args="[&quot;sessions.clicked_logout&quot;]" rel="nofollow" data-method="delete" href="https://www.patientslikeme.com/users/sign_in">Log out</a> -->
+                            <!-- <lightning-button target="_blank" variant="destructive" label="Log out" title="Log out" onclick={logoutLink} class="slds-m-left_x-small"></lightning-button> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- <div data-react-class="DesktopNav" data-react-props="" data-react-cache-id="DesktopNav-0">
+                <div class="row d-none d-md-flex logged-in-nav justify-content-end">
+                    <div class="col-7 col-lg-5 col-xl-4">
+                        <nav class="justify-content-center p-0 navbar navbar-expand-sm">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="/member_home" class="nav-link">Home</a>
+                                </li>
+                                <li class="dropdown nav-item">
+                                    <a aria-haspopup="true" href="#" class="nav-primary-toggle nav-link" aria-expanded="false">My Health</a>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                        <a href="/outcome_scores/weight" class="nav-link">Weight</a>
+                                        <a href="/dailyme" class="nav-link">DailyMe</a>
+                                        <a href="/doctor_visit_guide" class="nav-link">Doctor Visit Guide</a>
+                                        <a href="/condition_infos" class="nav-link">My conditions</a>
+                                        <a href="/treatment_history" class="nav-link">My treatments</a>
+                                        <a href="/hospitalizations" class="nav-link">Hospitalizations</a>
+                                        <a href="/labs_and_tests" class="nav-link">Labs &amp; tests</a>
+                                    </div>
+                                </li>
+                                <li class="dropdown nav-item">
+                                    <a aria-haspopup="true" href="#" class="nav-primary-toggle nav-link" aria-expanded="false">Learn</a>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                        <a href="/conditions" class="nav-link">Conditions</a>
+                                        <a href="/conditions/2523-ingrown-hair" class="py-1 nav-link">
+                                            <div class="pl-3">
+                                                Ingrown hair
+                                                <span class="pl-1 align-middle">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M10.4811 3.65698C11.421 3.11434 12.579 3.11434 13.5189 3.65698L18.4811 6.52194C19.421 7.06458 20 8.06742 20 9.1527V14.8826C20 15.9679 19.421 16.9707 18.4811 17.5134L13.5189 20.3784C12.579 20.921 11.421 20.921 10.4811 20.3784L5.51887 17.5134C4.57899 16.9707 4 15.9679 4 14.8826V9.1527C4 8.06742 4.57899 7.06458 5.51887 6.52194L10.4811 3.65698Z" fill="#13C6AE"></path>
+                                                        <path d="M8 12.2859L10.6667 14.7859L16 9.78589" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <a href="/conditions/210-hearing-loss" class="py-1 nav-link">
+                                            <div class="pl-3">
+                                                Hearing loss
+                                                <span class="pl-1 align-middle">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M10.4811 3.65698C11.421 3.11434 12.579 3.11434 13.5189 3.65698L18.4811 6.52194C19.421 7.06458 20 8.06742 20 9.1527V14.8826C20 15.9679 19.421 16.9707 18.4811 17.5134L13.5189 20.3784C12.579 20.921 11.421 20.921 10.4811 20.3784L5.51887 17.5134C4.57899 16.9707 4 15.9679 4 14.8826V9.1527C4 8.06742 4.57899 7.06458 5.51887 6.52194L10.4811 3.65698Z" fill="#13C6AE"></path>
+                                                        <path d="M8 12.2859L10.6667 14.7859L16 9.78589" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </a>
+                                        <a href="/treatments" class="nav-link">Treatments</a>
+                                        <a href="/symptoms" class="nav-link">Symptoms</a>
+                                    </div>
+                                </li>
+                                <li class="dropdown nav-item">
+                                    <a aria-haspopup="true" href="#" class="nav-primary-toggle nav-link" aria-expanded="false">Connect</a>
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                        <a href="/patients" class="nav-link">Members</a>
+                                        <a href="/forum " class="nav-link">Forums</a>
+                                        <a href="/forum/covid19" class="nav-link">COVID-19 Forum</a>
+                                        <a href="/forum/eye_ear_nose_throat" class="nav-link">Eye, Ear, Nose and Throat Forum</a>
+                                        <a href="/forum/skin_hair_nails" class="nav-link">Skin, Hair and Nails Forum</a>
+                                        <a href="/forum/plm" class="nav-link">PatientsLikeMe Forum</a>
+                                        <a href="/forum/sitehelp" class="nav-link">Technical Help Using PatientsLikeMe Forum</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-3 site-header-nav">
+                        <div class="Select picker-results is-clearable is-searchable Select--single">
+                            <div class="Select-control">
+                                <div class="Select-multi-value-wrapper" id="react-select-2--value">
+                                    <div class="Select-placeholder">
+                                        Search
+                                    </div>
+                                    <div class="Select-input" style="display: inline-block;">
+                                        <input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-labelledby="Search" aria-owns="" role="combobox" value="">
+                                    </div>
+                                </div>
+                                <span class="Select-arrow-zone">
+                                    <svg width="16" height="15.34" viewBox="0 0 16 15.34" style="margin-top: 2px;">
+                                        <path fill="#999" d="M10.057 0c-3.285 0-5.945 2.763-5.945 6.174 0 1.112.287 2.152.782 3.055l-4.55 4.1c-.415.373-.461 1.029-.101 1.461l.162.195c.36.432.993.479 1.408.104l4.533-4.082-.026-.032c1.021.858 2.319 1.375 3.735 1.375 3.283 0 5.943-2.765 5.943-6.175.001-3.412-2.659-6.175-5.941-6.175zm-.078 10.686c-2.396 0-4.344-2.02-4.344-4.512 0-2.492 1.945-4.512 4.344-4.512 2.4 0 4.346 2.021 4.346 4.512-.002 2.492-1.945 4.512-4.346 4.512z"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <ul class="list-inline status-nav pull-right">
+                            <li class="status-nav-item data-donation-tray preserve-float margin-right-none padding-bottom-none notification">
+                                <div class="nav-menu-wrapper" id="nav-menu-ddt">
+                                    <span role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="nav-menu-button">
+                                        <div>
+                                            <div class="media-object">
+                                                <div class="media-item margin-right-none data-donation-icon-without-label">
+                                                    <svg width="23px" height="24px" viewBox="0 0 23 24" class="">
+                                                        <path fill="none" stroke="#FFF" d="M12.538 2.933c2.033-2.376 5.548-2.593 7.84-.477 2.28 2.105 2.482 5.72.46 8.085l-4.92 5.747-2.953 3.453c-.57.665-1.59.68-2.18.032l-3.053-3.357-5.226-5.747C.414 8.368.513 4.748 2.73 2.573c2.228-2.186 5.747-2.08 7.85.232l1.065 1.172.893-1.044zM16 4v6m-3-3h6"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="media-content nav-menu-media-content full-nav-menu-media-content">
+                                                    <span class="count-indicator">
+                                                        2
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="messages status-nav-item margin-horizontal-none preserve-float">
+                                <div class="nav-menu-wrapper" id="nav-menu-messages">
+                                    <span role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="nav-menu-button">
+                                        <div class="media-object nav-message-icon">
+                                            <div class="media-item margin-right-none">
+                                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="#FFF" stroke-width="1" stroke-linejoin="round" d="M20.904 19H3.095A2.107 2.107 0 0 1 1 16.882V3.118C1 1.948 1.939 1 3.095 1h17.809c1.156 0 2.095.949 2.095 2.118v13.764A2.107 2.107 0 0 1 20.904 19zM23 2.8c0 .658-.297 1.28-.805 1.68l-8.939 7.08a2.014 2.014 0 0 1-2.513 0l-8.94-7.08A2.142 2.142 0 0 1 1 2.8M8.903 10l-7.1 5.327A1.99 1.99 0 0 0 1 16.919m21.976.054c0-.623-.297-1.212-.804-1.591L15 10"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="media-content nav-menu-media-content full-nav-menu-media-content">
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="notifications status-nav-item preserve-float">
+                                <div class="nav-menu-wrapper" id="nav-menu-notifications">
+                                    <span role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" class="nav-menu-button">
+                                        <div class="media-object">
+                                            <div class="media-item margin-right-none">
+                                                <svg width="22" height="24" viewBox="0 0 22 24">
+                                                    <path fill="none" stroke="#FFF" stroke-width="1" d="M20.666 12.821c.471.255.439.881-.065 1.185l-4.485 2.72-.755.458-4.206 2.551-.7.425-4.483 2.72c-.505.302-1.091.001-1.095-.535 0-.085.018-.172.036-.257.433-2.033.13-3.935-.913-5.697-.677-1.145-1.373-2.28-2.049-3.426-1.537-2.61-1.19-5.761.884-8.08.026-.03.055-.058.093-.1.746-.915 1.954-1.676 3.187-1.924.055-.014.093-.026.131-.035 3.015-.75 5.954.42 7.532 3.005.693 1.136 1.365 2.285 2.056 3.422 1.063 1.75 2.594 2.91 4.59 3.48.082.024.168.048.242.088zM4.633 1.647c.34.618.138 1.408-.451 1.766-.59.356-1.341.144-1.681-.474-.34-.618-.139-1.408.45-1.766.589-.357 1.342-.145 1.682.474zm4.078 20.17c.603 1.032 1.936 1.346 2.976.702 1.042-.646 1.399-2.006.796-3.04a2.13 2.13 0 0 0-.216-.294l-3.725 2.259c.044.127.099.253.169.373z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="media-content nav-menu-media-content notification-nav-menu-media-content">
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+        </header>
+    </div>
+
+</template>

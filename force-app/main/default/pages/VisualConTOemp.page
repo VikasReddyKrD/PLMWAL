@@ -1,0 +1,13 @@
+<apex:page controller="ConnecterToEmp" tabStyle="Employee__c">
+    <apex:form >
+        <apex:pageBlock title="emp details">
+            <b>Employee Name:</b><apex:inputField value="{!details.EmpName__c}"/><br/>
+            <b>Employee Salary:</b><apex:inputField value="{!details.Salary__c}"/><br/>
+            <b>Employee id:</b><apex:inputField value="{!details.Name}"/>
+            
+            <apex:commandButton action="{!Deleteit}" value="Delete"/>
+            <apex:commandButton action="{!Save}" value="Save"/>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

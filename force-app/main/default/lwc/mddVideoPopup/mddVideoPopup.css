@@ -1,0 +1,9 @@
+.ytpbig {
+    width: 100%;
+    height: 267px;
+}
+
+.ytpbig .wrapper {
+    width: 100%;
+    height: 100%!important;
+}

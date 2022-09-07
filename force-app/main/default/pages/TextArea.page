@@ -1,0 +1,7 @@
+<apex:page >
+    <apex:form >
+        Title:<textarea rows = "2" cols = "25" align="center"/><br/>
+    <apex:commandButton action="{!fetchme}" value="fetchme"/>
+    </apex:form>
+    
+</apex:page>

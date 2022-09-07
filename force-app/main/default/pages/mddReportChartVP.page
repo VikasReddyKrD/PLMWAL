@@ -1,0 +1,20 @@
+<apex:page id="ReportChart">
+    <script>
+    console.log('inside the script');
+    var lexOrigin = "https://patientslikeme--wal.lightning.force.com";
+    window.addEventListener("message", function(event) {
+        /*if (event.origin !== lexOrigin) {
+            // Not the expected origin: reject message!
+            console.log('inside wrong origin');
+            return;
+        }*/
+        // Handle message
+    console.log('the event data is'+event.data);
+    }, false);
+    </script>
+    <br/>
+    <center>
+        <analytics:reportChart reportId="00Oe0000000MXBPEA4" size="tiny" showRefreshButton="false" 
+                               filter="[{column:'CUST_NAME',operator:'equals',value:'GL-0000002'}]"></analytics:reportChart>
+    </center>
+</apex:page>

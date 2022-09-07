@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="consentDisclosure" type="Boolean" label="Consent Disclosure" description="To identify it is coming from content disclosure page." />
+            <property name="disclosure" type="String" label="Consent Disclosure" description="To identify it is coming from content disclosure page." />
+            <property name= "progressBarSteps" type= "String" label="ProgressBar Steps" description="To identify names of progress bar steps."/>
+            <property name= "acceptAndContinue" type= "String" label="Accept And Continue" description="On click of Accept and Continue button redirect to survey question page"/>
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

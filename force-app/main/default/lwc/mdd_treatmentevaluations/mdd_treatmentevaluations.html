@@ -1,0 +1,28 @@
+<template>
+<div>
+    <div class="card-style card padding-right padding-left border-box m-0 p-0 slds-no-print">
+        <div class="row justify-content-center align-items-center m-0">
+            <span class="plet-title_01 text-uppercase">
+                <strong>Treatment Evaluation</strong>
+            </span>
+        </div>
+        <template if:true = {data}>
+            <div class="text-dark text-center pt-10p" >
+                Track your treatment effectiveness and side effects and see how your experience compares to 
+                your peers to determine if you’re making progress. Easily share with your provider so you can optimize your treatment plan.
+            </div>
+
+            <hr class="treatment-divider">
+            <div class="margin-top-half pb-20p">
+                <div class="align-center">
+                    <a href={myUrl} class="comment-count-link" onclick={handleLinkClick} oncontextmenu={handleLinkClick}>Complete Evaluation</a>
+                </div>
+            </div>
+        </template>
+        <template if:true={error}>
+            <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+        </template>
+
+    </div>
+</div>
+</template>

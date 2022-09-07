@@ -1,0 +1,279 @@
+<template>
+    <div class="mv-10p">
+        <!--<h1 class="slds-text-heading_small"> Textarea Examples</h1> -->
+        <h2 class="fs-26 mt-10p">{questionText} </h2>
+
+    </div>
+    <hr class="dash mt-30p mb-20p" />
+    <template if:true={isText}>
+        <p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -15px; font-weight: bold;">PLEASE DESCRIBE:</p>
+        <lightning-input name="text" max-length="255" data-name="textInput" value={selectedValue} onchange={handleChange} 
+            required></lightning-input></div>
+        
+    </template>
+    <template if:true={isTextArea}>
+        <p class="font-size-12" style="padding-bottom: 1px; font-weight: bold; margin-bottom: -15px; ">PLEASE :</p>
+        <lightning-textarea name="textArea" label="PLEASE :" data-name="textareaInput" value={selectedValue}
+            onchange={handleChange} required></lightning-textarea>
+    </template>
+    <template if:true={isCombo}>
+        <p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">{labelText}</p>
+        <lightning-combobox name="progress"
+            class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2"
+             value={surveyanswer} options={optionValues} data-name="comboInput"
+            onchange={handleChange} required></lightning-combobox>
+    </template>
+    <template if:true={isRadioText}>
+         <p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">SELECT ONE OF THE FOLLOWING:</p> 
+        <lightning-radio-group name="radioGroup"  class="slds-p-bottom_x-large" data-name="radioInput"
+            options={optionValues} value={selectedValue} type="radio" onchange={handleChange} required checked="">
+            </lightning-radio-group>
+        
+            <p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -15px; font-weight: bold;">Enter age of diagnosis:</p>
+        <!-- <lightning-input name="text" max-length="255" data-name="textInput" value={selectedValue} onchange={handleChange}  -->
+            <!-- required></lightning-input></div> -->
+            <lightning-combobox name="progress"
+            class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2"
+             value={surveyanswer} options={optionValues} data-name="comboInput"
+            onchange={handleChange} required></lightning-combobox>
+        
+    </template>
+    <template if:true={isCheckgroup}>
+
+        <!--  <p>Selected Values are: {selectedValues}</p> -->
+        <!--<lightning-checkbox-group name="Checkbox Group" label=""
+                                options={optionValues} value={selectedValue}
+                                onchange={handleChange}>
+        </lightning-checkbox-group>-->
+
+
+        <p class="font-size-12" style="font-weight: bold; padding-bottom: 9px;">PLEASE SELECT ALL THAT APPLY</p>
+    
+        <template for:each={optionValues} for:item="option">
+            <lightning-input key={option.value} type="checkbox" label={option.label} name={option.value}
+                data-id={option.value} data-name="checkboxInput" onchange={handleChange}></lightning-input>
+        </template>
+        <template if:true={isCheckboxValidnFailed}>
+            <p class="fs-12 slds-text-color_error">Complete this field </p>
+        </template>
+    </template>
+    <!--new changes-->
+    <template if:true={isCheckpicklistgroup}>
+        <div class="slds-box">
+            <template for:each={optionValues} for:item="option" for:index="index">
+                <h6 class="header my-1 mt-10p" key={option.subcategory}>{option.subcategory}</h6>
+                <lightning-radio-group key={option.subcategory} name={option.subcategory} options={option.options}
+                    type="radio" data-radio="radiogroup" onchange={onclickHandlerNew}>
+                </lightning-radio-group>
+
+                <!-- <lightning-input type="checkbox" 
+                            label={item.label} 
+                            data-qes={option.subcategory}
+                            key={item.label}
+                            onclick={onclickHandlerNew}>
+                        </lightning-input> -->
+
+
+                <!-- <lightning-radio-group key={option.value} name={option.subcategory} label={option.subcategory} data-name="radioInput"
+          options={option.options}  value={selectedValue} type="radio" onchange={handleChange} > 
+      </lightning-radio-group>-->
+            </template>
+        </div>
+    </template>
+    <!--new changes-->
+    <!--new changes-->
+    <template if:true={isReportScore}>
+        <div style="text-align: center">
+            <p class="font-size-12" style="font-weight: bold; padding-bottom: 9px;">Please select all that apply</p>
+            <p>For each item below, please select the box that best describes your experience</p>
+
+            <div style="width: 40%;  float: left;text-align: right;padding-right:50px"> Example : I am very happy </div>
+            <template for:each={loopvariable} for:item="option" for:index="index">
+                <div class="box" key={loopvariable}>{index}</div>
+            </template>
+            <div style="width: 35%;  float: left; padding-left:50px;text-align: left">I am very sad</div>
+            <br />
+            <br />
+        </div>
+        <div class="slds-align_absolute-center" style="width: 25%; float: right;">
+
+            <div class="box2" style="width: 30%;  float: right;text-align: center;"> <b>SCORE</b></div>
+        </div>
+        <hr class="header-1">
+        <!---->
+        <table class="table-question">
+            <template for:each={optionValues} for:item="option" for:index="index">
+                <tr class="tr-question" key={option.value}>
+                    <td class="td-question" key={option.value}>
+                        <div class="slds-align_absolute-center" key={option.value}>
+                            <div style="width: 43%;  float: left;text-align: right;padding-right:50px"
+                                key={option.value}>
+                                {option.label1}</div>
+                            <div class="slds-align_absolute-center" key={option.value} style="width: auto;float: left">
+                                <template for:each={loopvariable} for:item="item" for:index="innerIndex">
+                                    <div class="box" key={option.value} data-value={innerIndex} data-index={index}
+                                        onclick={oncheck}>{innerIndex}</div>
+                                </template>
+                            </div>
+                            <div style="width: 30%;  float: left; padding-left:50px;text-align: left;"
+                                data-index={index} key={option.value}> {option.label2}</div>
+                            <div class="slds-align_absolute-center" style="width: 25%; float: left;" key={option.value}>
+                                <div class="box1" data-temp={index} data-flag="false" key={option.value}>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+        </table>
+        <!---->
+        <!--- <hr class="solid mb-30p mt-20p">-->
+        <hr class="header-1"></br>
+        <div class="slds-align_absolute-center">
+
+            <div style="width: 76%;  float: left;text-align: right;padding-right:50px"><b>SCORE</b></div>
+
+            <div class="slds-align_absolute-center" style="width: 6%; float: right;">
+
+                <div class="box1">{scoreDiv1}</div>
+                <div class="box1">{scoreDiv2}</div>
+            </div>
+        </div>
+        <template if:true={errorScoreFlag}>
+            <div class="font-size-12" style="font-weight: bold; padding-bottom: 9px;"> Please select all that apply</div>
+        </template>
+    </template>
+    <!---table-->
+
+
+    <template if:true={isTable}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col">
+                <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-border_right" scope="col">
+                                <div class="slds-truncate" title="Treatments">Treatments</div>
+                            </th>
+                            <th class="slds-border_right" scope="col">
+                                <div class="slds-truncate" title="Before diagnosis">Before diagnosis</div>
+                            </th>
+                            <th class="slds-border_right" scope="col">
+                                <div class="slds-truncate" title="After diagnosis">After diagnosis</div>
+                            </th>
+                            <th class="slds-border_right" scope="col">
+                                <div class="slds-truncate" title="Current treatment">Current treatment</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={optionValues} for:item="item" for:index="index">
+                            <tr data-trrow={index} key={item.label}>
+                                <td class="slds-border_right">
+                                    <div class="slds-truncate" style="white-space: normal" data-title="Treatments"
+                                        data-row={index}>
+                                        {item.label}
+                                    </div>
+                                </td>
+                                <td class="slds-border_right">
+                                    <lightning-input type="checkbox" data-row={index} class="text-center"
+                                        data-title="beforetreatment" label=" " data-label={item.label}
+                                        onclick={handleClick}></lightning-input>
+                                </td>
+                                <td class="slds-border_right">
+                                    <lightning-input type="checkbox" data-row={index} class="text-center"
+                                        data-title="aftertreatment" label=" " data-label={item.label}
+                                        onclick={handleClick}></lightning-input>
+                                </td>
+                                <td class="slds-border_right">
+                                    <lightning-input type="checkbox" data-row={index} class="text-center"
+                                        data-title="currenttreatment" data-label={item.label} label=" "
+                                        onclick={handleClick}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="slds-col">
+                <lightning-input type="checkbox" label="None of the above" data-otheroption="none"
+                    onclick={handleClick}> </lightning-input>
+            </div>
+        </div>
+
+    </template>
+
+    <!--new changes-->
+
+    <template if:true={isRadio}>
+   <p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">SELECT ONE OF THE FOLLOWING:</p> 
+        <lightning-radio-group name="radioGroup"  class="slds-p-bottom_x-large" data-name="radioInput"
+            options={optionValues} value={selectedValue} type="radio" onchange={handleChange} required checked="">
+        
+            </lightning-radio-group>
+     
+    </template>
+    <template if:true={isNumber}>
+        <p class="font-size-12" style="font-weight: bold; padding-bottom: 1px; margin-bottom: -15px;">ENTER A NUMBER</p>
+        <lightning-input type="number" name="input1" data-name="numberInput" value={surveyanswer}
+            onchange={handleChange} required></lightning-input>
+    </template>
+    <template if:true={isDate}>
+        <p class="font-size-12" style="font-weight: bold; padding-bottom: 1px; margin-bottom: -15px;">SELECT A DATE:</p>
+        <lightning-input type="date" class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4"
+            name="date" data-name="dateInput" value={surveyanswer} onchange={handleChange}
+            required></lightning-input>
+    </template>
+    <template if:true={isother}>
+        <p class="font-size-12" style="font-weight: bold; padding-bottom: 6px; margin-bottom: -15px;">{otherLabel}</p>
+        <lightning-input name="otherText" data-name="otherInput"  onchange={handleotherchange}
+            type="text" required></lightning-input>
+    </template>
+    <template if:true={isIntro}>
+
+        <lightning-formatted-rich-text value={introText}></lightning-formatted-rich-text>
+
+    </template>
+
+
+
+    <!--<lightning-button label="Previous" title="Non-primary action" onclick={handlePrevious} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button label="Next" title="Non-primary action" onclick={handleNext} class="slds-m-left_x-small"></lightning-button> -->
+    <!--<lightning-button onclick={validations} label='Validate'></lightning-button>-->
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <!-- <button  title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button> -->
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmation Screen?</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div style="background-color: white; padding-top: 20px;">
+                    <p style="text-align: center;">{modalContent}</p>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <lightning-button label="OK, Exit Survey" title="primary action" onclick={thankyouScreen}
+                        class="btn_capsule mr-1" style="float:right;"></lightning-button>
+                    <lightning-button label="Cancel" title="primary action" onclick={closeModal}
+                    variant="brand" class="btn_capsule mr-3" style="float:right;"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

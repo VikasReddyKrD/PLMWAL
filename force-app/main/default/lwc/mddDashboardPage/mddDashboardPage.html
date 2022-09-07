@@ -1,0 +1,216 @@
+<template>
+	<template if:true={isFirstStep}>
+		<div>
+			<h2 class="h2plus slds-no-print">Welcome! Thank you for participating in the Real-World Comparison Study of
+				Antidepressant Treatments
+				in Patients with Major Depressive Disorder Study. We appreciate your time.</h2>
+			<p class="pt-20p fs-16lh24 slds-no-print">Your contributions help us establish a better understanding of
+				the Major Depressive Disorder (MDD) patient experience based on your real-life evidence.</p>
+			<p class="slds-no-print"> We value your experience and your time. In fact, you are eligible
+				to receive Amazon gift cards depending on your level of participation in this study. Participating for
+				the full 24 weeks means you are eligible to receive a total of $300.</p>
+			<h3 class="slds-no-print"><b><img src={starsymbol}> The more you participate, the more you earn</b></h3>
+			<p class="fs-16lh24 slds-no-print" style="padding-bottom: 20px;margin-bottom: 0px;">You are eligible to
+				receive
+				Amazon gift cards depending on your level of participation in this study. Participating for the full
+				24 weeks means you are eligible to receive a total of $300.
+			</p>
+		</div>
+		<!--  Welcome message for survey1 on Let's get started! section -->
+		<template if:true={isSurvey1}>
+			<div
+				style="left: 0%;right: 0%;top: 0%;bottom: 0%;background: #FFFFFF;border: 1px solid #CDCDCD;box-sizing: border-box;border-radius: 6px;" class="slds-no-print">
+				<div
+					style="height: 6px;left: 0%;right: 0%;top: 0px;background: #FEE019;border-radius: 6px 6px 0px 0px;">
+				</div>
+				<div>
+					<p class="slds-text-align_center slds-p-top_small"
+						style="font-weight: bold;font-style: normal;font-family: 'Nunito Sans';font-size: 26px;font-weight: 400;font-weight: bold;">
+						Let's get started!</p>
+					<p></p>
+					<div class="slds-text-align_center"
+						style="font-family: 'Nunito Sans'; font-size: 16px;font-weight: 400;margin-top:-25px;padding: 10px;margin-bottom: 20px;">
+						<p>
+							The first step of the study is to complete Survey One. Be prepared to answer demographic
+							information
+							as well as questions about your activity levels, symptoms, emotions and overall quality of
+							life as
+							it relates to your MDD. This should take approximately 45-60 minutes for you to complete.
+						</p>
+						<lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+							onclick={surveyPageRedirection}></lightning-button>
+					</div>
+					<!-- <div class="slds-align_absolute-center slds-p-bottom_large" > -->
+					<!-- <lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+						onclick={surveyPageRedirection}></lightning-button> -->
+					<!-- </div> -->
+				</div>
+			</div>
+		</template>
+		<!--  Welcome message for survey2 on Let's get started! section -->
+		<template if:true={isSurvey2}>
+			<div
+				style="left: 0%;right: 0%;top: 0%;bottom: 0%;background: #FFFFFF;border: 1px solid #CDCDCD;box-sizing: border-box;border-radius: 6px;" class="slds-no-print">
+				<div
+					style="height: 6px;left: 0%;right: 0%;top: 0px;background: #FEE019;border-radius: 6px 6px 0px 0px;">
+				</div>
+				<div>
+					<p class="slds-text-align_center slds-p-top_small"
+						style="font-weight: bold;font-style: normal;font-family: 'Nunito Sans';font-size: 26px;font-weight: 400;font-weight: bold;">
+						Let's keep learning! </p>
+					<p></p>
+					<div class="slds-text-align_center"
+						style="font-family: 'Nunito Sans'; font-size: 16px;font-weight: 400;margin-top:-25px;padding: 10px;margin-bottom: 20px;">
+						<p>
+							Congratulations, you've completed Session One of our study! You've shared how you're
+							managing your current Major Depressive Disorder (MDD) treatments, and you've set your
+							treatment goals for yourself. Way to go!!! </p>
+						<p>Now, let's keep the ball rolling. In Survey Two we'll be asking you to update your responses
+							and add or adjust your treatment goals as needed. </p>
+						<lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+							onclick={surveyPageRedirection}></lightning-button>
+					</div>
+					<!-- <div class="slds-align_absolute-center slds-p-bottom_large" > -->
+					<!-- <lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+						onclick={surveyPageRedirection}></lightning-button> -->
+					<!-- </div> -->
+				</div>
+			</div>
+		</template>
+		<!--  Welcome message for survey3 on Let's get started! section -->
+		<template if:true={isSurvey3}>
+			<div
+				style="left: 0%;right: 0%;top: 0%;bottom: 0%;background: #FFFFFF;border: 1px solid #CDCDCD;box-sizing: border-box;border-radius: 6px;">
+				<div
+					style="height: 6px;left: 0%;right: 0%;top: 0px;background: #FEE019;border-radius: 6px 6px 0px 0px;">
+				</div>
+				<div>
+					<p class="slds-text-align_center slds-p-top_small"
+						style="font-weight: bold;font-style: normal;font-family: 'Nunito Sans';font-size: 26px;font-weight: 400;font-weight: bold;">
+						Finish strong!</p>
+					<p></p>
+					<div class="slds-text-align_center"
+						style="font-family: 'Nunito Sans'; font-size: 16px;font-weight: 400;margin-top:-25px;padding: 10px;margin-bottom: 20px;">
+						<p>Congratulations on completing the first two surveys designed to learn more about Major
+							Depressive Disorder (MDD) from patients like you. </p>
+						<p>To complete the process, you'll take a final survey so we can understand any overall changes
+							in your management or treatment of MDD. Thank you for your time and participation! </p>
+						<lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+							onclick={surveyPageRedirection}></lightning-button>
+					</div>
+					<!-- <div class="slds-align_absolute-center slds-p-bottom_large" > -->
+					<!-- <lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small"
+						onclick={surveyPageRedirection}></lightning-button> -->
+					<!-- </div> -->
+				</div>
+			</div>
+		</template>
+
+		<template if:false={isgoal}>
+		<div>
+			<p></p>
+			<h2 class="h2plus">Goals</h2>
+			<p class="pt-10p fs-16lh24">Goals that you set a little later with appear here. Don't worry about goals just yet.</p>
+			
+		</div>
+		</template>
+
+		<template if:true={isgoal}>
+		<div>
+			<p></p>
+			<!-- <h2 class={goalHead}>Goals</h2>		
+			<p class={goalPara}>Below are the goals you are tracking and your completed PRO responses; to the
+				right are the guide tools that will change and adapt to help you along your way.
+			</p> -->
+			<c-mdd-goals-chart-container class onchildmethod={callFromChild}></c-mdd-goals-chart-container>
+		</div>
+		</template>
+
+		<hr class="dash pt-10p mt-10p mb-10p" />
+		<template if:false={isPro}>
+		<div>
+			<h2 class="h2plus">PROS</h2>
+			<p class="pt-10p fs-16lh24">Patient-reported outcomes (PRO's) are defined as the measurements of any aspect
+				of a patient's health status that comes directly from the patient. A key goal of collecting PRO data is
+				to improve clinical decision-making.
+				As you fill out PROs through the course of this study, the results will appear here.
+			</p>
+		</div>
+		</template>
+		<template if:true={isPro}>
+		<div>
+			<c-pro-results class onchildmethod1={callFromChild1}></c-pro-results>
+		</div>
+		</template>
+		<hr class="dash mt-10p mb-10p" />
+	</template>
+
+	<template if:false={isFirstStep}>
+
+		<div
+			style="left: 0%;right: 0%;top: 0%;bottom: 0%;background: #FFFFFF;border: 1px solid #CDCDCD;box-sizing: border-box;border-radius: 6px;">
+			<div style="height: 6px;left: 0%;right: 0%;top: 0px;background: #FEE019;border-radius: 6px 6px 0px 0px;">
+			</div>
+			<div>
+				<p class="slds-text-align_center slds-p-top_small" style="font-size: 16px;font-weight: bold;">Next step
+				</p>
+				<p class="slds-text-align_center"
+					style="font-weight: bold;font-style: normal;font-family: 'Nunito Sans';font-size: 26px;font-weight: 400;font-weight: bold;">
+					It's time to set up your goals.</p>
+				<div class="slds-text-align_center slds-p-horizontal_x-large slds-p-top_small"
+					style="font-family: 'Nunito Sans'; font-size:18px;font-weight: 400; margin-top:-20px;">
+					<p >
+						Start to build a framework for establishing attainable treatment goals and measuring your
+						progress.
+						Choose areas that reflect important parts of your MDD journey that you would like to focus on.
+					</p>
+					<p> To get the most out of your goals, follow the <b style="color:#FFA500;font-size: 22px;">SMART</b> guide - make sure your goals are:</p>
+					<div class="slds-text-align_left dx-setwidth">
+		<dl>
+			<dt><b><b style="color:#FFA500">S</b>pecific</b>:</dt>
+			<dd>Narrow your goal focus, add a “with whom, where, what time of day, how”</dd>
+		</dl>
+		<dl>
+			<dt><b><b style="color:#FFA500">M</b>easurable </b>:</dt>
+			<dd>Add lengths and parameters</dd>
+		</dl>
+		<dl>
+			<dt><b><b style="color:#FFA500">A</b>chievable </b>:</dt>
+			<dd>Start small and slow</dd>
+		</dl>
+		<dl>
+			<dt><b><b style="color:#FFA500">R</b>ealistic </b>:</dt>
+			<dd>Be honest with your capabilities</dd>
+		</dl>
+		<dl>
+			<dt><b><b style="color:#FFA500">T</b>ime-bound </b>:</dt>
+			<dd>Add specific dates and times</dd>
+
+		</dl>
+						
+						</div>
+						<p><b></b>This will help track your progress and keep you motivated.</p>
+						<p>It is important that you are not t	oo hard on yourself in this process. It's a great first step to
+							set up and work towards goals that matter to you.</p>
+				</div>
+				<div class="slds-align_absolute-center slds-p-bottom_large" style="">
+					<lightning-button variant="brand" label="Set up a goal" class="slds-m-left_x-small"
+						onclick={surveyPage}></lightning-button>
+
+				</div>
+			</div>
+
+		</div>
+		<div>
+			<p></p>
+			<h2 class="h2plus">Goals</h2>
+			<p class="pt-10p fs-16lh24">Below are the goals you are tracking and your completed PRO responses; to the
+				right are the guide tools that will change and adapt to help you along your way.
+			</p>
+			<c-mdd-goals-chart-container></c-mdd-goals-chart-container>
+		</div>
+		<div>
+			<c-pro-results></c-pro-results>
+		</div>
+	</template>
+</template>

@@ -1,0 +1,207 @@
+<template>
+
+    <lightning-card title="Quote Line Items" icon-name="custom:custom14">
+   
+    <div class="slds-m-around_medium">
+   
+    <lightning-input type="text" label="Term" onchange={enterValue}></lightning-input>
+    <lightning-button slot="action" label="submit" onclick={change}></lightning-button>
+   
+    <template if:true={DetailsVisible}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+</div>
+<div class="slds-m-horizontal_medium">
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+</div>
+<div class="slds-m-horizontal_medium">
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+</div>
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template>
+<template if:true={DetailsVisible1}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+    <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible2}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+     <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible3}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+    <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fourth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fourth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fourth Year Uplift"></lightning-input>
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible4}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+   <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fourth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fourth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fourth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fifth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fifth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fifth Year Uplift"></lightning-input>
+    
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible5}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+    <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fourth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fourth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fourth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fifth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fifth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fifth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Sixth Year Discount"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible6}>
+   
+    <div class="slds-m-horizontal_medium">
+   <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+    <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fourth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fourth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fourth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fifth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fifth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fifth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Sixth Year Discount"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Seventh Year ARR"></lightning-input>
+    <lightning-input type="number" label="Seventh Year Discount"></lightning-input>
+    <lightning-input type="number" label="Seventh Year ARR"></lightning-input>
+    
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+<template if:true={DetailsVisible7}>
+   
+    <div class="slds-m-horizontal_medium">
+   
+    <lightning-input type="number" label="First Year ARR"></lightning-input>
+   <lightning-input type="number" label="First Year Discount"></lightning-input>
+    <lightning-input type="number" label="First Year Uplift"></lightning-input>
+    <lightning-input type="number" label="second Year ARR"></lightning-input>
+    <lightning-input type="number" label="second Year Discount"></lightning-input>
+    <lightning-input type="number" label="second Year Uplift"></lightning-input>
+    <lightning-input type="number" label="third Year ARR"></lightning-input>
+    <lightning-input type="number" label="third Year Discount"></lightning-input>
+    <lightning-input type="number" label="third Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fourth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fourth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fourth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="fifth Year ARR"></lightning-input>
+    <lightning-input type="number" label="fifth Year Discount"></lightning-input>
+    <lightning-input type="number" label="fifth Year Uplift"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Sixth Year Discount"></lightning-input>
+    <lightning-input type="number" label="Sixth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Seventh Year ARR"></lightning-input>
+    <lightning-input type="number" label="Seventh Year Discount"></lightning-input>
+    <lightning-input type="number" label="Seventh Year ARR"></lightning-input>
+    <lightning-input type="number" label="Eighth Year ARR"></lightning-input>
+    <lightning-input type="number" label="Eighth Year Discount"></lightning-input>
+    <lightning-input type="number" label="Eighth Year ARR"></lightning-input>
+
+    <lightning-button class="slds-m-top_small" type="submit" label="Save"></lightning-button>
+<lightning-button class="slds-m-top_small" type="submit" label="Create new"></lightning-button>
+    
+</div>
+</template> 
+
+
+
+    </div>
+    
+   
+    </lightning-card>
+
+   
+   </template>

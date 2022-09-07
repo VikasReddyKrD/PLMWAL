@@ -1,0 +1,30 @@
+<template>
+<template if:true={patientThankyouScreen}>
+    
+    <h3>Thank you!</h3>
+    <p>We appreciate the time and effort you devoted to completing our questionnaire. Your answers help us establish a better understanding of the transplant and care partner experience. If you are looking for a community to connect with other transplant patients, visit us at PatientsLikeMe.com today! </p>
+    <div>
+        <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+        <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+            onclick={patientnavigateToNextstep} variant="brand"></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+            style="margin-right: 25px;"></lightning-button>
+
+    </div>
+</template>
+
+<template if:true={careTakerThankyouScreen}> 
+    <h3> Thank you for sharing your transplant experience and completing our survey.</h3>
+<p>Your participation has provided valuable contributions to transplant and CMV research. Let’s keep going!</p>> 
+<h6>What are the next steps?</h6> 
+The next step is to import your electronic healthcare record (EHR) to your PLM profile. Along with the survey, certain fields from your PLM profile will be leveraged for analysis. Once you consent, you will be directed to start the process.</p>
+<div>
+    <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+    <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+        onclick={navigateToNextstep} variant="brand"></lightning-button>
+    <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+        style="margin-right: 25px;"></lightning-button>
+
+</div>
+</template>
+</template>

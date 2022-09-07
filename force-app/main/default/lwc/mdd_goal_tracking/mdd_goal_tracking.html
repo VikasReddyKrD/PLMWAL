@@ -1,0 +1,77 @@
+<template>
+
+   
+    <template if:true={showModal}>
+       
+        <div class="slds-modal slds-fade-in-open slds-backdrop">
+            <div class="slds-modal__container">
+                <!-- HEADER Section-->
+                <div class="slds-modal__header popupheadbg">
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"
+                        variant="bare-inverse" onclick={hideModal} class="slds-modal__close mb-n5">
+                    </lightning-button-icon>
+                    <div class="pb-10p"><strong>TRACK YOUR GOALS</strong></div>
+                    <h1 class="line-height-1">Did you make progress <br /> towards your goals?</h1>
+                </div>
+                <div style="height:1000px !important" class="slds-modal__content pa-20p text-left">
+                    <div >
+                        <template if:true={isLoading}>
+                             <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+                             </lightning-spinner>
+                        </template>
+                    </div>
+                    <h4 class="slds-m-bottom_small">SESSION {session}: WEEK {goalWeek}: GOAL: <br/><span class="fs-16 fw-normal">{goaltext}<span if:true={isIncomplete} class="slds-text-color_error"> is past due.</span></span></h4>
+                    <span>
+                    <h4 class="text-normalcase text-darkest slds-m-bottom_x-small font-weight-normal slds-card__header-title mt-20p">{question}
+                        &nbsp;&nbsp;
+<!--                         <lightning-helptext content="Goal Tracking Sample Text" ></lightning-helptext>
+ -->                    </h4>
+                </span>
+                    <lightning-combobox options={options} value={value} class="slds-p-bottom_xx-large dx-combocrtl nameCmp"
+                        name="option" disabled={isDisplayReadOnly} required >
+                    </lightning-combobox>
+
+                    <div if:true={isOne} class="bdr-top1p popslidebg text-center">
+                        <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">Keep it up!</h4>
+                             <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">Working up to your goal is a process, and every week is different. You’re doing great, keep it up!
+                            the great work.
+                        </h4>
+                    </div>
+                    <div if:true={isTwo} class="bdr-top1p text-center">
+                        <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">Awesome!</h4>
+                        <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">You’re doing a super job on this goal, keep it up!.
+                        </h4>
+                        <div class="slds-align_absolute-center pa-10p"><a href="javascript:void(0);"
+                                onclick={findOut}>Find out how.</a></div>
+                    </div>
+                    <div if:true={isThree} class="bdr-top1p text-center">
+                        <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">Congratulations!
+                        </h4>
+                        <h4 class="slds-align_absolute-center text-darkest font-weight-bolder pa-5p">Wow, you are surpassing your goal! Great job!
+                            goal.</h4>
+                        <div class="slds-align_absolute-center pa-10p"><a href="javascript:void(0);"
+                                onclick={findOut}>Find out how.</a></div>
+                    </div>
+
+                </div>
+                <div class="slds-modal__footer text-center">
+                    <div if:true={isSubmitDisplay} class="slds-p-horizontal_medium">
+                        <lightning-button label="Cancel" onclick={hideModal}></lightning-button>&nbsp;&nbsp;
+                        <lightning-button label="Submit" variant="brand" onclick={handleSubmit}>
+                        </lightning-button>
+                    </div>
+                    <div if:true={isUpdateNextWeek} class="slds-p-horizontal_medium">
+                        <lightning-button label="Okay, I'm done" onclick={hideModal}></lightning-button>
+                        &nbsp;&nbsp;
+                        <lightning-button label="Update next week" variant="brand"
+                            onclick={updateAnotherGoal}>
+                        </lightning-button>
+                    </div>
+                    <div if:true={isFinal} class="slds-p-horizontal_medium">
+                        <lightning-button label="Okay, I'm done" variant="brand" onclick={hideModal}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

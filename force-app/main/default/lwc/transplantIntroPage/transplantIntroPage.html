@@ -1,0 +1,41 @@
+<template>
+	<hr class="dash mt-30p mb-20p" />
+
+	<div class="slds-grid slds-wrap">
+		<div class="slds-col slds-size_11-of-12">
+			<b>Webinar</b>
+			<c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+		</div><br/>
+		<!-- <div class="slds-col slds-size_6-of-12">
+				<iframe width="620" height="289" src="https://www.youtube.com/embed/3TAew-P8xoA"></iframe>
+		</div> -->
+		<div class="slds-col slds-size_6-of-12">
+			<h3><b>Introduction</b></h3><br/>
+			<p style="font-family:Nunito Sans;font-size:16px;margin:0;">Short copy that summarizes the content of
+				the
+				introduction
+				video</p>
+			<p style="margin:0;">1.First step</p>
+			<p style="margin:0;">2.Second step</p>
+			<p style="margin:0;">3.Third step</p>
+			<p style="margin:0;">etc...</p><br>
+			</div>
+		</div>
+		<hr class="solid mb-30p mt-20p" />
+		<div class="slds-grid slds-wrap">
+			<div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+				<lightning-button label="Exit" title="Non-primary action" onclick={handleExit}
+					class="btn_capsule slds-m-left_x-small"></lightning-button>
+			</div>
+			<div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+				<lightning-button label="Continue" title="primary action" onclick={handleContinue} variant="brand"
+					class="btn_capsule mr-1" style="float:right;">
+				</lightning-button>
+				<lightning-button label="Cancel" title="primary action" class="btn_capsule mr-3" style="float:right;"
+					onclick={handleCancel}></lightning-button>
+			</div>
+		</div>
+
+
+
+</template>

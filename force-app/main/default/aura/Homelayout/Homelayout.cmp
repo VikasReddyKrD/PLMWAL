@@ -1,0 +1,57 @@
+<aura:component implements="forceCommunity:layout" access="global">
+
+    <aura:attribute name="header" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebar" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="content" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebaralt" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebaralt2" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebaralt3" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebaralt4" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="sidebaralt5" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"></aura:attribute>
+
+    <div class="siteforceSldsThreeCol273Layout">
+
+        <div class="slds-grid slds-wrap bg_contentheader slds-no-print">
+            <div class="slds-col comm-content-header comm-layout-column padding_contentheader">
+                <span>{!v.header}</span>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-medium-nowrap slds-large-nowrap pa-20p">
+            <div class="slds-col slds-size--12-of-12 slds-small-order--4 slds-medium-size--12-of-12 slds-medium-order--4 slds-large-size--2-of-12 slds-large-order--1 comm-layout-column pa-10p slds-show_large dx-wal-menu1 slds-no-print">
+                <span>{!v.sidebar}</span>
+            </div>
+            <div class="slds-size--12-of-12 slds-small-order--1 slds-medium-size--4-of-12 slds-medium-order--2 slds-large-size--3-of-12 slds-large-order--3 dx-wal-slides1 slds-no-print">
+                <div class="slds-grid slds-wrap slds-medium-wrap slds-large-wrap">
+                    <div class="slds-col slds-size--12-of-12 pa-10p">
+                        <span>{!v.sidebaralt}</span>
+                    </div>
+                    <div class="slds-col slds-size--12-of-12 pa-10p">
+                        <span>{!v.sidebaralt2}</span>
+                    </div>
+                    <div class="slds-col slds-size--12-of-12 pa-10p slds-show_medium">
+                        <span>{!v.sidebaralt3}</span>
+                    </div>
+                    <div class="slds-col slds-size--12-of-12 pa-10p">
+                        <span>{!v.sidebaralt4}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size--12-of-12 slds-small-order--2 slds-medium-size--8-of-12 slds-medium-order--1 slds-large-size--7-of-12 slds-large-order--2 comm-layout-column pa-10p dx-wal-content1">
+                <span>{!v.content}</span>
+            </div>
+
+            <div class="slds-col slds-size--12-of-12 slds-small-order--3 slds-medium-size--12-of-12 slds-medium-order--3 slds-large-size--2-of-12 slds-large-order--4 comm-layout-column slds-hide_medium pa-10p dx-wal-menu1 slds-no-print">
+                <span>{!v.sidebaralt5}</span>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap pa-20p slds-no-print" >
+            <div class="slds-col comm-content-footer comm-layout-column  pa-10p">
+                <span>{!v.footer}</span>
+            </div>
+        </div>
+
+    </div>
+</aura:component>

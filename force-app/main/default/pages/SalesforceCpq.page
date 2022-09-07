@@ -1,0 +1,16 @@
+<apex:page >
+    <apex:form >
+        <table>
+            <tr>
+                <b>streamId:<input type="Text"/></b><br/> 
+            </tr>
+         
+            <tr>
+                <b>ApiKey: <input type="Text"/></b><br/>
+            </tr>
+        </table>
+        
+        
+        <apex:commandButton action="{!save}" value="save"/>
+    </apex:form>
+</apex:page>

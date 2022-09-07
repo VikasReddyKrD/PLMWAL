@@ -1,0 +1,54 @@
+<template>
+    <div class="dxforplm">
+        <lightning-progress-indicator current-step={selectedStep} type="base" variant="base">
+            <div class="slds-grid slds-wrap slds-gutters_direct">
+                <div class="slds-col">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col dxforplm_label"><b>Step 1: Consent</b></div>
+                        <div class="slds-col">
+                            <lightning-progress-step  label="Step 1: Consent" value="1"></lightning-progress-step>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col dxforplm_label"><b>Step 2: Survey</b></div>
+                        <div class="slds-col">
+                            <lightning-progress-step  label="Step 2: Survey" value="2"></lightning-progress-step>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col dxforplm_label"><b>Step 3: Health Data Import</b></div>
+                        <div class="slds-col">
+                            <lightning-progress-step  label="Step 3: Health Data Import" value="3"></lightning-progress-step>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col dxforplm_label"><b>Step 4: Study Completed</b></div>
+                        <div class="slds-col">
+                            <lightning-progress-step label="Step 4: Study Completed" value="4"></lightning-progress-step>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-col">
+                    <div style="display:none" class="slds-grid slds-wrap">
+                        <div style="display:none" class="slds-col dxforplm_label"><b>Step 5: Study Completed</b></div>
+                        <div style="display:none" class="slds-col">
+                            <lightning-progress-step style="display:none" label="Step 4: Study Completed" value="5"></lightning-progress-step>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <lightning-progress-step  label="Step 1: Consent" value="1"></lightning-progress-step>
+            <lightning-progress-step  label="Step 2: Survey" value="2"></lightning-progress-step>
+            <lightning-progress-step  label="Step 3: Health Data Sync" value="3"></lightning-progress-step>
+            <lightning-progress-step label="Step 4: Data Completed" value="4"></lightning-progress-step> -->
+        </lightning-progress-indicator>
+    </div>
+</template>

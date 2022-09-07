@@ -1,0 +1,152 @@
+<template>
+
+    <!---  <template if:false={studyConsentId.Existing_Record__c}>
+       
+        <c-study-consent-progress-bar selected-step="1"></c-study-consent-progress-bar>
+        <hr class="dash mt-30p mb-20p" /> -->
+
+    <!--studyconsent form screen1-->
+
+    <center>
+        <h5 class="w800 text-normalcase fs-26 mb-10p" style="font-size: 1.50rem;">Syncing and sharing your Electronic
+            Health Data with us requires your consent.</h5>
+    </center>
+    <!-- <h5 class="w800 text-normalcase fs-26 mb-10p">{label.CONTENTHEADER1}</h5> -->
+    <div>For more information about the Electronic Health Records and Patient’s Privacy and Rights, click here. </div>
+    <hr class="solid mb-30p mt-20p">
+    <!-- style="overflow-y: scroll; height:200px;" -->
+    <div class="slds-theme_default">
+        <div class="slds-grid slds-grid_vertical scroll" style="size:30px;height:200px">
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                <div class="slds-col slds-size_1-of-3">
+                    <b>TITLE:</b>
+                </div>
+                <div class="slds-col slds-size_2-of-3">
+                    <!-- {studyConsentId.Title_of_Study__c} -->
+                    A Real-World, Prospective, Longitudinal, Observational Study of
+                    Vortioxetine Compared to Other Standard of Care Antidepressant
+                    Treatments in Patients with Major Depressive Disorder: Global
+                    Improvement, Goal Attainment, Health Outcomes and Progress
+                    Towards Functional Recovery
+
+                </div>
+            </div>
+
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+                <div class="slds-col slds-size_1-of-3">
+                    <b>PROTOCOL NO.:</b>
+
+                </div>
+                <div class="slds-col slds-size_2-of-3">
+                    <!-- {studyConsentId.PROTOCOL_NO__c} -->
+                    CR-2021-200059
+                    IRB Protocol #20216547
+                </div>
+            </div>
+
+
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+                <div class="slds-col slds-size_1-of-3">
+                    <b>SPONSOR:</b>
+                </div>
+                <div class="slds-col slds-size_2-of-3">
+                    <!-- {studyConsentId.Collaborator__c} -->
+                    PatientsLikeMe LLC
+                </div>
+            </div>
+
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                <div class="slds-col slds-size_1-of-3">
+                    <b>Investigator:</b>
+                </div>
+                <div class="slds-col slds-size_2-of-3">
+                    <!-- {studyConsentId.Investigator__c} -->
+                    Mary Catherine Burke, MD, BA, MHA
+                    6 Liberty Square
+                    Suite 2602
+                    Boston, Massachusetts 02109
+                    United States
+                </div>
+            </div>
+
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                <div class="slds-col slds-size_1-of-3">
+                    <b>STUDY-RELATED PHONE NUMBER(S):</b>
+                </div>
+                <div class="slds-col slds-size_2-of-3">
+                    <!-- {studyConsentId.Phone_Number__c} -->
+                    857-663-7576
+                </div>
+            </div>
+
+            <br />
+            <div class="slds-col">
+                <p>With your permission, PatientsLikeMe can link your health data from your care providers so we
+                    can learn from that health data for the “Real-World Comparison of Antidepressant Treatments
+                    in Patients with Major Depressive Disorder (MDD) Study” we’re doing with our partners at
+                    Takeda. The health data that you share in this study will be used only for research purposes.</p>
+            </div>
+            <div class="slds-col">
+                <p>If you agree to, PatientsLikeMe will ask you to select your health provider(s) to connect or
+                    upload your medical records for the purpose of this study. The collected data may include MDD
+                    Diagnosis and current antidepressant medication</p>
+            </div>
+
+            <div class="slds-col">
+                <p>our participation in this phase of the study is required for study continuation and you are
+                    required to confirm your MDD diagnosis by week 6 to continue in the study. You can confirm
+                    your MDD diagnosis and current antidepressant medication by the following process:
+                </p>
+            </div>
+            <div class="slds-col">
+                <p>1: Importing your electronic medical record through your PLM profile
+                    2: By uploading a copy of your medical record or a certified physician note
+                    3: By downloading, completing, and uploading a diagnosis confirmation form
+
+                </p>
+            </div>
+            <div class="slds-col">
+                <p>ou will receive a gift card in the amount of $50 as compensation for your participation in this
+                    phase of the study when you confirm your MDD diagnosis.
+
+                </p>
+            </div>
+            <div class="slds-col">
+                <p>If you have any questions about this study and how data collected for this study will be used,
+                    contact researchstudy001@patientslikeme.com.
+
+                </p>
+            </div>
+
+        </div>
+
+
+            <div> 
+                  <h5 class="w800 text-normalcase fs-26 mb-10p">Consent</h5> 
+                  <lightning-input type="checkbox"
+                    label="I am atleast 18 years old, Have read and understood this research subject informed consent form, and consent to participate in this research study."
+                    onchange={checkboxValidator}></lightning-input> 
+            </div>
+
+            </br>
+            <!--studyconsent form screen1 end-->
+        </div>
+    
+    <hr class="solid mb-30p mt-20p">
+    <div>
+        <lightning-button label="Cancel" class="btn_capsule fs-16" title="primary action" onclick={handleCancel}
+            style="background-color:white;border:white;color:black"></lightning-button>
+        &nbsp;&nbsp;
+        <lightning-button label="Accept and continue" data-accept="ok" title="primary action"
+            onclick={handleAcceptAndContinue} variant=""  class={buttoncolor} style="float:right;">
+        </lightning-button>
+
+        <!-- <lightning-button label="Accept and continue" title="Non-primary action" onclick={handleContinue} class="slds-m-left_x-small"></lightning-button>
+                &nbsp;&nbsp;-->
+        <!--   <lightning-button label="Cancel" title="primary action" onclick={handleCancel} variant="brand"></lightning-button> 
+                &nbsp;&nbsp;
+        <lightning-button label="Continue" title="primary action" onclick={handleNext} variant="success" class="slds-m-left_x-small"></lightning-button> -->
+    </div>
+    <c-video-player show-video-template={showvideotemplate}></c-video-player>
+
+</template>

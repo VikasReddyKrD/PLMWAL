@@ -1,0 +1,137 @@
+<template>
+	
+	<!-- <template if:true={isSpinner}>
+		<lightning-spinner size="small"></lightning-spinner>
+	</template> -->
+	<template if:false={isSpinner}>
+		<div>
+			<template if:true={isLoading}>
+
+			<!-- 	<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+				</lightning-spinner> -->
+			</template>
+		</div>
+		
+		<!-- <p style="text-align:center"></p> -->
+		<p class="slds-text-align_center slds-p-top_small" style="font-size: 16px;font-weight: bold;">
+			<b>{surveyName}</b>
+			
+		</p>
+		<template if:false={questionsDisplay}>
+			<div>
+				<c-survey-container-progressbar-static progress={progress} survey-number={surveyNumber}
+					survey-name={surveyName}></c-survey-container-progressbar-static>
+			</div>
+			<div class="slds-grid slds-gutters slds-col mv-10p">
+				<div class="slds-col fs-18">
+					<h1 class="fs-26 mt-10p" style="font-weight: normal; font-family: Kameron">{sectionName}</h1>
+					{transitionMessage}
+				</div>
+				<div class="slds-col mv-10p" style="width:400px;height:193px">
+					<!-- <c-mdd-crisis-resource></c-mdd-crisis-resource> -->
+					 <c-mdd_-looking-support></c-mdd_-looking-support> 
+				</div>
+				
+			</div>
+		</template>
+		<hr class="dash mt-30p mb-20p" />
+		<!-- <div class="slds-col mv-10p">
+			<div class="fs-18">
+				<h2 class="fs-26 mt-10p">{sectionName}</h2>
+				{transitionMessage}
+			</div>
+
+		</div>
+		<div class="slds-col mv-10p">
+			<c-mdd-crisis-resource></c-mdd-crisis-resource>
+		</div> -->
+		<div class="slds-grid slds-grid_vertical slds-wrap">
+			<div class="slds-col slds-size_6-of-12 slds-small-size_12-of-12">
+				<!-- <c-survey-container-progressbar-static progress={progress} survey-number={surveyNumber} ></c-survey-container-progressbar-static>-->
+				<template if:false={questionsDisplay}>
+					<template for:each={surveyData} for:item="survey" for:index="index">
+						<div style="overflow: visible" class="slds-grid slds-wrap" key={survey.questions.Id}>
+							<article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+								 key={survey.questions.Id}>
+								<!-- Question #{survey.questions.Order__c} -->
+								<c-survey-question question={survey.questions} order={index} surveyanswer={survey.answers} is-modal-open={isModalOpen}
+									key={survey.questions.Id} ontolastpage={handleLastPage} onmodal={modalPopUpHandler} onpdq5parent={pdq5Elemnt}></c-survey-question>
+							</article>
+						</div>
+						<template if:true={isFooterDisplay}>
+						<hr class="dash mt-10p mb-10p" style="margin-top:10px;" key={survey.questions.Id} />
+					</template>
+					</template>
+				</template>
+
+
+			</div>
+			<!-- <hr class="solid mb-30p mt-20p"/> -->
+			<!-- <template if:true={pdq5MultiScreen}> -->
+			<template if:false={questionsDisplay}>
+				<template if:true={isFooterDisplay}>
+				<div class="slds-col slds-size_6-of-12 slds-small-size_12-of-12">
+					<lightning-button variant="" label="Save and continue later" 
+						onclick={handleSaveAndContinueLater} class="btn_capsule slds-m-left_x-small" style="margin-left: 750px"></lightning-button>
+
+					<template if:false={hidePrevious}>
+						<lightning-button variant="brand" label="Previous" class="btn_capsule slds-m-left_x-small" 
+							onclick={previousSection} style="left: 700px;"></lightning-button>
+					</template>
+					<template if:false={hideNext}>
+						<lightning-button variant="brand" label={nextLabel} class="btn_capsule slds-m-left_x-small" data-name="next" 
+							 onclick={nextSection}>{pdq5MultiScreen}</lightning-button>
+
+					</template>
+				</div>
+			</template>
+			</template>
+		<!-- </template> -->
+		</div>
+	</template>
+	<template if:true={displaythankyou}>
+		<lightning-card>
+			<template if:true={survey1thankyou}>
+				<h6 style="text-transform: none;font-size: 1.25rem;">Thank you!</h6>
+				<p></p>
+					<p> We appreciate the time and effort you devoted to completing Survey 1. Your answers will
+					help us establish a better understanding of the MDD patient experience.</p>
+					<P><b>What’s next?</b></P>
+					<p>We now invite you to start setting and tracking goals that matter to you. Click on the
+					button below to start the goal-setting process. If you are looking for additional information about
+					goal setting and the goal attainment strategy,  please visit our <a href="https://wal-servicecloudtrial-155c0807bf-16246540dc1.cs15.force.com/wal/s/resources">resource center</a>.</p>
+				</br>
+				
+			</template>
+			<template if:true={survey2thankyou}>
+				<h6 style="text-transform: none;font-size: 1.25rem;">Thank you!</h6>
+				<p></p>				
+				<p> We appreciate the time and effort you devoted to completing Survey 2. Your answers will
+					help us establish a better understanding of the MDD patient experience.</p>
+					<P><b>What’s next?</b></P>
+					<p>	Click on the button below to add, update, and track your goals. If you need additional
+					information about goal setting and the goal attainment strategy,  please visit our <a href="https://wal-servicecloudtrial-155c0807bf-16246540dc1.cs15.force.com/wal/s/resources"> resource center</a>.</p> <br>
+			</template>
+			<template if:true={survey3thankyou}>
+				<h6 style="text-transform: none;font-size: 1.25rem;">Thank you!</h6>
+				<p></p>
+				<p> We appreciate the time and effort you devoted to completing Survey 3. Your answers will
+					help us establish a better understanding of the MDD patient experience.</p>
+					<P><b>What’s next?</b></P>
+					<p>Click on the button below to add, update, and track your goals.</p><br> 
+			</template>
+			<lightning-button variant="brand" label="Maybe later" data-label="may" class="btn_capsule mr-1" onclick={navigateToSurvey}></lightning-button>
+			<lightning-button variant="brand" label="Next: Learn and Setup Goal" class="btn_capsule mr-1" style="float:right;"
+				onclick={endRedirect}></lightning-button>
+		</lightning-card>
+	</template>
+</template>
+<!-- <div class="slds-grid slds-wrap">
+	
+	<div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+		<lightning-button label="Continue" title="primary action" onclick={handleContinue} variant="brand"
+			class="btn_capsule mr-1" style="float:right;"></lightning-button>
+		<lightning-button label="Cancel" title="primary action" class="btn_capsule mr-3" style="float:right;"
+			onclick={handleCancel}></lightning-button>
+	</div>
+</div> -->

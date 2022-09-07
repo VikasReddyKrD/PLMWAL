@@ -1,0 +1,74 @@
+<template>
+	<div>
+		<div class="card-style card padding-right padding-left border-box m-0 p-0 slds-no-print">
+			<div class="row justify-content-center align-items-center m-0">
+				<span class="plet-title_01 text-uppercase">
+                    <strong>STUDY RESOURCES</strong>
+                </span>
+				<!-- <template if:true={description}>
+                 <div align="center"> {description} </div>  
+                </template> -->
+			</div>
+			<template if:true={data}>
+				<div>
+					<!--  <div class="slds-grid slds-wrap pt-10p">
+                        <lightning-card title="Chronic Kidney Disease">
+                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/3TAew-P8xoA"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </lightning-card> 
+
+                           <iframe width="100%" height="auto" src={myUrl}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" onclick={handleVideoClick} allowfullscreen></iframe> -->
+					<!--  <div class="slds-grid slds-wrap pt-10p">
+                        <c-basic-you-tube-player you-tube-id={myUrl} onpauseallvideos={handlePausePlaying}>
+                        </c-basic-you-tube-player>
+                    </div> -->
+					<div class="slds-grid slds-wrap pt-10p slds-align_absolute-center">
+						<!-- <lightning-card title="Chronic Kidney Disease">
+                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/3TAew-P8xoA"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </lightning-card> -->
+
+						<!--   <iframe width="100%" height="auto" src={myUrl}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" onclick={handleVideoClick} allowfullscreen></iframe> -->
+						<center>
+							<c-basic-you-tube-player you-tube-id={myUrl} onpauseallvideos={handlePausePlaying}>
+							</c-basic-you-tube-player>
+							<h4 style="padding-top: 10px;">How-to Set goals - video</h4>
+						</center>
+					</div>
+				</div>
+				<hr class="treatment-divider">
+				<center>
+					<img src={setGoals}></img>
+					<h4 style="padding-top: 10px;">Setting your goals the “S.M.A.R.T.” way</h4>
+				</center>
+
+				<hr class="treatment-divider">
+				<center><img style="height:30px;width:30px;" src={pdfimage}></img>
+				<a href="https://patientslikeme--wal.lightning.force.com/resource/Takeda_MDD_FAQ"
+					target="_blank">Frequently Asked Questions</a></center>
+				<hr class="treatment-divider">
+				<div class="margin-top-half pb-20p">
+					<div class="align-center">
+						<a href="javascript:void(0)" class="comment-count-link" onclick={handleClickResources}>View all
+							resources</a>
+					</div>
+				</div>
+				<!-- <hr class="treatment-divider">
+                <div class="margin-top-half pb-20p">
+                    <div class="align-center">
+                        <a href="javascript:void(0)" class="comment-count-link" onclick={handleClickResources}>Learn
+                            more about the study</a>
+                    </div>
+                </div> -->
+
+			</template>
+			<template if:true={error}>
+				<c-mdd-error-panel errors={error}></c-mdd-error-panel>
+			</template>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="thankYou" type="Boolean" label="Thank You Screen" description="" />
+            <property name="disclosure" type="String" label="Consent Disclosure" description="To identify it is coming from content disclosure page." />
+            <property name="thankYouAfterSeqster" type="Boolean" label="Thank You Survey Screen" description="" />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="thankYou" type="Boolean" label="Thank You Screen" description="" />
+            <property name="disclosure" type="String" label="Consent Disclosure" description="To identify it is coming from content disclosure page." />
+            <property name="thankYouAfterSeqster" type="Boolean" label="Thank You Survey Screen" description="" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

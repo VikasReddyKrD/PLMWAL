@@ -1,0 +1,61 @@
+<template>
+	<hr class="dash mt-10p mb-10p" />
+	<p></p>
+	<div class="slds-col fs-18">
+		<h1 class="fs-34 mt-10p" style="font-weight: normal; font-family: Kameron">{sectionName}</h1>
+	</div>
+	<div class="fs-18">
+		<template if:false={isDividedTransitionMessage}>
+			{transitionmessage}</template>
+		<template if:true={isDividedTransitionMessage}>
+			{transitionmessage}
+			<br/>
+			<br/>
+			{transitionMesagePart2}
+		</template>
+	</div>	
+	<template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button" style="float:right;" onclick={hideModalBox}
+						title="Close">X</button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+                </header>
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                   <center> <p>Are you sure you want to exit?</p></center>
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+                    <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                </footer>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+	<template for:each={questionsList} for:item="question" for:index="index">
+		<c-alpha-survey-multi-questions question={question.question} answer={question.answer} class={question.className} is-first-time={question.isFirstTime} hidden-questions={hiddenQuestions}  skippedquestion  key={question.question.Order__c} data-question={question} answer-count={question.answerflag} onskip={skipChangeHandler} onscore={scoreSubmitHandler}></c-alpha-survey-multi-questions>
+	</template>
+	<div>
+		<lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16">
+		</lightning-button>
+		<template if:true={isHideNext}>
+			<template if:false={isContinue}>
+				<lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+				onclick={nextHandler} variant="brand"></lightning-button>
+			</template>
+		</template>
+		<template if:true={isHidePRevious}>
+			<lightning-button label="Previous" onclick={previousHandler} class="btn_capsule slds-float_right"
+				style="margin-right: 25px;"></lightning-button>
+		</template>
+	</div>
+
+</template>

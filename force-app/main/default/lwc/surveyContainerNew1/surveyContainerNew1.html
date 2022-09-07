@@ -1,0 +1,16 @@
+<template>
+       <template for:each={questionList} for:item="question">
+                         <div class="slds-grid slds-wrap" key={question.id}>
+                                        <article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+                                                style="padding-right:30px;margin-top:16px;" key={question.id}>
+                                                <c-survey-question question={question} key={question.id}></c-survey-question>
+                                        </article>
+                         </div>
+                 </template>
+                <template if:false={hidePrevious}>
+                        <lightning-button label="Previous" onclick={previousSection}></lightning-button>
+                </template>
+                <template if:false={hideNext}>
+                      <lightning-button label="Next" onclick={nextSection}></lightning-button>
+                </template>
+</template>

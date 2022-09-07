@@ -1,0 +1,453 @@
+<template>
+	<div class="mv-10p">
+		<h2 class="fs-24 mt-10p">{questionsOrder}. {questionText}</h2>
+		<div class="fs-16">  {proInstructions}</div>
+	</div>
+	
+	<template if:true={isText}>
+		<lightning-input name="text" data-name="textInput" data-qnorder={question.Order__c} value={answer}
+			onchange={handleChange} required></lightning-input>
+
+	</template>
+	<template if:true={isTextArea}>
+		<lightning-textarea name="textArea" data-name="textareaInput" data-qnorder={question.Order__c} value={answer}
+			onchange={handleChange} required></lightning-textarea>
+	</template>
+	<template if:true={isCombo}>
+		<lightning-combobox name="progress" options={optionValues} data-name="comboInput" onchange={handleChange}
+			data-qnorder={question.Order__c} class="my-custom-input" placeholder="Please select" value={answer}
+			required></lightning-combobox>
+	</template>
+	<template if:true={isCheckboxText}>
+		<fieldset class="slds-form-element">
+			<div class="slds-form-element__control">
+				<lightning-layout multiple-rows>
+					<template for:each={optionValues} for:item="obj">
+						<lightning-layout-item size="6" key={obj.label}>
+							<div class="slds-grid slds-gutters" key={obj.label}>
+								<div class="slds-col slds-size_4-of-12">
+									<div class="slds-checkbox" key={obj.label}>
+										<input type="checkbox" name={obj.label} id={obj.label}
+											onclick={onClickCheckboxText} />
+										<label class="slds-checkbox__label" for={obj.label}>
+											<div class="slds-grid slds-wrap">
+												<span class="slds-checkbox_faux"></span>
+											</div>
+											<span class="slds-form-element__label">{obj.label}</span>
+										</label>
+									</div>
+								</div>
+								<div class="slds-col slds-size_6-of-12">
+									<input type="text" name={obj.label} data-checkboxtext={obj.label}
+										label="Enter the dosage(in mg)" placeholder="" onchange={onDosageEntry}
+										style="display:none"></input>
+								</div>
+								<div><span style="display:none" data-mglabel={obj.label}>mg</span></div>
+
+								<input type="text" name={obj.label} data-othertext={obj.label}
+									label="Enter the dosage(in mg)" placeholder="Please specify"
+									onchange={onDosageEntry} style="display:none"></input>
+
+								<div class="slds-col slds-size_6-of-12">
+									<input type="text" name={obj.label} data-otherboxtext={obj.label}
+										label="Enter the dosage(in mg)" placeholder="" onchange={onDosageEntry}
+										style="display:none"></input>
+								</div>
+								<span style="display:none" data-othermglabel={obj.label}>mg</span>
+							</div>
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+			</div>
+		</fieldset>
+	</template>
+	<template if:true={isCheckgroup}>
+		<fieldset class="slds-form-element">
+			<div class="slds-form-element">
+				<div><strong>Check all that apply</strong></div></br>
+				<lightning-layout multiple-rows>
+					
+					<template for:each={optionValues} for:item="option">
+						<lightning-layout-item size="6" key={option.value}>
+							<div class="slds-grid slds-wrap slds-gutters" key={option.value}>
+								<div class="slds-col slds-size_6-of-12">
+									<lightning-input key={option.value} type="checkbox" label={option.label}
+										name={option.value} data-id={option.value} data-que={questionText}
+										data-name="checkboxInput" data-qnorder={question.Order__c}
+										onchange={handleChange}>
+									</lightning-input>
+								</div>
+							</div>
+						</lightning-layout-item>
+					</template>
+
+					<template if:true={isCheckboxValidnFailed}>
+						<p class="fs-12 slds-text-color_error">Complete this field </p>
+					</template>
+				</lightning-layout>
+			</div>
+		</fieldset>
+	</template>
+	<template if:true={isRadio}>
+		<lightning-radio-group name={questionText} data-qnorder={question.Order__c} class="customRadioCls"
+			options={optionValues} type="radio" data-name="radioInput" value={answer} onchange={handleChange} required>
+		</lightning-radio-group>
+	</template>
+	<template if:true={isNumber}>
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col">
+				<lightning-input type="number" name="input1" data-name="numberInput" data-qnorder={question.Order__c}
+					onblur={handleNumber} value={answer} maxlength="2" required onkeypress={keyPressHandlers}></lightning-input>
+			</div>
+			<div class="slds-col" style="padding-top:30px;">
+				<span>years</span>
+			</div>
+		</div>
+	</template>
+	<template if:true={isDate}>
+		<div style="border-radius: 0px !important;">
+			<input type="text" name="Date" data-name="dateInput" data-qnorder={question.Order__c}
+				placeholder="dd/mm/yyyy" value={answer} onchange={handleChange} required></input>
+		</div>
+	</template>
+	<template if:true={isother}>
+		<p class="font-size-12" style="padding-top: 10px; font-weight: bold; bottom : 20px; ">{otherLabel}</p>
+		<lightning-input name="otherText" data-name="otherInput" style="bottom: 20px;" data-qnorder={question.Order__c}
+			onchange={handleotherchange} type="text" required></lightning-input>
+	</template>
+	<template if:true={isIntro}>
+		<lightning-formatted-rich-text value={introText}></lightning-formatted-rich-text>
+
+	</template>
+	<!-- Pro Development Starts -->
+	<template if:true={isReportScore}>
+		<div class="slds-grid slds-wrap slds-grid_vertical">
+			<div class="slds-col slds-size_12-of-12">
+				<table class="slds-table slds-table_bordered slds-no-row-hover slds-border_left slds-border_right">
+
+					<thead>
+						<template for:each={optionValues.head} for:item="option">
+							<th class="slds-border_right" style="white-space: normal" key={option.value}>
+								<div class="dx-gridcoltitle_pop">{option.value}</div>
+							</th>
+						</template>
+					</thead>
+					<tbody>
+						<template for:each={optionValues.body} for:item="option" for:index="row">
+							<tr class="slds-border_right" key={option.value} data-scoretr={row} data-flagscore="false">
+								<td class="slds-border_right" style="white-space: normal" key={option.value}>
+									{option.value}</td>
+								<template for:each={optionValues.rating} for:item="score" for:index="col">
+									<td class="slds-border_left slds-border_right " key={score} onclick={scoreHandler}
+										data-name="tableScoreInput" data-scorerow={row} data-scorecol={col}
+										data-phqlabel={option.value} data-phqvalue={score.value}
+										style="text-align:center" data-phqindex={col}>
+										{score.value} </td>
+								</template>
+							</tr>
+						</template>
+					</tbody>
+				</table>
+			</div>
+			<template if:true={errorScoreFlag}>
+				<div class="color-error" style="text-align:right;padding-top: 20px;"> Please select all that apply</div>
+			</template>
+		</div>
+	</template>
+	<template if:true={isTable}>
+		<div class="slds-grid slds-wrap slds-grid_vertical">
+			<div class="slds-col slds-size_12-of-12">
+				<table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th class="slds-border_right" scope="col"></th>
+							<th class="slds-border_right " scope="col">
+								<div class="slds-truncate" title="Never">Never</div>
+							</th>
+
+							<th class="slds-border_right " scope="col">
+								<div class="slds-truncate" title="Seldom">Seldom</div>
+							</th>
+							<th class="slds-border_right" scope="col">
+								<div class="slds-truncate" title="Not Sure">Not Sure</div>
+							</th>
+							<th class="slds-border_right" scope="col">
+								<div class="slds-truncate" title="SomeTimes">Sometimes</div>
+							</th>
+							<th class="slds-border_right" scope="col">
+								<div class="slds-truncate" title="Always">Always</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<template for:each={optionValues} for:item="item" for:index="index">
+							<tr data-trrow={index} key={item.label}>
+								<td class="slds-border_right">
+									<div class="slds-truncate" style="white-space: normal" data-title="Never"
+										data-row={index}>
+										{item.label}
+									</div>
+								</td>
+								<template for:each={item.options} for:item="option" for:index="innerIndex">
+									<td class="slds-border_right" key={option}>
+										<lightning-input type="radio" data-rowtable={index} data-coltable={innerIndex}
+											class="text-center" data-tablename={item.label} data-title={option.value}
+											label=" " data-label={item.label} onclick={handleClick}>
+										</lightning-input>
+									</td>
+								</template>
+							</tr>
+						</template>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</template>
+	<template if:true={customProPDQ}>
+		<template if:false={pdq5LastScreen}>
+		<template if:true={pdq5IntialScreen}>
+			<div class="slds-grid slds-wrap slds-grid_vertical">
+				<div class="slds-col slds-size_12-of-12">
+					<span style="font-weight:bold;">{pd5TempOptions.head}</span>
+				</div>
+				<div class="slds-col slds-size_12-of-12">
+					<div class="slds-grid slds-wrap">
+						<div class="slds-col slds-size_12-of-12">
+							<span>{pd5TempOptions.body}</span>
+						</div>
+						<div class="slds-col slds-size_12-of-12">
+							<div class="slds-grid slds-grid_vertical">
+								<template for:each={optionValues.rating} for:item="option" for:index="col">
+									<div onclick={pdq5Calculation} class="phqdefaultScore slds-col slds-p-right_medium"
+										data-custompdqval={col} data-name="customScoreInput" data-custompdqrow={row}
+										data-custompdqcol={col} key={option.label} data-ans={option.label}
+										style="padding: 10px;width: 100%; height: 40px;font-size: 12px;font-weight: bold;">
+										{option.label} </div>
+									 <br key={option.label}> 
+
+								</template>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slds-col slds-size_12-of-12">
+					<button label="Back" class="btnBack"
+							data-name="next" onclick={pdq5BackHandler} >Back</button>
+					<button label="Next" class="slds-float_right btnNext"
+							data-name="next" onclick={pdq5NextHandler} >Next</button>
+				</div>
+				<template if:true={pdq5validation}>
+					<div class="color-error">Please select one option</div>
+				</template>
+			</div>
+		</template>
+		<template if:false={pdq5IntialScreen}>
+		<div>	The following questions describe problems people may have with their memory, attention or concentration.
+			Please select the best response based on your experience during the past 7 days.</div>
+					<div>	<button label="Next" class="slds-float_right btnNext"
+							data-name="next" onclick={pdq5MultiScreen} >Next</button></div>
+		</template>
+		</template>
+		<template if:true={pdq5LastScreen}>
+			<div>For any information on the use of the PDQ-D-5-item, please contact Mapi Research Trust, Lyon, France. 
+				Internet: <a href="https://eprovide.mapi-trust.org">https://eprovide.mapi-trust.org</a></div>
+		</template>
+	</template>
+	<template if:true={customPro}>
+		<template for:each={optionValues.labels} for:item="option" for:index="row">
+			<div class="slds-grid slds-wrap slds-p-top_x-small slds-p-bottom_small" key={option.label} onload={customProHandler}>
+				<div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_3-of-12">
+					<span>{option.label}</span>
+				</div>
+				<div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_9-of-12">
+					<div class="slds-grid slds-wrap">
+						<template for:each={optionValues.options} for:item="option" for:index="col">
+							<div class="slds-col slds-size_3-of-6 slds-small-size_3-of-6 slds-medium-size_2-of-6  slds-large-size_1-of-6 slds-p-top_x-small slds-p-right_x-small"
+								key={option.option}>
+								<div onclick={customCalculation} class='phqdefaultScore' data-customvalue={col}
+									data-name="customScoreInput" data-customprorow={row} data-customprocol={col}
+									style="padding: 10px;width: 100%; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold;text-align: center;">
+									{option.option} </div>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</template>
+	</template>
+
+    <template if:true={qLesQsf}>
+		<template for:each={optionValues.labels} for:item="option" for:index="row">
+			<div class="slds-grid slds-wrap slds-p-top_x-small slds-p-bottom_small" key={option.label}>
+				<div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_3-of-12">
+					<span>{option.label}</span>
+					<template for:each={optionValues.suboptions} for:item="mainopt">
+						<div data-qlesqsf={option.label} style={mainopt.css} data-mainopt={mainopt.label} data-mainoptionindex={mainopt.val}  key={mainopt.label}>
+						<h4>Please select the factor(s) associated with a lack of satisfaction. </h4>
+						<template for:each={mainopt.option} for:item="opt">
+							<lightning-input key={opt.label} type="checkbox" label={opt.label} name={option.value}></lightning-input>
+						</template>
+						</div>
+					</template>
+					<template if:true={option.inputbox}>
+							<lightning-input key={option.inputlabel} type="checkbox" label={option.inputlabel} name={option.inputlabel} onchange={medicationHandler}></lightning-input>
+					</template>
+							
+				</div>
+				<div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_9-of-12">
+					<div class="slds-grid slds-wrap">
+						<template for:each={optionValues.options} for:item="values" for:index="col">
+							<div class="slds-col slds-size_3-of-6 slds-small-size_3-of-6 slds-medium-size_2-of-6  slds-large-size_1-of-6 slds-p-top_x-small slds-p-right_x-small"
+								key={values.option}>
+								<div onclick={customproqLesQsf} data-optionval={option.label} data-optind={option.ind} class='phqdefaultScore' data-customproqlesqsfvalue={col}
+									data-name="customScoreInput" data-customproqlesqsfrow={row} data-customproqlesqsfcol={col} data-currval={values.option}
+									style="padding: 10px;width: 100%; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold;text-align: center;">
+									{values.option}</div>
+							</div>
+						</template>
+					</div>
+				</div>
+			</div>
+		</template>
+	</template>
+
+	<template if:true={isCheckpicklistgroup}>
+		<div>
+			<template for:each={optionValues} for:item="option" for:index="index">
+				<h6 class="header my-1 mt-10p" key={option.subcategory}>{option.subcategory}</h6>
+				<lightning-radio-group key={option.subcategory} name={option.subcategory} options={option.options}
+					type="radio" data-radio="radiogroup" onchange={onclickHandlerNew}>
+				</lightning-radio-group>
+			</template>
+		</div>
+	</template>
+<template if:true={isNestedOptions}>
+<template if:true={option}>
+     <p class="font-size-12" style="font-weight: bold; padding-bottom: 9px;">PLEASE SELECT ALL THAT APPLY</p>
+    
+        <template for:each={optionValues} for:item="option">
+            <lightning-input key={option.value} type="checkbox" label={option.label} name={option.value}
+                onchange={customCalculation}></lightning-input>
+        </template>
+</template>
+</template>
+
+
+	<template if:true={isRadioNumberInput}>
+        <fieldset class="slds-form-element">
+			<div class="slds-form-element">
+				<div><strong>Check all that apply</strong></div></br>
+				<lightning-layout multiple-rows>
+					<template for:each={optionValues} for:item="option">
+						<lightning-layout-item size="6" key={option.value}>
+							<div class="slds-grid slds-wrap slds-gutters" key={option.value}>
+								<div class="slds-col slds-size_6-of-12">
+									<lightning-input key={option.value} type="checkbox" label={option.label}
+										name={option.value} data-id={option.value} data-que={questionText}
+										data-name='checkboxInput' data-qnorder={question.Order__c}
+										onchange={handleChange}>
+									</lightning-input>
+								</div>
+							</div>
+						</lightning-layout-item>
+					</template>
+					<template if:true={isCheckboxValidnFailed}>
+						<p class="fs-12 slds-text-color_error">Complete this field </p>
+					</template>
+				</lightning-layout>
+			</div>
+		</fieldset>
+		<!-- <div><b> if Others ,please specify </b></div>
+		<lightning-radio-group name={questionText} data-name="radioInput" data-qnorder={question.Order__c}
+			onchange={handleChange} class="customRadioCls" value={answer} data-id="checkbox" options={optionValues} type="checkbox" required>
+		</lightning-radio-group></br> -->
+		<p>**Please enter your dose and regime</p>
+		<div class="slds-grid slds-gutters slds-size_1-of-2">
+			<div class="slds-col ">
+				<div class="slds-col">
+					<lightning-input onblur={cdfSave} type="number" value={count} data-freq="count"
+						data-name="textInput" placeholder="# of Pills" name="input1" label="count"></lightning-input>
+
+				</div>
+			</div>
+			<div class="slds-col">
+				<lightning-input onblur={cdfSave} type="number" value={dosage} data-freq="dosage" data-name="textInput"
+					placeholder="mg" name="input1" label="Dosage"></lightning-input>
+
+			</div>
+
+			<div class="slds-col">
+				<lightning-input onblur={cdfSave} type="number" value={frequency} data-freq="frequency"
+					data-name="textInput" placeholder="# Of Times a Day" name="input1" label="Frequency">
+				</lightning-input>
+
+			</div>
+		</div>
+
+	</template>
+	<template if:true={isTableWithSection}>
+		<div class="slds-grid slds-grid_vertical">
+			<p><b>Over the last 2 weeks, how often have you been bothered by any of the following problems?</b></p>
+			<template for:each={optionValues.body} for:item="option" for:index="row">
+				<div class="slds-grid slds-wrap mb-10p" key={option.label} data-tablepro={row}
+					data-flagprotable="false">
+					<div class="slds-col slds-size_8-of-8 slds-medium-size_8-of-8 slds-large-size_4-of-8">
+						<span>{option.label}</span>
+					</div>
+					<div class="slds-col slds-size_4-of-8 slds-medium-size_2-of-8 slds-large-size_1-of-8">
+						<div onclick={phq9Calculation} class='phqdefaultScore' data-tablevalue="0"
+							data-name="tableScoreInput" data-tableprorow={row} data-tableprocol="0"
+							style="padding: 10px;width: 135px; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold">
+							{option.option1} </div></br>
+					</div>
+					<div class="slds-col slds-size_4-of-8 slds-medium-size_2-of-8 slds-large-size_1-of-8">
+						<div onclick={phq9Calculation} class='phqdefaultScore' data-tablevalue="1"
+							data-name="tableScoreInput" data-tableprorow={row} data-tableprocol="1"
+							style="padding: 10px;width: 135px; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold">
+							{option.option2}</div>
+					</div>
+					<div class="slds-col slds-size_4-of-8 slds-medium-size_2-of-8 slds-large-size_1-of-8">
+						<div onclick={phq9Calculation} class='phqdefaultScore' data-tablevalue="2"
+							data-name="tableScoreInput" data-tableprorow={row} data-tableprocol="2"
+							style="padding: 10px;width: 135px; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold">
+							{option.option3}</div>
+					</div>
+					<div class="slds-col slds-size_4-of-8 slds-medium-size_2-of-8 slds-large-size_1-of-8">
+						<div onclick={phq9Calculation} class='phqdefaultScore' data-tablevalue="3"
+							data-name="tableScoreInput" data-tableprorow={row} data-tableprocol="3"
+							style="padding: 10px;width: 135px; height: 50px;font-size: 12px;text-align-last: center;font-weight: bold">
+							{option.option4}</div>
+					</div>
+				</div>
+			</template>
+			<template if:true={errorScoreFlag}>
+				<div class="color-error" style="text-align:right;padding-top: 20px;"> Please select all that apply</div>
+			</template>
+		</div>
+	</template>
+	<template if:true={isModalOpen}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmation Details?</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<center>{modalContent}</center>
+				</div>
+				<template if:false={isCancelButton}>
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_brand" onclick={closeModal} title="OK">OK</button>
+					</footer>
+				</template>
+				<template if:true={isOkButton}>
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+					</footer>
+				</template>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+</template>

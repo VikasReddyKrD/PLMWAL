@@ -1,0 +1,39 @@
+<template>
+	<template if:true={isSpinner}>
+		<lightning-spinner  size="small"></lightning-spinner>
+	</template>
+	<template if:false={isSpinner}>
+		<div >
+			<template if:true={isLoading}>
+			
+				<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+				</lightning-spinner>
+			</template>
+		</div>
+		<div class="mv-10p">
+			<h2 class="fs-26 mt-10p">{sectionName}</h2>
+		</div>
+		<div class="fs-18">
+			{transitionmessage}
+		</div>
+		<c-survey-container-progressbar-static progress={progress} survey-number={surveyNumber} ></c-survey-container-progressbar-static>
+		<template for:each={surveyData} for:item="survey">
+			<div class="slds-grid slds-wrap" key={survey.questions.Id}>
+				<article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+					style="padding-right:30px;margin-top:16px;" key={survey.questions.Id}>
+					Question #{survey.questions.Order__c}
+					<c-survey-question question={survey.questions} surveyanswer={survey.answers} key={survey.questions.Id} ontolastpage = {handleLastPage}></c-survey-question>
+				</article>
+			</div> 
+		</template> 
+		<hr class="solid mb-30p mt-20p"/>
+		<template if:false={hidePrevious}>
+			<lightning-button variant="brand" label="Previous" class="btn_capsule slds-m-left_x-small"  onclick={previousSection}></lightning-button>
+		</template>
+		<template if:false={hideNext}>
+			<lightning-button variant="brand" label={nextLabel} class="btn_capsule mr-1" data-name="next" style="float:right;" onclick={nextSection}></lightning-button>
+			
+		</template>
+		
+	</template>
+</template>

@@ -1,0 +1,632 @@
+<template>
+	<div class="mv-10p">
+		<!--<h1 class="slds-text-heading_small"> Textarea Examples</h1> -->
+		<template if:true={iseq5d}>
+			<img src={EQ5D5LLogoStatic}>
+		</template>
+
+		<template if:false={isPro}>
+			<template if:false={iscat}>
+				<h2 class="fs-26 mt-10p"> {questionText} </h2>
+			</template>
+			<template if:true={iscat}>
+				<div style="float:right">
+					<img src={catLogoStatic}>
+				</div>
+				<h2 class="fs-26 mt-10p"> {questionText}<sup>TM</sup> (CAT)</h2>
+			</template>
+		</template>
+		<template if:true={isPro}>
+			<h2 class="fs-26 mt-10p">{questionText} </h2>
+		</template>
+	</div>
+	<!-- <hr class="dash mt-30p mb-20p" /> -->
+	<template if:true={isText}>
+		<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -15px; font-weight: bold;">PLEASE DESCRIBE IN
+			YOUR OWN WORDS:
+		</p>
+		<lightning-input name="text" max-length="255" data-name="textInput" value={selectedValue}
+			onchange={handleChange} required></lightning-input>
+	</template>
+
+	<template if:true={isTextNumber}>
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col slds-size_2-of-3">
+				<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -15px; font-weight: bold;">ENTER A
+					NUMBER:
+				</p>
+				<!-- 	<lightning-input type="number" name="input1" max-length="2" data-name="numberInput" value={selectedValue}
+					onchange={handleChange} onkeypress={radioTextHandler} onblur={handleNumber} required></lightning-input> -->
+				<lightning-input style="width:330px" type="number" name="input1" max-length="2" data-name="numberInput"
+					value={selectedValue} onkeypress={radioTextHandler} onchange={handleChange} required></lightning-input>
+			</div>
+			<div class="slds-col slds-size_1-of-3" style="padding-top:32px;margin-left: -543px;">
+				Years
+			</div>
+		</div>
+	</template>
+
+	<template if:true={isMultiInput}>
+		<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -41px; font-weight: bold;">PLEASE DESCRIBE:
+		</p><br><br>
+		<lightning-radio-group name={questionText} class="slds-p-bottom_x-large" data-name="radioInput"
+			options={optionValues} value={multiInputValue} type="radio" onchange={multiInputHandler} required
+			checked="">
+		</lightning-radio-group>
+		<template if:true={isMultiNestedInput}>
+			<div class="slds-grid slds-wrap slds-size_12-of-12">
+				<div class="slds-col slds-size_3-of-12">
+					<lightning-input type="text" data-name="textInput" name="input1" label="" value={multiInput1}
+						onchange={multiInputHandleChange1} required></lightning-input>
+				</div>
+				<template if:false={is17}>
+					<div class="slds-col slds-size_7-of-12"  style="padding-top:28px;padding-left: 7px;">
+						 packs per day (“quarter”, “one half”, “one”, “one and
+						one
+						half”, “two or more”) for
+					</div>
+					<div style="margin-left: -183px;" class="slds-col slds-size_2-of-12">
+						<lightning-input type="number" max-length="2" data-name="textInput" name="input1" label=""
+							value={multiInput2} onkeypress={radioTextHandler} onchange={multiInputHandleChange2} required>
+						</lightning-input>
+					</div>
+					<div class="slds-col" style="padding-top:28px;padding-left:5px;">
+						years
+					</div>
+				</template>
+				<template if:true={is17}>
+					<div class="slds-col slds-size_5-of-12" style="padding-top:28px;margin-left: 10px;">
+						(“daily”, “weekly”, “monthly”, “yearly”) for
+					</div>
+					<div style="margin-left: -248px;" class="slds-col slds-size_2-of-12">
+						<lightning-input type="number" max-length="2" data-name="textInput" name="input1" label=""
+							value={multiInput2} onkeypress={radioTextHandler} onchange={multiInputHandleChange2} required>
+						</lightning-input>
+					</div>
+					<div class="slds-col slds-size_2-of-12" style="padding-top:28px;padding-left:5px;">
+						years
+					</div>
+				</template>					
+			</div>
+		</template>
+
+
+	</template>
+
+	<template if:true={isMultiInputData}>
+		<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -41px; font-weight: bold;">PLEASE DESCRIBE IN
+			YOUR OWN WORDS:
+		</p><br><br>
+		<div class="slds-col ">
+			<lightning-input type="number" max-length="2" style="width:550px;margin-top: -20px;" data-name="textInput"
+				name="input1" label="" value={selectedValue} onkeypress={radioTextHandler} onchange={handleChange}
+				required></lightning-input>
+			<p style="margin-left: 564px;margin-top: -28px;">years</p>
+		</div>
+		<div class="slds-col">
+			<lightning-input type="number" max-length="2" style="width:550px" data-name="textInput" name="input1"
+				label="" onkeypress={radioTextHandler} value={selectedValue1} onchange={handleChanger} required>
+			</lightning-input>
+			<p style="margin-left: 564px;margin-top: -28px;">months</p>
+		</div>
+	</template>
+
+	<template if:true={isMultipleText}>
+		<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -41px; font-weight: bold;">PLEASE DESCRIBE:
+		</p><br><br>
+		<div class="slds-col ">
+			<lightning-input type="text" style="width:550px" data-name="textInput" name="input1" label="ITEM 1"
+				value={text1} onchange={multipleTextHandler} required></lightning-input>
+		</div>
+		<div class="slds-col">
+			<lightning-input type="text" style="width:550px" data-name="textInput" name="input2" label="ITEM 2"
+				value={text2} onchange={multipleTextHandler} required></lightning-input>
+		</div>
+		<div class="slds-col">
+			<lightning-input type="text" style="width:550px" data-name="textInput" name="input3" label="ITEM 3"
+				value={text3} onchange={multipleTextHandler} required></lightning-input>
+		</div>
+	</template>
+	<template if:true={isTextArea}>
+		<p class="font-size-12" style="padding-bottom: 1px; font-weight: bold; margin-bottom: -15px; ">PLEASE DESCRIBE:
+		</p>
+		<lightning-textarea name="textArea" data-name="textareaInput" value={selectedValue} onchange={handleChange}
+			required></lightning-textarea>
+	</template>
+	<template if:true={isCombo}>
+		<p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">{labelText}</p>
+		<lightning-combobox name="progress"
+			class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2" value={selectedValue}
+			options={optionValues} data-name="comboInput" onchange={handleChange} required></lightning-combobox>
+	</template>
+	<template if:true={isRadioText}>
+
+		<p class="font-size-12" style="padding-bottom: 1px; margin-bottom: -15px; font-weight: bold;">Please enter a
+			whole number. [age]</p>
+		<lightning-input style="width:330px" class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2" type="number"
+			value={selectedValue} max-length="2" data-name="numberInput" required onkeypress={radioTextHandler}
+			onchange={handleChange}></lightning-input>
+
+		<!-- <p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">SELECT ONE OF THE FOLLOWING:</p>  -->
+		<lightning-radio-group name="radioGroup" class="slds-p-bottom_x-large" data-name="radioInput"
+			options={optionValues} value={selectedValue} type="radio" onchange={handleChange} required checked="">
+		</lightning-radio-group>
+
+
+		<!-- <lightning-input name="text" max-length="255" data-name="textInput" value={selectedValue} onchange={handleChange} 
+            required></lightning-input></div> -->
+
+		<!-- <lightning-combobox name="progress" 
+            class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2" 
+              value={surveyanswer} options={optionValuesinput} data-name="comboInput" 
+             onchange={handleChange} required></lightning-combobox> -->
+
+
+	</template>
+	<template if:true={isCheckgroup}>
+
+		<!--  <p>Selected Values are: {selectedValues}</p> -->
+		<!--<lightning-checkbox-group name="Checkbox Group" label=""
+                                options={optionValues} value={selectedValue}
+                                onchange={handleChange}>
+        </lightning-checkbox-group>-->
+
+
+		<p class="font-size-12" style="font-weight: bold; padding-bottom: 9px;">PLEASE SELECT ALL THAT APPLY</p>
+
+		<template for:each={optionValues} for:item="option">
+			<lightning-input key={option.value} type="checkbox" label={option.label} name={option.value}
+				data-id={option.value} data-name="checkboxInput" onchange={handleChange}></lightning-input>
+		</template>
+		<template if:true={isCheckboxValidnFailed}>
+			<div class="fs-12 slds-text-color_error">Please Complete this field </div>
+		</template>
+	</template>
+	<!--new changes-->
+	<template if:true={isCheckpicklistgroup}>
+		<!-- <div class="slds-box"> -->
+		<!-- text test -->
+
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col">
+				<p>Health Questionnaire<br>
+					English Version for the US<br>
+					Please select the statement that best describes your health TODAY</p>
+			</div>
+			<div class="slds-col">
+				<div style="float:right">
+
+				</div>
+			</div>
+			<div class="slds-col"> </div>
+		</div>
+		<template for:each={optionValues} for:item="option" for:index="index">
+			<h6 class="header my-1 mt-10p pt-10p" key={option.subcategory}>{option.subcategory}</h6>
+			<lightning-radio-group key={option.subcategory} data-eq name={option.subcategory} options={option.options}
+				type="radio" data-radio="radiogroup" data-name="radioInput" onchange={onclickHandlerNew}
+				data-eqno={index}>
+			</lightning-radio-group>
+		</template>
+		<template if:true={eqvalidation}>
+			<p style="color:red">Please select all that apply</p>
+		</template>
+
+		<p class="pt-10p"><b>We would like to know how good or bad your health is TODAY.</b><br><br>
+			Below you will see a scale numbered 0 to 100.<br/>
+			 100 means the <u>best</u> health you can imagine.<br>
+			0 means the <u>worst</u> health you can imagine. <br>
+			Please slide the scale to indicate how your health is TODAY.<br></p>
+		<div class="slds-m-vertical_medium" style="border: 1px solid;padding-inline: 10px;">
+			<div>
+				<div style="text-align:left;padding-top: 13px;">The worst health you can imagine(0)</div>
+				<div style="text-align:right;margin-top: -22px">The best health you can imagine(100)</div>
+			</div>
+			<div>
+				<lightning-slider label="" value={myValue} onchange={onChangeSlider} data-slider="true">
+				</lightning-slider>
+			</div>
+			<div class="slds-m-vertical_medium">
+				<p>
+					<!-- The value of the slider is: -->
+					<span class="slds-text-heading_small">{myValue}</span>
+				</p>
+			</div>
+		</div>
+		<template if:true={sliderError} >
+			<p style="color:red" class="pt-10p">Complete this field </p>
+		</template>
+		<p> © EuroQol Research Foundation. EQ-5D™ is a trade mark of the EuroQol Research Foundation</p>
+		<!-- </div> -->
+	</template>
+	<!--new changes-->
+	<!--new changes-->
+	<template if:true={isReportScore}>
+
+		<p>This questionnaire will help you and your healthcare professional measure the impact COPD (Chronic
+			Obstructive Pulmonary Disease)<br>
+			is having on your wellbeing and daily life. Your answers, and test score, can be used by you and your
+			healthcare professional to help<br>
+			improve the management of your COPD and get the greatest benefit from treatment.</p>
+		<!-- <p>For each item below, place a mark (X) in the box that best describes you currently. Be sure to only
+			select one response for each question.</p> -->
+		<p>For each question, please select the response that best describes you currently. Be sure to only select one
+			response for each question.</p>
+
+		<table class="table-question ">
+
+			<tr>
+				<!-- <hr class="dash mt-10p mb-10p" /> -->
+
+				<td class="td-question2 slds-text-align_right" style="width: 37%;">
+					<div><strong>Example:</strong> I am very happy</div>
+				</td>
+				<td class="td-question2 slds-text-align_center" style="min-width:130px; width:240px;">
+					<div style="margin: auto 10px; padding: 5px; min-height: 40px; text-align: center;">
+						<div class="box bx_base">
+							<div><strong>X</strong>
+								<div class="bx_number">0</div>
+							</div>
+						</div>
+						<div class="box bx_base">
+							<div class="bx_number">1</div>
+						</div>
+						<div class="box bx_base">
+							<div class="bx_number">2</div>
+						</div>
+						<div class="box bx_base">
+							<div class="bx_number">3</div>
+						</div>
+						<div class="box bx_base">
+							<div class="bx_number">4</div>
+						</div>
+						<div class="box bx_base">
+							<div class="bx_number">5</div>
+						</div>
+					</div>
+				</td>
+				<td class="td-question2 slds-text-align_left" style="width:auto;">
+					<div> I am very sad</div>
+				</td>
+			</tr>
+		</table>
+		<hr class="slds-border_bottom">
+		<!---->
+		<table class="table-question bx_tbl" style="border-bottom: 3px solid #000000;">
+			<template for:each={optionValues} for:item="option" for:index="index">
+				<tr key={option.value}>
+					<!-- <hr class="dash mt-10p mb-10p" /> -->
+					<td class="td-question2  slds-text-align_right" style="width: 37%;" key={option.value}>
+						<div key={option.value}>{option.label1}</div>
+					</td>
+					<td class="td-question2 slds-text-align_center" style="min-width:130px; width:240px;"
+						key={option.value}>
+						<div style="margin:auto 10px; padding:5px;min-height:40px; text-align:center">
+							<template for:each={loopvariable} for:item="item" for:index="innerIndex">
+								<div class="box bx_base" key={option.value} data-value={innerIndex} data-index={index}
+									onclick={oncheck}>
+									<div class="bx_number">{innerIndex}</div>
+								</div>
+							</template>
+						</div>
+					</td>
+					<td class="td-question2 slds-text-align_left" style="width:auto;" key={option.value}>
+						<div> {option.label2}</div>
+					</td>
+					<td class="td-question2 slds-text-align_center" style="min-width:60px;display:none"
+						key={option.value}>
+						<div class="box1" style="float: none;margin:auto" data-temp={index} data-flag="false"
+							key={option.value}>
+						</div>
+					</td>
+				</tr>
+			</template>
+		</table>
+		
+		<!---->
+		<!--- <hr class="solid mb-30p mt-20p">-->
+		<!-- <hr class="header-1"></br> -->
+
+		<!-- class="slds-align_absolute-center" -->
+		<!-- <hr class="solid mb-30p mt-20p"> -->
+		<!-- <hr class="slds-border_top"> -->
+		<!--  -->
+		<!-- 		<div style="margin-left: 1126px;"><b>TOTAL SCORE</b></div>
+			<div class="slds-align_absolute-center"
+				style="width: 6%; float: right; margin-right: 0px; margin-left: 0px">
+				<div class="box1" style="width:25px;height:25px;margin-top: -97px;margin-left: 20px;">
+					{popUpScore}
+				</div>
+			</div>
+		</div>
+		<lightning-button variant="brand" label="Submit" onclick={scoreClick} style="margin-left: 1110px;"
+			class="slds-m-left_x-small"></lightning-button>
+
+		<p>COPD Assessment Test and the CAT logo is a trademark of the GlaxoSmithKline group of
+			companies, © 2009 GlaxoSmithKline. All rights reserved</p> -->
+
+		<div style="padding-top:10px;" class="slds-grid slds-grid_vertical">
+			<div class="slds-col slds-float_right">
+				<lightning-button variant="brand" label="Submit" onclick={scoreClick} style="margin-left: 1213px;"
+					class="slds-m-left_x-small"></lightning-button>
+					<template if:true={reportScoreError}>
+						<p style="color:red">Complete this field.</p>
+					</template>
+			</div>
+
+			<div class="slds-col" style="padding-top: 15px;">
+				<template if:true={catTotalScore}>
+					<div class="box1 slds-float_right" style="width:25px;height:25px;">
+						{scoreDiv1}
+					</div>
+
+					<div class="slds-float_right">
+						<b> TOTAL SCORE &nbsp;</b>
+					</div>
+				</template>
+			</div>
+			<div class="slds-col slds-float_right">
+				COPD Assessment Test and the CAT logo are trademarks of the GlaxoSmithKline group of
+				companies. © 2009 GlaxoSmithKline. All rights reserved.<br />
+				<br />
+				The COPD Assessment Test was developed by a multi-disciplinary group of international
+				experts in COPD supported by GSK. GSK activities with respect to the COPD Assessment Test
+				are overseen by a governance board that includes independent external experts, one of whom
+				chairs the board.<br /><br />
+				For any information on the use of the CAT, please contact Mapi Research
+				Trust, Lyon, France. Internet: https://eprovide.mapi-trust.org
+			</div>
+		</div>
+		<template if:true={errorScoreFlag}>
+			<div class="font-size-12" style="font-weight: bold; padding-bottom: 9px;"> Please select all that apply
+			</div>
+		</template>
+	</template>
+	<!---table-->
+
+	<template if:true={istextnumber}>
+		<div class="slds-col">
+			<lightning-input style="width:330px" type="number" max="2"  data-name="textInput" name="input1" label=""
+				onkeypress={radioTextHandler} value={selectedValue} onchange={handleChange} required>
+			</lightning-input>
+			<p style="margin-left: 564px;margin-top: -28px;">years</p>
+		</div>
+	</template>
+	<template if:true={isTable}>
+		<div class="slds-grid slds-grid_vertical">
+			<div class="slds-col">
+				<table class="slds-table slds-table_bordered slds-border_left" style="border-color: black;">
+
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th class="slds-border_right" style="border-color: black;" scope="col">
+								<div class="slds-truncate" title="Treatments">Treatments</div>
+							</th>
+							<th class="slds-border_right" style="border-color: black;" scope="col">
+								<div class="slds-truncate" title="Before diagnosis">Before diagnosis</div>
+							</th>
+							<th class="slds-border_right" style="border-color: black;" scope="col">
+								<div class="slds-truncate" title="After diagnosis">After diagnosis</div>
+							</th>
+							<th class="slds-border_right" style="border-color: black;" scope="col">
+								<div class="slds-truncate" title="Current treatment">Current treatment</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<template for:each={optionValues} for:item="item" for:index="index">
+							<tr data-trrow={index} key={item.label}>
+								<td class="slds-border_right" style="border-color: black;">
+									<div class="slds-truncate" style="white-space: normal" data-title="Treatments"
+										data-row={index}>
+										{item.label}
+									</div>
+								</td>
+								<td class="slds-border_right" style="border-color: black;">
+									<!-- <lightning-input type="checkbox" data-row={index} class="text-center"
+										data-title="beforetreatment" label=" " data-label={item.label}
+										onclick={handleClick}></lightning-input> -->
+									<div class="slds-form-element" style="text-align: center;">
+										<div class="slds-form-element__control">
+											<div class="slds-checkbox">
+												<input type="checkbox" id={item.op1} data-row={index} class="text-center"
+													data-title="beforetreatment" data-label={item.label}
+													onclick={handleClick} />
+												<label class="slds-checkbox__label" for={item.op1}>
+													<span class="slds-checkbox_faux"
+														style="text-align: center !important;"></span>
+													<span class="slds-form-element__label"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td class="slds-border_right" style="border-color: black;">
+									<!-- <lightning-input type="checkbox" data-row={index} class="text-center"
+										data-title="aftertreatment" label=" " data-label={item.label}
+										onclick={handleClick}></lightning-input> -->
+
+									<div class="slds-form-element" style="text-align: center;">
+										<div class="slds-form-element__control">
+											<div class="slds-checkbox">
+												<input type="checkbox" id={item.op2} data-row={index} class="text-center"
+													data-title="aftertreatment" data-label={item.label}
+													onclick={handleClick} />
+												<label class="slds-checkbox__label" for={item.op2}>
+													<span class="slds-checkbox_faux"
+														style="text-align: center !important;"></span>
+													<span class="slds-form-element__label"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td class="slds-border_right" style="border-color: black;">
+									<!-- <lightning-input type="checkbox" data-row={index} class="text-center"
+										data-title="currenttreatment" data-label={item.label} label=" "
+										onclick={handleClick}></lightning-input> -->
+									<div class="slds-form-element" style="text-align: center;">
+										<div class="slds-form-element__control">
+											<div class="slds-checkbox">
+												<input type="checkbox" id={item.op3} data-row={index} class="text-center"
+													data-title="currenttreatment" data-label={item.label}
+													onclick={handleClick} />
+												<label class="slds-checkbox__label" for={item.op3}>
+													<span class="slds-checkbox_faux"
+														style="text-align: center !important;"></span>
+													<span class="slds-form-element__label"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</template>
+					</tbody>
+
+				</table>
+			</div>
+			<!-- <div class="slds-col">
+                <lightning-input type="checkbox" label="None of the above" data-otheroption="none"
+                    onclick={handleClick}> </lightning-input>
+            </div> -->
+		</div>
+		<template if:true={isTableValidation}>
+			<p style="color:red"> Please select all that apply
+			</p>
+		</template>
+
+	</template>
+
+	<!--new changes-->
+	<template if:true={reportClicked}>
+		<!-- Modal/Popup Box LWC starts here -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+
+				<header class="slds-modal__header">
+					<!-- <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+						title="Close" onclick={closeModel}>
+						<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+							size="small"></lightning-icon>
+						<span class="slds-assistive-text">Close</span>
+					</button> -->
+					<button class="slds-button" style="float:right;" onclick={popupCloseHandler}
+						title="Close">X</button>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<template if:true={scorePartialOptionsFlag}>
+						<p><b>No response selected for one or more question(s). Do you want to continue without
+								providing a response?</b>
+						</p>
+					</template>
+					<template if:false={scorePartialOptionsFlag}>
+						<template if:true={confirmationFalg}>
+							Are you satisfied with your responses?
+						</template>
+						<template if:false={confirmationFalg}>
+							<div style="text-align: center;">Total score: {scoreDiv1}</div>
+						</template>
+					</template>
+				</div>
+				<footer class="slds-modal__footer">
+					<template if:true={scorePartialOptionsFlag}>
+						<button class="slds-button slds-button_neutral" onclick={popupConfirmationHandler}
+							title="YES">YES</button>
+						<button class="slds-button slds-button_brand" style="font-size: 12px;"
+							onclick={popupCloseHandler} title="NO">NO</button>
+					</template>
+					<template if:false={scorePartialOptionsFlag}>
+						<template if:true={confirmationFalg}>
+							<button class="slds-button slds-button_neutral" onclick={confirmationPopup}
+								title="YES">YES</button>
+							<button class="slds-button slds-button_brand" style="font-size: 12px;"
+								onclick={popupCloseHandler} title="NO">NO</button>
+						</template>
+						<template if:false={confirmationFalg}>
+							<button class="slds-button slds-button_neutral" data-close="yes"
+								onclick={popupCloseHandler}>OK</button>
+						</template>
+					</template>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<template if:true={isRadio}>
+		<div style="padding-bottom: 4px;margin-top: -8px;font-size: 17px;font-weight: 500;line-height: 1.38;">{textque}
+		</div>
+		<p class="font-size-12" style="font-weight: bold; padding-bottom: 6px;">SELECT ONE OF THE FOLLOWING:</p>
+		<lightning-radio-group name={questionText} class="" data-name="radioInput" options={optionValues}
+			onblur={handleNumber} value={selectedValue} type="radio" onchange={handleChange} required checked="">
+
+		</lightning-radio-group>
+
+	</template>
+	<template if:true={isNumber}>
+		<p class="font-size-12" style="font-weight: bold; padding-bottom: 1px; margin-bottom: -15px;">ENTER A NUMBER</p>
+		<lightning-input style="width:330px" type="number" name="input1" max-length="2" data-name="numberInput" value={selectedValue}
+			onchange={handleChange} onkeypress={radioTextHandler} onblur={handleNumber} required></lightning-input>
+	</template>
+	<template if:true={isDate}>
+		<p class="font-size-12" style="font-weight: bold; padding-bottom: 1px; margin-bottom: -15px;">SELECT A DATE:</p>
+		<lightning-input type="date" class="slds-small-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-4"
+			name="date" data-name="dateInput" value={selectedValue} onchange={handleChange} onkeypress={dateHandle}
+			max={dateMax} required></lightning-input>
+	</template>
+	<template if:true={isother}>
+		<p class="font-size-12 pt-5p" style={q7Style}>{otherLabel}</p>
+		<lightning-input name="otherText" data-name="otherInput" value={otherValue} onchange={handleotherchange}
+			type="text" required></lightning-input>
+	</template>
+
+	<hr class="dash mt-30p mb-20p" />
+
+	<template if:true={isIntro}>
+
+		<lightning-formatted-rich-text value={introText}></lightning-formatted-rich-text>
+
+	</template>
+
+
+
+	<!--<lightning-button label="Previous" title="Non-primary action" onclick={handlePrevious} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button label="Next" title="Non-primary action" onclick={handleNext} class="slds-m-left_x-small"></lightning-button> -->
+	<!--<lightning-button onclick={validations} label='Validate'></lightning-button>-->
+
+	<!--Use template if:true to display/hide popup based on isModalOpen value-->
+
+	<template if:true={isModalOpen}>
+		<!-- Modal/Popup Box LWC starts here -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- Modal/Popup Box LWC header here -->
+				<header class="slds-modal__header">
+					<!-- <button  title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button> -->
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Thank you for your
+						response.</h2>
+				</header>
+				<!-- Modal/Popup Box LWC body starts here -->
+				<div style="background-color: white; padding-top: 20px;">
+					<p style="text-align: center;">{modalContent}</p>
+				</div>
+				<!-- Modal/Popup Box LWC footer starts here -->
+				<footer class="slds-modal__footer">
+					<lightning-button label="Exit Survey" title="primary action" onclick={thankyouScreen}
+						class="btn_capsule mr-1" style="float:right;"></lightning-button>
+					<lightning-button label="Back" title="primary action" onclick={closeModal} variant="brand"
+						class="btn_capsule mr-3" style="float:right;"></lightning-button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+</template>

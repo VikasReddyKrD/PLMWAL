@@ -1,0 +1,90 @@
+<template>
+	<div class="slds-p-bottom_xx-large">
+<template if:false={isSpinner}>
+
+	<hr class="dash mt-10p mb-10p" />
+	<template if:true={isprogressStap}>
+		<div class="slds-col slds-size_11-of-12">
+		
+		<c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+	</div><br />
+	<!-- <div class="slds-grid slds-gutters">
+		<div class="slds-col slds-size_1-of-12">
+			<h5 class="mv-10p fs-12 text-uppercase float-left" style="width:150px;">SURVEY</h5>
+		</div>
+		<div class="slds-col slds-size_11-of-12">
+			SURVEY<c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+		</div>
+	  </div> -->
+</template>
+		<p></p>
+		<div class="slds-col fs-18">
+			<h1 class="fs-34 mt-10p" style="font-weight: normal; font-family: Kameron">{sectionName}</h1>
+		</div>
+		<div class="fs-18">
+			<em><b>{transitionmessage}</b></em>
+		</div>
+<!-- 		<hr class="dash mt-30p mb-20p" />
+ -->		<template for:each={questionsList} for:item="question" for:index="index">
+			<!-- <div style="overflow: visible" class="slds-grid slds-wrap" key={question.question.Id}>
+			<article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+				style="padding-right:30px;" key={question.Order__c.Id}> -->
+    
+			<c-transplant-multi-questions class={question.question.className} user={patientType} question={question.question} answer={question.answer} 
+			order={index}   
+			key={question.question.Order__c} onskip={skipChangeHandler} ontableanswer={tableValiadtionHandler} ontablechangeanswer={tableDataHandler}>
+			</c-transplant-multi-questions>
+			<!-- </article>
+		</div>
+		<hr class="dash mt-10p mb-10p" style="margin-top:10px;" key={question.question.Id} /> -->
+		</template>
+		<template if:true={isShowModal}>
+			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+				aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container">
+					<!-- modal header start -->
+					<header class="slds-modal__header">
+						<button class="slds-button" style="float:right;" onclick={hideModalBox}
+							title="Close">X</button>
+						<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+					</header>
+	
+					<!-- modal body start -->
+					<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					   <center> <p>Are you sure you want to exit?</p></center>
+					</div>
+	
+					<!-- modal footer start-->
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+						<button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+					</footer>
+	
+				</div>
+			</section>
+			<div class="slds-backdrop slds-backdrop_open"></div>
+		</template>
+		<!-- <hr class="solid mb-30p mt-20p"> -->
+		<!-- <hr class="dash mt-30p mb-20p" /> -->
+		<div>                
+			<lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16">
+			</lightning-button>
+
+			<template if:true={isHideNext}>
+				<lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+					onclick={nextHandler} variant="brand"></lightning-button>
+			</template>
+			<template if:true={isHidePRevious}>
+				<lightning-button label="Previous" onclick={previousHandler} class="btn_capsule slds-float_right"
+					style="margin-right: 25px;"></lightning-button>
+			</template>
+		</div>
+	
+</template>
+<template if:true={isSpinner}>
+	
+ <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+	
+</template>
+</div>
+</template>

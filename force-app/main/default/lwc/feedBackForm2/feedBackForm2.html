@@ -1,0 +1,88 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_xx-large">
+            <table border="1">
+
+                <tr>
+                    <td>
+                        <lightning-input type="text" label="Customer Name:" ></lightning-input>
+                            <lightning-input type="text" label="Delivery Date:"></lightning-input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <lightning-input type="Date" label="Customer SPOC:"  ></lightning-input>
+                    </td>
+                </tr>
+                    <tr>
+                       <td>
+                         <lightning-input type="text" label="Mode of Delivery:"></lightning-input>
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                        <lightning-input type="text" label="Delivery Address:" ></lightning-input>
+                       </td>
+                   </tr>
+                    <tr>
+                      <td>
+                        <lightning-input type="text" label="Delivered items description:"></lightning-input>
+                      </td>
+                    </tr>
+            
+               
+
+            </table>
+
+            <table border="1">
+                <tr>
+                    <td colspan="1" cellspacing="0">
+                    </td>
+
+                </tr>
+
+
+                <template for:each={feedbackdata} for:item="fb">
+                    <tr key={fb.Id}>
+                        <!-- <div class="slds-grid slds-gutters" key={fb.Id}>
+            <div class="slds-col slds-size_10-of-12">
+                {fb.Question__c}
+                <p style="text-align: left;" key={fb.Id}>
+                <b>Comments:</b>
+                <lightning-textarea name="input1" data-id={fb.Question__c}  onchange={handlecomments}></lightning-textarea>
+                </p>
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+             
+                  </div>
+        </div></tr> -->
+                        <td key={fb.Id} colspan="5">
+                            {fb.Question__c}
+                            <p style="width:100%" key={fb.Id} cellspacing="2" border="1px solid black"
+                                border-top-bottom="1">
+                        
+                                <lightning-radio-group name="input1" label="Excellent" data-name = {fb.Id} data-id={fb.Question__c} onchange={handlecomments}></lightning-radio-group>
+                                <lightning-radio-group name="input1" label="Good" data-name = {fb.Id} data-id={fb.Question__c} onchange={handlecomments}></lightning-radio-group>
+                                <lightning-radio-group name="input1" label="Average" data-name = {fb.Id} data-id={fb.Question__c} onchange={handlecomments}></lightning-radio-group>
+                                <lightning-radio-group name="input1" label="Poor" data-name = {fb.Id} data-id={fb.Question__c} onchange={handlecomments}></lightning-radio-group>
+                            </p>
+                        </td>
+                        <td key={fb.Id} colspan="5">
+                            <table style="width:100%" key={fb.Id} cellspacing="2" border="1px solid black"
+                                border-top-bottom="1">
+
+
+
+                            </table>
+                        </td>
+                    </tr>
+                </template></tr>
+            </table>
+        </div>
+        <div class="slds-align_absolute-center">
+            <button type="button" class="slds-button slds-button_neutral">Cancel</button>
+            <button type="button" class="slds-button slds-button_brand" onclick={SaveMDT}>Save</button>
+        </div>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs >
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="finishPage" type="String" label="URL/Page to navigate on Finish" description="Optional, by default goes to Homepage of the community"></property>
+            <property name="isNextPage" type="String" label="True for Next button and false for Finish button" description="This property renders either Next or Finish button, Select the value respectively"></property>
+            <property name="isAlpha1" type="Boolean" label="Alpha One" description="Presenting Alpha1"></property>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

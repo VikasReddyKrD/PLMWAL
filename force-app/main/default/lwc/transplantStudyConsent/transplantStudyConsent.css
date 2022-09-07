@@ -1,0 +1,160 @@
+.h2class{
+    width: 912px;
+    height: 41px;
+    left: 50px;
+    top: 59px;
+    font-family: Kameron;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 38px;
+    color: #000000;
+    /*position: absolute;*/
+}
+.identicaltext{
+    /*position: absolute;*/
+    width: 752px;
+    height: 24px;
+    left: 50px;
+    top: 20px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+    text-transform: uppercase;
+    /* Text Colors / Medium Gray */
+    color: #5E5E5E;   
+}
+.custom-label1{
+
+
+    /*position: absolute;*/
+    width: 115px;
+    height: 14px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    
+}
+
+.progressbar-label1{
+        /*position: absolute;*/
+        width: 115px;
+        height: 14px;
+        left: 62px;
+        top: 236px;
+
+        /* <h6> 12pt caps */
+
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+
+        display: flex;
+        align-items: center;
+        text-align: right;
+        text-transform: uppercase;
+
+        color: #000000;
+}
+.first-oval-shape{
+    
+
+
+        /*position: absolute;*/
+        width: 24px;
+        height: 24px;
+        left: 188px;
+        top: 231px;
+
+        /* Grayscale/White */
+
+        background: #FFFFFF;
+        /* Grayscale / Black */
+
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 50%;
+
+}
+.line1{
+   /* position: absolute;*/
+width: 204px;
+height: 0px;
+left: 200px;
+top: 243px;
+
+/* Grayscale/Gray 2 */
+
+border: 1px solid #CDCDCD;
+}
+.rightLabels{
+        /*position: absolute;*/
+        left: 5.23%;
+        right: 76.21%;
+        top: 48.43%;
+        bottom: 32.7%;
+
+        font-family: Nunito Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        /* or 150% */
+
+
+        color: #000000;
+}
+.leftLabels{
+   /* position: absolute;*/
+    left: 17.66%;
+    right: 8.36%;
+    top: 48.43%;
+    bottom: 28.88%;
+
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+
+    text-transform: uppercase;
+
+    color: #000000;
+}
+.borderLine{
+    /*position: absolute;*/
+width: 1320px;
+height: 0px;
+left: 56px;
+top: 408px;
+
+/* Grayscale/Gray 2 */
+
+border: 1px solid #CDCDCD;
+}
+
+/* button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 20px;
+
+    position: absolute;
+    width: 150px;
+    height: 39px;
+    left: 56px;
+    top: 812px;
+
+    background: #FFFFFF;
+    border: 1px solid #929292;
+    box-sizing: border-box;
+    border-radius: 20px;
+} */

@@ -1,0 +1,630 @@
+<template>
+    <div>
+        <div class="card-style card padding-right padding-left border-box m-0 p-0 slds-no-print">
+            <div style="font-family:Nunito Sans;font-style:normal;font-weight:800;font-size:12px;line-height:14px;text-align:center;text-transform:uppercase;"
+                class="row justify-content-center align-items-center m-0">
+                <span class="plet-title_01 text-uppercase">
+                    <strong>CHECKLIST</strong>
+                </span>
+            </div>
+            <!-- <template if:true={tcList}> 320closing line-->
+                <!-- <template if:true={isWeekZero}>
+                    <div>
+
+                    </div>
+                </template> -->
+                
+                <div class="checklist" style="margin-top: -14px;">
+                    
+                    <ul style="text-align-last: left">
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                   
+                                        <li><a onclick={handleSync} class="active" style="padding-right: 5px;padding-right: 75px;" >Validate Diagnosis</a>
+                                    </li></ul></div>
+                         <template if:false={isSession2}>
+                        <div style="padding-right: 5px;padding-left: 100px;padding-left: 30px;">
+                            <strong>Session 1 Setup </strong>
+                        </div><br>                    
+                        <p><a href="https://www.youtube.com/embed/3TAew-P8xoA" onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;padding-left: 30px;"  class={checkListDetails.confirmedmdd.css}> "Meet Dr.Kate Burke"-Video</a>
+                           
+                        </a></p> 
+                       <hr class="dash mt-10p mb-10p" /> 
+                       <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.week1.css}>
+                        <div>
+                            <p style={checkListDetails.week1.color}>{checkListDetails.week1.message}
+                            </p>
+                        </div>
+                    </li>
+  
+                    <li>
+                        <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.confirmedmdd.css}>How To Set Goals-Video</a>
+                    </li>
+                    <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.goal1.css}>
+                        <div>
+                            <p style={checkListDetails.goal1.color}>{checkListDetails.goal1.message}
+                            </p>
+                        </div>
+                    </li>                                  
+                        <template if:false={hideSeeMore}>
+                            <div style="padding-top:5px;font-family:Nunito Sans;margin-left:22px;">
+                                <a onclick={displayRemaining}>See more</a>
+                            </div>
+                        </template>
+
+                        <template if:false={isTrue}>
+                            <div style="padding-right: 5px;padding-left: 100px;padding-left: 30px;">
+                                <strong>Session 1 Tracking</strong>
+                            </div><br>
+        
+                            <li>
+                                <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.confirmedmdd.css}>How-to track Goals-Video</a>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track1.css}>
+                                <div>
+                                    <p style={checkListDetails.Track1.color}>{track1message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track1.css}>
+                                <div>
+                                    <p style={checkListDetails.Track1.color}>{track1missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+        
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track2.css}>
+                                <div>
+                                    <p style={checkListDetails.Track2.color}>{track2message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track2.css}>
+                                <div>
+                                    <p style={checkListDetails.Track2.color}>{track2missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track3.css}>
+                                <div>
+                                    <p style={checkListDetails.Track3.color}>{track3message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track3.css}>
+                                <div>
+                                    <p style={checkListDetails.Track3.color}>{track3missedgoal}
+                                    </p>
+                                </div>
+                            </li>                            
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track4.css}>
+                                <div>
+                                    <p style={checkListDetails.Track4.color}>{track4message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track4.css}>
+                                <div>
+                                    <p style={checkListDetails.Track4.color}>{track4missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track5.css}>
+                                <div>
+                                    <p style={checkListDetails.Track5.color}>{track5message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track5.css}>
+                                <div>
+                                    <p style={checkListDetails.Track5.color}>{track5missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track6.css}>
+                                <div>
+                                    <p style={checkListDetails.Track6.color}>{track6message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track6.css}>
+                                <div>
+                                    <p style={checkListDetails.Track6.color}>{track6missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <div style="padding-right: 5px;padding-left: 100px;padding-left: 30px;">
+                                <strong>Session 1 PHQ 9 Survey</strong>
+                            </div><br>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.PHQ9.css}>
+                                <div>
+                                    <p style={checkListDetails.PHQ9.color}>{checkListDetails.PHQ9.message}
+                                    </p>
+                                </div>
+                            </li>
+                            <div style="padding-right: 5px;padding-left: 100px;padding-left: 30px;">
+                                <strong>Session 1 Tracking</strong>
+                            </div><br>
+                            <li>
+                                <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.confirmedmdd.css}>How-to track Goals-Video</a>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track7.css}>
+                                <div>
+                                    <p style={checkListDetails.Track7.color}>{track7message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track7.css}>
+                                <div>
+                                    <p style={checkListDetails.Track7.color}>{track7missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track8.css}>
+                                <div>
+                                    <p style={checkListDetails.Track8.color}>{track8message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track8.css}>
+                                <div>
+                                    <p style={checkListDetails.Track8.color}>{track8missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track9.css}>
+                                <div>
+                                    <p style={checkListDetails.Track9.color}>{track9message}
+                                    </p>
+                                </div>
+                            </li>                        
+                            <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track9.css}>
+                                <div>
+                                    <p style={checkListDetails.Track9.color}>{track9missedgoal}
+                                    </p>
+                                </div>
+                            </li>
+                        <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track10.css}>
+                            <div>
+                                <p style={checkListDetails.Track10.color}>{track10message}
+                                </p>
+                            </div>
+                        </li>                    
+                        <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track10.css}>
+                            <div>
+                                <p style={checkListDetails.Track10.color}>{track10missedgoal}
+                                </p>
+                            </div>
+                        </li>
+                    <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track11.css}>
+                        <div>
+                            <p style={checkListDetails.Track11.color}>{track11message}
+                            </p>
+                        </div>
+                    </li>
+                    <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track11.css}>
+                        <div>
+                            <p style={checkListDetails.Track11.color}>{track11missedgoal}
+                            </p>
+                        </div>
+                    </li>                
+                <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track12.css}>
+                    <div>
+                        <p style={checkListDetails.Track12.color}>{track12message}
+                        </p>
+                    </div>
+                </li>
+                <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={checkListDetails.Track12.css}>
+                    <div>
+                        <p style={checkListDetails.Track12.color}>{track12missedgoal}
+                        </p>
+                    </div>
+                </li>  <br>
+                                
+                <div style="padding-right: 5px;padding-left: 100px;padding-left: 30px;">
+                    <strong>Session 1 Completion</strong>
+                </div>
+
+                <li style="padding-right: 5px;padding-left: 100px;padding-left: 30px;" class={completeSurvey2Arrowcss}>
+                    <div>
+                        <p style={completeSurvey2Textcolor}>Complete Survey 2
+                        </p>
+                    </div>
+                </li>
+
+                    </template>
+                   
+                        <template if:false={hideSeeless}>
+                            <div style="padding-top:5px;font-family:Nunito Sans;margin-left:22px;">
+                                <a onclick={hideRemaining}>See less</a>
+                            </div>
+                        </template>
+                    </template>
+                       
+                       
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <template if:true={isSession2}>
+                        <div style="padding-right: 5px;padding-left: 100px;">
+                            <strong>Session 2 Setup </strong>
+                        </div><br>                    
+                        <!-- <p><a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;" class={checkListDetails.confirmedmdd.css}>"Meet Dr.Kate Burke"-Video</a></p>  -->
+                       <!-- <hr class="dash mt-10p mb-10p" /> 
+                       <li style="padding-right: 5px;padding-left: 100px;" class={checkListDetails.week1.css}>
+                        <div>
+                            <p style={checkListDetails.week1.color}>{checkListDetails.week1.message}
+                            </p>
+                        </div>
+                    </li> -->
+  
+                    <li>
+                        <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;" class={checkListDetails.confirmedmdd.css}>How To Set Goals-Video</a>
+                    </li>
+                    <li style="padding-right: 5px;padding-left: 100px;" class={setSession2Arrowcss}>
+                        <div>
+                            <p style={setSession2Textcolor}>Set session 2 goals
+                            </p>
+                        </div>
+                    </li>                                  
+                        <template if:false={hideSeeMore}>
+                            <div style="padding-top:5px;font-family:Nunito Sans;margin-left:22px;">
+                                <a onclick={displayRemaining}>See more</a>
+                            </div>
+                        </template>
+
+                        <template if:false={isTrue}>
+                            <div style="padding-right: 5px;padding-left: 100px;">
+                                <strong>Session 2 Tracking</strong>
+                            </div><br>
+        
+                            <li>
+                                <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;" class={session2Track1css}>How-to track Goals-Video</a>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track1css}>
+                                <div>
+                                    <p style={session2Track1TextColor}>{session2Track1Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track1css}>
+                                <div>
+                                    <p style={session2Track1TextColor}>{session2Track1MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+        
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track2css}>
+                                <div>
+                                    <p style={session2Track2TextColor}>{session2Track2Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track2css}>
+                                <div>
+                                    <p style={session2Track2TextColor}>{session2Track2MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track3css}>
+                                <div>
+                                    <p style={session2Track3TextColor}>{session2Track3Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track3css}>
+                                <div>
+                                    <p style={session2Track3TextColor}>{session2Track3MissedGoal}
+                                    </p>
+                                </div>
+                            </li>                            
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track4css}>
+                                <div>
+                                    <p style={session2Track4TextColor}>{session2Track4Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track4css}>
+                                <div>
+                                    <p style={session2Track4TextColor}>{session2Track4MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track5css}>
+                                <div>
+                                    <p style={session2Track5TextColor}>{session2Track5Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track5css}>
+                                <div>
+                                    <p style={session2Track5TextColor}>{session2Track5MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track6css}>
+                                <div>
+                                    <p style={session2Track6TextColor}>{session2Track6Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track6css}>
+                                <div>
+                                    <p style={session2Track6TextColor}>{session2Track6MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <div style="padding-right: 5px;padding-left: 100px;">
+                                <strong>Session 2 PHQ 9 Survey</strong>
+                            </div><br>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={phq9session2Arrowcss}>
+                                <div>
+                                    <p style={phq9session2word}>{phq9session2message}
+                                    </p>
+                                </div>
+                            </li>
+                            <div style="padding-right: 5px;padding-left: 100px;">
+                                <strong>Session 2 Tracking</strong>
+                            </div><br>
+                            <li>
+                                <a onclick={handleVideo} style="padding-right: 5px;padding-left: 100px;" class={session2Track7css}>How-to track Goals-Video</a>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track7css}>
+                                <div>
+                                    <p style={session2Track7TextColor}>{session2Track7Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track7css}>
+                                <div>
+                                    <p style={session2Track7TextColor}>{session2Track7MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track8css}>
+                                <div>
+                                    <p style={session2Track8TextColor}>{session2Track8Message}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track8css}>
+                                <div>
+                                    <p style={session2Track8TextColor}>{session2Track8MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track9css}>
+                                <div>
+                                    <p style={session2Track9TextColor}>{session2Track9Message}
+                                    </p>
+                                </div>
+                            </li>                        
+                            <li style="padding-right: 5px;padding-left: 100px;" class={session2Track9css}>
+                                <div>
+                                    <p style={session2Track9TextColor}>{session2Track9MissedGoal}
+                                    </p>
+                                </div>
+                            </li>
+                        <li style="padding-right: 5px;padding-left: 100px;" class={session2Track10css}>
+                            <div>
+                                <p style={session2Track10TextColor}>{session2Track10Message}
+                                </p>
+                            </div>
+                        </li>                    
+                        <li style="padding-right: 5px;padding-left: 100px;" class={session2Track10css}>
+                            <div>
+                                <p style={session2Track10TextColor}>{session2Track10MissedGoal}
+                                </p>
+                            </div>
+                        </li>
+                    <li style="padding-right: 5px;padding-left: 100px;" class={session2Track11css}>
+                        <div>
+                            <p style={session2Track11TextColor}>{session2Track11Message}
+                            </p>
+                        </div>
+                    </li>
+                    <li style="padding-right: 5px;padding-left: 100px;" class={session2Track11css}>
+                        <div>
+                            <p style={session2Track11TextColor}>{session2Track11MissedGoal}
+                            </p>
+                        </div>
+                    </li>                
+                <li style="padding-right: 5px;padding-left: 100px;" class={session2Track12css}>
+                    <div>
+                        <p style={session2Track12TextColor}>{session2Track12Message}
+                        </p>
+                    </div>
+                </li>
+                <li style="padding-right: 5px;padding-left: 100px;" class={session2Track12css}>
+                    <div>
+                        <p style={session2Track12TextColor}>{session2Track12MissedGoal}
+                        </p>
+                    </div>
+                </li>  <br>
+                                
+                <div style="padding-right: 5px;padding-left: 100px;">
+                    <strong>Session 2 Completion</strong>
+                </div>
+
+                <li style="padding-right: 5px;padding-left: 100px;" class={survey2CompletetionCss}>
+                    <div>
+                        <p style={survey2CompletetionWord}>Complete Survey 2
+                        </p>
+                    </div>
+                </li>
+
+                    </template>
+                   
+                        <template if:false={hideSeeless}>
+                            <div style="padding-top:5px;font-family:Nunito Sans;margin-left:22px;">
+                                <a onclick={hideRemaining}>See less</a>
+                            </div>
+                        </template>                                                        
+                   </template>
+                        
+
+
+
+
+
+
+
+                        <template for:each={tcList} for:item="t">
+                            <!-- adding temp code to play the video-->
+                            <!-- <template if:false={isTrue}>
+                            <template if:true={t.isVideoTask}>
+                                <li class={t.myclass} key={t.task.Id}>
+                                    <a href="javascript:void(0);" data-url={t.video} data-account={accountId}
+                                        data-key={t.task.Task_key__c} onclick={handleClick}>{t.task.Subject}</a>&nbsp;
+                                    <template if:true={t.isOptional}> <span class="fs-12">(optional)</span> </template>
+                                    <c-mdd-video-popup onrefreshtasksfromvideopop={handleRefreshTasksList}>
+                                    </c-mdd-video-popup>
+
+                                </li>
+                            </template>
+                            </template> -->
+                            <!-- <template if:false={isTrue}> -->
+                            <!-- <template if:false={t.isVideoTask}>
+                                <li class={t.myclass} key={t.task.Id}><span class="">{t.task.Subject}</span></li>
+                                <template if:true={t.isOptional}> <span class="fs-12" key={t.task.Id}>(optional)</span>
+                                </template>
+                            </template> -->
+                            <!-- </template> -->
+                        </template>
+                        <!-- <template if:true={isWeek25}>
+                            <li  ><span class="">Congratulate yourself, you did it!</span></li>
+                        </template> -->
+                    </ul>
+                </div>
+            <!-- </template> -->
+            <template if:true={error}>
+                <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+            </template>
+            <!--
+                <hr class="treatment-divider">
+                <div class="margin-top-half pb-20p">
+                    <div class="align-center">
+                        <a href="/wal/s/surveys" class="comment-count-link">Learn more about the surveys</a>
+                    </div>
+                </div>
+            -->
+        </div>
+        <!--Confirming Your Diagnosis Modal-->
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" aria-label="Meaningful description of the modal content"
+                aria-modal="true" aria-describedby="modal-content-id-1"
+                class="slds-modal slds-fade-in-open slds-modal_small">
+                
+                <div class="slds-modal__container" style="width:690px;">
+                    <span style="font-size:20px;padding-left: 675px;" title="Close" onclick={Closepopup} ><b style="margin-bottom:550px;color:lightgray;cursor: POINTER;">X</b></span>
+                     <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                     <hr style="position: relative;top: -36px;border: none;height: 6px;background: rgb(246 214 0);
+                        margin-bottom: -30px;width: 690px;margin-left: -16px;">
+                        <p class="slds-text-align_center" style="font-size: 12px;">CONFIRMING YOUR DIAGNOSIS</p>
+                        <br />
+                        <p class="slds-text-align_center" style="font-size: 26px;font-weight: 600;margin-top:-20px;">You
+                            now have 3 ways to validate your MDD diagnosis and current antidepressant medication</p>
+                        <p style="margin-left:18px;"><b>Option 1:</b><br /></p>
+                        <div class="slds-grid slds-wrap" style="margin-top: -21px;">
+                            <div class="slds-size_3-of-2" style="margin-left:18px;">
+                                <a onclick={handleSync} style="padding-bottom:10px;">Connect your EMR</a> for your 
+                                diagnosing Physician to your PLM account.
+                            </div>
+                        </div>
+                        <br />
+
+                        <p style="margin-left:18px;"><b>Option 2:</b></p>
+                        <!-- You can scan and upload a copy of your medical record or a certified physicians note 
+                        to our support team.</p> -->
+                        <div class="slds-grid " style="margin-top: -21px;">
+                            <div class="slds-size_3-of-2" style="margin-left:18px;">
+                                You can scan and    <!-- <a href="#" class="default-link" file-field-value={accId} accept={acceptedFormats} file-field-name="Guest_Record_fileupload__c" 
+                                  onload={fileOnLoadHandler}  onuploadfinished={handleUploadFinished} multiple><strong>Upload file </strong></a> -->
+                                  <lightning-file-upload label="" name="fileUploader" class="slds-button dx-fileupload" accept={acceptedFormats} style ="color: #0663CC !important;" 
+                                  file-field-name="Guest_Record_fileupload__c" file-field-value={accId} onload={fileOnLoadHandler}
+                                  onuploadfinished={handleUploadFinished} multiple>
+                              </lightning-file-upload>
+                                     a copy of your medical record or a certified physicians<br/> note to our support team.</div>
+                            <!-- <div class="slds-size_3-of-2" style="margin-top: -27px;">
+                                <div>
+                                   <b> <lightning-file-upload label="" name="fileUploader" accept={acceptedFormats} style ="color: #0663CC !important;" 
+                                        file-field-name="Guest_Record_fileupload__c" file-field-value={accId} onload={fileOnLoadHandler}
+                                        onuploadfinished={handleUploadFinished} multiple>
+                                    </lightning-file-upload></b>
+                                    
+                                </div>
+                            </div> -->
+                            <!-- <div class="slds-size_1-of-2" style="width: 62%">
+                                <div></div>
+                            </div>
+                            <div class="slds-size_2-of-3" style="margin-left: 18px;margin-top: -10px;">
+                                
+                            </div> -->
+                        </div>
+                        <br />
+                        <p style="margin-left:18px;"><b>Option 3:</b><br /></p>
+                        <!-- <a>Download</a> and print our Diagnosis Confirmation form to be completed and signed 
+                        by your diagnosing Physician. Once completed, you can <a>upload</a> a copy of youra copy of your medical record or a certified physicians note 
+                        to our support team.</p> -->
+
+                        <div class="slds-grid slds-wrap" style="margin-top: -21px;">
+                            <div class="slds-size_3-of-2" style="margin-left:18px;">
+                                <div><a href={MedicalVerificationForm}>Download</a> and print our Diagnosis Confirmation
+                                    form to be completed and signed<br> by your diagnosing Physician. Once completed, you can
+                                    <lightning-file-upload label="" name="fileUploader" class="slds-button dx-fileupload" accept={acceptedFormats}
+                                     file-field-name="Guest_Record_fileupload__c" file-field-value={accId}
+                                        onuploadfinished={handleUploadFinished} multiple>
+                                    </lightning-file-upload>
+                                    a copy of your<br> medical record or a certified physicians note to our support team.
+                                
+                                </div>
+                                <!-- <div><iframe src={SamplePDFURL} height="100%" width="100%"></iframe>Download</a> and print our Diagnosis Confirmation form to be completed and signed </div> -->
+                            </div>
+                            <!-- <div class="slds-size_3-of-2" style="margin-left:18px;">
+                                <div>by your diagnosing Physician. Once completed, you can</div>
+                            </div> -->
+                            <!-- <div class="slds-size_3-of-2" style="margin-top: -27px;">
+                                <div>
+                                    <lightning-file-upload label="" name="fileUploader" class="slds-button dx-fileupload" accept={acceptedFormats}
+                                     file-field-name="Guest_Record_fileupload__c" file-field-value={accId}
+                                        onuploadfinished={handleUploadFinished} multiple>
+                                    </lightning-file-upload>
+                                </div>
+                            </div> -->
+                            <!-- <div class="slds-size_1-of-1" style="margin-left: 18px;margin-top: -12px;">
+                                <div>a copy of your medical record or a certified physicians note to our support team.
+                                </div>
+                            </div> -->
+                        </div>
+                        <hr>
+                        <div class="slds-text-align_center">
+                            <button class="slds-button slds-button_neutral"
+                                style="background-color: rgb(246 214 0);font-weight: 700;"
+                                onclick={closeModal}>OK</button>
+                        </div>
+                    </div>
+                </div>
+               
+            </section>
+           
+            <!-- <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" >
+                <div class="slds-modal__container" >
+                    <header class="slds-modal__header slds-modal__header_empty" > 
+                       <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" 
+                        title="Close"> 
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </header>
+                     <span style="font-size:20px;margin-bottom:550px;margin-left: 720px;width:580px;" title="Close" onclick={Closepopup} ><b style="margin-bottom:550px;color:lightgray;cursor: POINTER;">X</b></span>
+                </div>
+            </section> -->
+
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+       <!-- End Confirming Your Diagnosis Modal -->
+    </div>
+</template>

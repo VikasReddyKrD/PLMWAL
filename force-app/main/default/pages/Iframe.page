@@ -1,0 +1,5 @@
+<apex:page >
+    
+     <iframe src='https://dev-agentassist.kore.ai/koreagentassist-sdk/UI/'/>
+ 
+</apex:page>

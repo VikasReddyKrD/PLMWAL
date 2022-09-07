@@ -1,0 +1,25 @@
+<template>
+        <lightning-card title="Account PicklistValues">
+            <template if:true={IndustryPicklistValues.data}>
+                <lightning-combobox name="progress"
+                                    label="Industry"
+                                    value={value}
+                                    placeholder="-Select-"
+                                    options={IndustryPicklistValues.data.values}
+                                    onchange={handleChange} >
+                </lightning-combobox>
+          </template><br/>
+          you selected industry: <b>{value}</b><br/><br/>
+          <template if:true={IndustryPicklistValues.data}>
+            Account Type: <br/>
+            <template for:each={TypePicklistValues.data.values} for:item="item">
+                <lightning-input
+                    placeholder="symbol"
+                    key={item.value}
+                    label={item.label}
+                    data-value={item.value}
+                    type="checkbox"></lightning-input>
+            </template>
+        </template>
+        </lightning-card>
+    </template>

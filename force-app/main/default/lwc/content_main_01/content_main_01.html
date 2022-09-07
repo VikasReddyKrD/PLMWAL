@@ -1,0 +1,148 @@
+<template>
+
+    <div class="card-style card m-0">
+        <div class="margin-bottom">
+            <div class="card-header">My forums</div>
+            <div></div>
+        </div>
+        <div>
+            <div class="padding-horizontal">
+                <div class="forum-membership-row">
+                    <div class="columns medium-1 show-for-medium-up medium-reset-order"><span
+                            class="icon icon-blue-chat-bubble"></span></div>
+                    <div class="forum-membership-row-title columns small-12 medium-6 small-push-12 medium-reset-order">
+                        <a href="/forum/covid19"> COVID-19</a>
+                    </div>
+                    <div class="columns medium-10 show-for-medium-up medium-reset-order">&nbsp;</div>
+                    <div class="columns medium-4 show-for-medium-up medium-reset-order">95092 &nbsp; members</div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="slds-box slds-theme_shade">
+        <lightning-button label="Show Modal" onclick={getallQuestions}> </lightning-button>
+    </div>
+    <template if:true={openModal}>
+        <div class="slds-modal slds-fade-in-open slds-backdrop">
+            <div class="slds-modal__container">
+                <!-- HEADER Section-->
+                <div class="slds-modal__header popupheadbg">
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"
+                        variant="bare-inverse" onclick={closeModal} class="slds-modal__close mb-n5">
+                    </lightning-button-icon>
+                    <div class="pb-10p"><strong>ADD A NEW GOAL</strong></div>
+                    <h1 class="line-height-1">Let's figure out what <br /> you want to work on.</h1>
+                    <!-- <h1 class="line-height-1">Here's how your goal <br/> breaks down.</h1> -->
+
+                </div>
+                <!-- Body Section-->
+                <div class="slds-modal__content slds-var-p-around_x-small">
+                    <div class="slds-p-around_medium">
+                    <template for:each={data} for:item="ques">
+                        <c-mdd_goal_question key={ques.IDs}
+                        question={ques.questionText}
+                        is-pick-list={ques.isPicklist}
+                        is-radio={ques.isRadio}
+                        is-searchable={ques.searchable}
+                        label={ques.Label}
+                        selected-value={ques.selectedValue}
+                        show-search-box={ques.showSearchBox}
+                        options={ques.Options}
+                        id={ques.IDs}
+                        onselectoption={handleSelectOptions}
+                        >
+                    </c-mdd_goal_question>
+
+                       <!--
+                        {ques.questionText}
+                        <div key={ques.IDs}>
+                            <template if:true={ques.searchable}>
+                            <lightning-input type="search" name='Option' label="Option :" onclick={handleChange}
+                                onchange={handleChange} data-name={ques.Label} autocomplete="off" value={ques.selectedValue}
+                                placeholder="Select Option" >
+                            </lightning-input>
+                            <template if:true={ques.showSearchBox}>
+                                    <div class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                                        role="listbox">
+                                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                            <template for:each={ques.Options} for:item="record">
+                                                <li key={record.label} onclick={handleOptionSelect}
+                                                    data-id={record.label} data-label={ques.Label} role="presentation"
+                                                    data-name={record.label}>
+                                                    <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                                        role="option">
+                                                        <span
+                                                            class="slds-media__figure slds-listbox__option-icon"></span>
+                                                        <span class="slds-media__body">
+                                                            <span class="slds-truncate">{record.label}</span>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </template>
+                            <template if:true={ques.isPicklist}>
+                                <lightning-combobox
+                                name="Option"
+                                label="Option"
+                                value={ques.selectedValue}
+                                placeholder="Select Option"
+                                options={ques.Options} data-label={ques.Label} data-name={ques.Label}  onchange={handlePickListSelect}
+                                ></lightning-combobox>
+                            </template>
+                                <template if:true={ques.isRadio}>
+                                    <lightning-radio-group name="radioGroup" label="Options" options={ques.Options} class="customRadioCls"
+                                        value={ques.selectedValue} type="radio" variant="label-inline" data-label={ques.Label} data-name={ques.Label}
+                                        onchange={handlePickListSelect}  style="display:inline-block !important"></lightning-radio-group>
+                                </template>
+
+
+                        </div>
+-->
+                    </template>
+                </div>
+                    <!--
+                        <div class="slds-m-around_medium">
+                            <p class="slds-m-vertical_medium content">
+                                     Displaying {startingRecord} to {endingRecord} of {totalRecountCount} records.
+                                     Page {page} of {totalPage}. </p>
+                            <c-paginator onprevious={previousHandler} onnext={nextHandler}></c-paginator>
+                        </div>
+                        -->
+                    <hr class="dash" />
+                </div>
+                <!-- Footer Section-->
+                <div class="slds-modal__footer  text-center">
+                    <div if:true={showNext}>
+                        <div class="slds-p-horizontal_medium">
+                        <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right"
+                            onclick={nextHandler}></lightning-button>
+                            </div>
+                    </div>
+                    <div if:true={showPreviousNext}>
+                        <div class="slds-p-horizontal_medium">
+                        <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}>
+                        </lightning-button>
+                        <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right"
+                            onclick={nextHandler}></lightning-button>
+                        </div>
+                    </div>
+                    <div if:true={showSave}>
+                        <div class="slds-p-horizontal_medium">
+                            <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}>
+                            </lightning-button>
+                            <lightning-button  label="save" variant="brand" onclick={saveGoal}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</template>

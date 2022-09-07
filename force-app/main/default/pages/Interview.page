@@ -1,0 +1,57 @@
+<apex:page >
+    <div>
+        <td colspan="6" style="background-color: #CDCDC8;">
+            <left><h4>Interview Evaluation Form</h4></left></td>
+        <table style="width:100%" border="1px" border-bottom-color="Navy" cellspacing="0">
+            <tr>
+                <th style="text-align:center">Interviewer:</th>
+                <th colspan="2">&nbsp;</th>
+                <th style="text-align:center">Date of Interview:</th>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+            <tr>
+                <th style="text-align:center">Candidate Name:</th>
+                <th colspan="2">&nbsp;</th>
+                <th style="text-align:center">Position:</th>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr >
+                <td colspan="6" style="background-color: #CDCDC8;">
+                    <p>
+                        Interview evaluation forms are to be completed by the interviewer to rank the candidate's
+                        qualification for the position for which they have applied. under each heading. Under the
+                        interviewer should give the candidate a anumerical rating and write specifice job-related commentsin the space
+                        provided. The numerical rating system is based on the scale below.
+                    </p>
+                </td>                
+            </tr>            
+            <tr>
+                <th style="text-align:center">Scale:</th>
+                <td style="text-align:center"><b>5</b>-Exceptional</td>
+                <td style="text-align:center"><b>4</b>-Above Average</td>
+                <td style="text-align:center" ><b>3</b>-Average</td>
+                <td style="text-align:center"><b>2</b>-Satisfactory</td>
+                <td style="text-align:center"><b>1</b>-UnSatisfactory</td><br/>                
+            </tr>
+            <tr>
+                <td colspan="5" rowspan="2">&nbsp;</td>
+                <td style="text-align:center"><b>Rating</b></td>
+            </tr>
+            <tr>
+                <td colspan="5" cellspacing="0">
+                    
+                    <table style="width:100%" cellspacing="0" border="0px solid black" border-top-bottom="0" >
+                        
+                        <th >5</th>
+                        <th>4</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>1</th>
+                        
+                
+                    
+                    </table></td>
+            </tr>    
+            </table>
+        </div>
+    </apex:page>

@@ -1,0 +1,15 @@
+.slds-modal__container{
+  left:50%;
+  top:50%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: 30px 30px 30px;
+  transform:translate(-50%, -50%);
+  
+ }
+ .slds-modal__container {
+  margin: 0!important;
+}
+ .slds-modal__header {
+  position: none !important;
+}

@@ -1,0 +1,148 @@
+<template>
+    <lightning-record-form object-api-name="FeedBackForm__c">
+    <div class="slds-p-around_xx-large">
+    <table border="1">
+    <tr><th><lightning-input type="text" label="Interviewer__c:"></lightning-input></th>
+    <th><lightning-input type="Date" label="Date_Of_Interview__c:"></lightning-input></th>
+    </tr>
+    <tr>
+    <th><lightning-input type="text" label="Candidate_Name__c:"></lightning-input></th>
+    <th><lightning-input type="text" label="Position__c:"></lightning-input></th>
+    </tr>
+    
+    </table>
+  
+    <p>Interview evaluation forms are to be completed by the interview to rank the candidate's overall qualifiaction for the
+    position for which they have applied.under each heading, the interviewer should give the candidate a numerical rating
+    and write specific job-related comments in the space provided. the numerical rating system is based on the scale below.
+    </p>
+   
+    <table border="1">
+    <tr>
+    <th class="slds-text-align_center">Scale:</th>
+    <td class="slds-text-align_center"><b>5</b>-Exceptional</td>
+    <td class="slds-text-align_center"><b>4</b>-Above Average</td>
+    <td class="slds-text-align_center"><b>3</b>-Average</td>
+    <td class="slds-text-align_center"><b>2</b>-Satisfactory</td>
+    <td class="slds-text-align_center"><b>1</b>-Unsatisfactory</td>
+    </tr>
+    <tr>
+        <td colspan="5" rowspan="2"></td>
+        <td class="slds-text-align_center">Rating</td>
+    </tr>
+    <tr>
+    <td colspan="5" cellspacing="0">
+                    
+        <table style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1" >
+            <tr>
+                 <th>5</th>
+                  <th>4</th>
+                  <th>3</th>
+                   <th >2</th>
+                    <th >1</th>
+           </tr>
+    
+        
+        </table>
+    </td>
+
+ </tr> 
+ <tr>
+    <td colspan="5">
+        <b >Configurations</b> Does the candidate have the appropriate educational qualification or training for this position?<br/>
+        <b><lightning-input type="text" label="Comments:"></lightning-input></b>
+    </td>
+    <td>
+        <table  style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1">
+            <tr>
+                <th class="slds-text-align_center"><input type="radio" name="rating1" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating1" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating1"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating1"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating1"/></th> 
+            </tr>
+              
+        </table>
+    </td>
+ </tr>   
+ <tr>
+    <td colspan="5">
+        <b > Prior Work Experience-</b> Has the candidate acquried similar skills or qualifications through past work experience?<br/>
+        <b><lightning-input type="text" label="Comments:"></lightning-input></b>
+    </td>
+    <td>
+        <table  style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1">
+            <tr>
+                <th class="slds-text-align_center"><input type="radio" name="rating2" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating2" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating2"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating2"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating2"/></th>
+            </tr>
+              
+        </table>
+    </td>
+ </tr>  
+ <tr>
+    <td colspan="5">
+        <b > Technical Qualification/Experience-</b>Dose the candidate have the technical skills necessary for this position?<br/>
+        <b><lightning-input type="text" label="Comments:"></lightning-input></b>
+    </td>
+    <td>
+        <table  style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1">
+            <tr>
+                <th class="slds-text-align_center"><input type="radio" name="rating3" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating3" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating3"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating3"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating3"/></th>
+            </tr>
+              
+        </table>
+    </td>
+ </tr>            
+ <tr>
+    <td colspan="5">
+        <b > Verbal Communication-</b>How wee the candidate communication skils during the interview?<br/>
+        <b><lightning-input type="text" label="Comments:"></lightning-input></b>
+    </td>
+    <td>
+        <table  style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1">
+            <tr>
+                <th class="slds-text-align_center"><input type="radio" name="rating4" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating4" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating4"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating4"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating4"/></th>
+            </tr>
+              
+        </table>
+    </td>
+ </tr>            
+ <tr>
+    <td colspan="5">
+        <b > Candidate Intrest-</b>How much intrest did the candidate show in the position and the organisation?<br/>
+        <b><lightning-input type="text" label="Comments:"></lightning-input></b>
+    </td>
+    <td>
+        <table  style="width:100%" cellspacing="0" border="1px solid black" border-top-bottom="1">
+            <tr>
+                <th class="slds-text-align_center"><input type="radio" name="rating5" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating5" /></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating5"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating5"/></th> 
+                <th class="slds-text-align_center"><input type="radio" name="rating5"/></th>
+            </tr>
+              
+        </table>
+    </td>
+ </tr>                    
+    </table>
+    <table>
+        <tr>
+            <th class="slds-text-align_center"><input type="button" name="submit" /></th> 
+        </tr>
+    </table>
+</div>
+</lightning-record-form>
+    </template>

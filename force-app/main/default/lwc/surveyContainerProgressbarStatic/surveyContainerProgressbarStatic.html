@@ -1,0 +1,22 @@
+<template>
+    <div class="dx-surveycontainer_base">
+        <!-- <div class="slds-grid slds-wrap slds-gutters">
+           <div class="slds-col slds-size--12-of-12 slds-medium-size--2-of-12 slds-large-size--2-of-12"><h5 class="mv-10p fs-12 font-weight-bold text-uppercase"> {surveyName}</h5></div>
+           <div class="slds-col slds-size--12-of-12 slds-medium-size--10-of-12 slds-large-size--10-of-12">
+                <h5 class="mv-10p fs-12 text-uppercase float-left" style="width:150px;">{surveyName} Progress:</h5>
+                <div class="d-inline-block mv-10p" style="width:calc(100% - 80px);">
+                    <lightning-progress-bar value={curentStatus} size="large" variant="circular"></lightning-progress-bar>
+                   
+                </div>
+            </div>
+        </div> -->
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-8">
+                <h5 class="mv-10p fs-12 text-uppercase float-left" style="width:150px;">{surveyName} Progress:</h5>
+            </div>
+            <div class="slds-col slds-size_6-of-8" style="margin-top: 10px;">
+                <lightning-progress-bar value={progress} size="large" variant="circular"></lightning-progress-bar>
+            </div>
+          </div> 
+    </div>
+</template>

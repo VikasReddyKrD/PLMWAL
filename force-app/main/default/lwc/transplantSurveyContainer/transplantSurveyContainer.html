@@ -1,0 +1,75 @@
+<template>
+	<div>
+		<template if:true={isLoading}>
+
+			<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+			</lightning-spinner>
+		</template>
+	</div>
+	<div class="dx-surveycontainer_base">
+		<template if:true={questionList}>
+
+			<div class="fs-26">
+				<b>{question.Section_Name__c}</b>
+			</div>
+			<div class="fs-18">
+				{question.Transition_Message__c}
+			</div><br/>
+			<div class="slds-col slds-size_11-of-12">
+				<b>Webinar</b>
+				<c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+			</div><br/> 
+            <template if:true={isQnoDisplay}>
+				<div class="fs-10">
+					Question #{question.Order__c} of {totalNoofQuestions}
+				</div>
+			</template>
+					
+			<!-- <div class="slds-grid slds-grid_vertical">
+				<div class="slds-col">
+				
+					
+							<div style="overflow: visible" class="slds-grid slds-wrap" key={survey.questions.Id}>
+								<article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+									style="padding-right:30px;" key={survey.questions.Id}>
+									
+									<c-transplant-survey-question question={question} checkboxvalue={checkboxValue} surveyanswer={surveyanswer}
+				                     otherexistinganswer={otherexistinganswer} ontolastpage={navigateEndScreen}
+				                    onvalidation={validationForModalPopup}></c-transplant-survey-question>
+								</article>
+							</div>
+							<hr class="dash mt-10p mb-10p" style="margin-top:10px;" key={survey.questions.Id} />
+					
+				</div>
+	
+				</div> -->
+							
+
+			<!-- <h2 class="fs-26 mt-10p">Is this a question for the participant to answer?</h2> -->
+			<c-transplant-survey-question question={question} checkboxvalue={checkboxValue} surveyanswer={surveyanswer}
+				otherexistinganswer={otherexistinganswer} ontolastpage={navigateEndScreen}
+				onvalidation={validationForModalPopup}></c-transplant-survey-question> 
+			<hr class="solid mb-30p mt-20p" />
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+					<lightning-button label="Save and continue later" title="Non-primary action"
+						onclick={handleContinue} class="btn_capsule slds-m-left_x-small"></lightning-button>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+					<lightning-button label="Next" title="primary action" onclick={handleNext} variant="brand"
+						class="btn_capsule mr-1" style="float:right;"></lightning-button>
+					<template if:true={flagForBack}>
+						<lightning-button label="Back" title="primary action" class="btn_capsule mr-3"
+							style="float:right;" onclick={previousQuestion}></lightning-button>
+					</template>
+				</div>
+			</div>
+
+		</template>
+		<template if:true={error}>
+			<c-mdd-error-panel errors={error}></c-mdd-error-panel>
+		</template>
+
+	</div>
+
+</template>

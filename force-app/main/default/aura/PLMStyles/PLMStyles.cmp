@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <ltng:require styles="{!$Resource.fontsplmcrt + '/fonts_type.css'}" />
+    <ltng:require styles="{!$Resource.icons_svg}" />
+    <ltng:require styles="{!$Resource.appstyles + '/appstyles.css'}" />
+</aura:component>

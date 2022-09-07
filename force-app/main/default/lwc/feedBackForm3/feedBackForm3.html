@@ -1,0 +1,120 @@
+<template>
+    <lightning-card>
+        <div class="slds-text-align_center" style="color:cornflowerblue">NewgenIT</div>
+
+        <div class="slds-text-align_right" style="color:cornflowerblue">Delivering commitment </div>
+         <p><b>Customer Service Feedback Form</b></p></br>
+        <p><b>Thank you for your association with NewGen IT.  We value all of our customers and strive to meet everyone's needs.</b></p>
+        <table border="1">
+            <tr>
+                <td> <lightning-input type="text" label="PO Ref.: " onchange={handlePOREFChange}></lightning-input></td>
+                <td>  <lightning-input type="Date" label="Delivery Date: "  onchange={handleDELDATEChange}></lightning-input></td>
+            </tr>
+            <tr> <td colspan="2" class="slds-text-align_left" ><lightning-input type="text" label="Customer Name:" onchange={handleNameChange} ></lightning-input></td></tr>
+            <tr> <td colspan="2" class="slds-text-align_left" ><lightning-input type="number" label="Customer SPOC:" onchange={handleSPOCChange}></lightning-input></td></tr>
+            <tr> <td colspan="2" class="slds-text-align_left" ><lightning-input type="text" label="Mode of Delivery:" onchange={handleDELIVERChange}></lightning-input></td></tr>
+            <tr> <td colspan="2" class="slds-text-align_left" ><lightning-input type="text" label="Delivery Address: " onchange={handleADDRESSChange}></lightning-input></td></tr>
+            <tr> <td colspan="2" class="slds-text-align_left" ><lightning-input type="text" label="Delivered items description:" onchange={handleITEMChange}></lightning-input></td></tr>
+        </table></br>
+        <div class="slds-text-align_left" style="color:cornflowerblue"><b>Please take a moment to fill out this feedback form.</b></div>
+       </br>
+    
+
+
+            <table border="1">
+               
+                <template for:each={feedbackdata} for:item="fb">
+                    <tr key={fb.Id}>
+                        <!-- <div class="slds-grid slds-gutters" key={fb.Id}>
+            <div class="slds-col slds-size_10-of-12">
+                {fb.Question__c}
+                <p style="text-align: left;" key={fb.Id}>
+                <b>Comments:</b>
+                <lightning-textarea name="input1" data-id={fb.Question__c}  onchange={handlecomments}></lightning-textarea>
+                </p>
+            </div>
+            <div class="slds-col slds-size_1-of-12">
+             
+                  </div>
+        </div></tr> -->
+                        <td key={fb.Id} colspan="5">
+                            {fb.Question__c}
+                            <p style="width:100%" key={fb.Id} cellspacing="2" border="1px solid black"
+                                border-top-bottom="1">
+            
+                                <lightning-textarea name="input1" data-name = {fb.Id} data-id={fb.Question__c} onchange={handlecomments}>
+                                </lightning-textarea>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                </template></tr>
+               
+                
+            </table>
+            <p><b>Contact us:</b>Please write to <lightning-formatted-url value="ops@newgenIt.com" tooltip="Use https://domain-name" label="ops@newgenIt.com" target="_blank" ></lightning-formatted-url> if you have any suggestion or complaint.</p>
+            <hr/>
+               <table>
+                <tr> 
+                    <td>Office Locations:</td>
+                    <th>Singapore :</th>
+                    <td></td>
+                    <th>Australia :</th>
+                    <td></td>
+                    <th>United Arab Emirates :</th>
+                   
+                </tr>
+                <tr>
+                    <td></td>
+                    
+                    <td>
+                        30 Cecil street</br>
+                        Singapore 049712
+                    </td>
+                    <td></td>
+    
+                    <td>
+                        Level 7 Suite</br>
+                        #19-08 Prudential tower343Litlte Collins Street</br>
+                        Melbourne, VIC 3000, Australia.
+                    </td>
+                    <td></td>
+                    
+                    <td>
+                        No. 312-321 3rd Floor </br>
+                        Hamsa Building, Ansar- </br>
+                        Gallery, Dubai </br>
+                        United Arab Emirates
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <th> Hong Kong:</th>
+                    <td></td>
+                    <th>India:</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        Flat No. 9, 12 /F flat</br>
+                        Indl. Bldg.13 Kin Fat </br>
+                        ST Tuen Mun NT</br>
+                        Hong Kong
+                    </td>
+                    <td></td>
+                    <td>
+                        Lohia Tower</br>
+                        Khasra No. 405,2nd Floor</br>
+                        Ghitorni,New Delhi-110030
+                    </td>
+                </tr>
+            </table>  
+        
+    
+        <div class="slds-align_absolute-center">
+            <button type="button" class="slds-button slds-button_neutral">Cancel</button>
+            <button type="button" class="slds-button slds-button_brand" onclick={SaveMDT}>Save</button>
+        </div>
+    </lightning-card>
+
+</template>

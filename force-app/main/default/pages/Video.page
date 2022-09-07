@@ -1,0 +1,14 @@
+<apex:page >
+    <body style="background-color:whitesmoke;font-size:25px"> 
+        <hr size="4" width="100%" color="purple"/>
+        
+        <h1><b>Rules of SFDC99</b></h1><br/>  
+        <hr/>
+        <p style="color:red;">
+            The 1st rule of SFDC99 is: you donot talk about SFDC99<br/>
+            The 2nd rule of SFDC99 is: you donot talk about SFDC99<br/>
+            The 3rd rule of SFDC99 is: no one ever gives up<br/></p>
+        
+        <iframe width="500" height="300" src="//www.youtube.com/embed/XMolhVo1IZE?autoplay=1&cc_load_policy=1" frameborder="0"></iframe>
+    </body>
+</apex:page>

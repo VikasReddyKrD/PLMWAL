@@ -1,0 +1,34 @@
+<template>
+    <center>
+		<h5 class="w800 text-normalcase fs-26 mb-10p" style="font-size: 1.50rem;">First,we need your consent to import your health data into your PatientsLikeMe account</h5>
+	</center>  
+    <div class="slds-col">
+        <h5 class="w800 text-normalcase fs-26 mb-10p">PatientsLikeMe(PLM) can link your health data from your care providers and connected health devices/apps.Having your health data in one place will provide insights that can help improve your health.it will also automate and personalize many PLM features for you.You decide how and with whom you'd like to share your data.</h5>
+        <div style="padding-bottom:20px;">
+        </div>
+    </div>
+    <h5 class="w800 text-normalcase fs-26 mb-10p" style="font-size: 1.50rem;">Frequently asked questions</h5>
+   
+ <lightning-icon icon-name="utility:right" a href="#" class="slds-text-link_reset"><span class="slds-text-link">How is this information used?</span></a><br></lightning-icon>
+<a href="#" class="slds-text-link_reset"><span class="slds-text-link">What do i need to know?</span></a><br>
+<a href="#" class="slds-text-link_reset"><span class="slds-text-link">Who will have access tomy information?</span></a><br>
+<a href="#" class="slds-text-link_reset"><span class="slds-text-link">What happens if i no longer want my data on PLM?</span></a><br>
+<a href="#" class="slds-text-link_reset"><span class="slds-text-link">Is my information safe?</span></a><br>
+
+<div> 
+      <h5 class="w800 text-normalcase fs-26 mb-10p">Consent</h5> 
+      <lightning-input type="checkbox"
+    label="I agree to import my health information into PatientsLikeMe.com,acknowledging how it will be used and that i can manage how it will be shared."
+     href="#" class="slds-text-link_reset"><span class="slds-text-link">PatientsLikeMe.com Privacy Policy</span>
+        onchange={checkboxValidator}></lightning-input> 
+</div>
+</br>
+<hr class="solid mb-30p mt-20p">
+	<div>
+		<lightning-button label="Cancel" class="btn_capsule fs-16" title="primary action" onclick={handleCancel}
+			style="background-color:white;border:white;color:black"></lightning-button>
+		&nbsp;&nbsp;
+		<lightning-button label="continue" data-accept="ok" title="primary action" onclick={handleNext}
+			variant="" disabled={disable} class={buttoncolor} style="float:right;"></lightning-button>
+    </div>
+</template>

@@ -1,0 +1,72 @@
+<template>
+	<template if:false={isSpinner}>
+		<div>
+			<p> If you’re unable to finish linking your electronic health records this will remain open for the next 72
+				hours for you to come back and complete it.</p>
+			<p>It is important for the study to link as many of your health care providers as possible and there is help
+				on
+				the web platform if you
+				need assistance or wish to request a provider added (see below).</p>
+			<p><strong>We recommend you have the following information readily available to connect your medical
+					records.</strong>
+			</p>
+		</div>
+		<hr class="dash mt-2p mb-2p" />
+		<br />
+		<div>
+			<!-- <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved"></lightning-icon> -->
+			<p><span style="color: #13C6AE; font-size:x-medium;">✔</span><strong style="padding-left: 4px;">Provider
+					Name(s)</strong></p>
+
+			<p>You will need to select your provider from the list of providers displayed. If you do not see your
+				provider
+				displayed, enter their name or their ZIP code into the search bar to help you find your provider. If you
+				still do not see your provider, please click ‘Request My Provider’ and just follow the instructions on
+				the
+				next screen.</p>
+			<p>Note: Providers include all hospitals, clinics, and/or medical groups (partnership of
+				physicians) that have your medical records. (e.g. The University of Texas MD Anderson Cancer Center,
+				Riverside Community Hospital, and Akron General Partners Physician Group)</p>
+			<img src={alpha_bulb}><strong>Tip: </strong>Make sure to have a list of your providers ready.</p>
+			<hr class="dash mt-2p mb-2p" /><br />
+			<p><span style="color: #13C6AE; font-size:x-medium">✔</span><strong style="padding-left: 4px;">Patient
+					Portal
+					Login Credentials</strong></p>
+			<p>You will need your login credentials (username and password) for all your providers’ patient portals to
+				sign
+				in and connect your medical records.</p>
+			<p>Note: A patient portal is a secure online website where you can view and access your
+				health information from your provider with a username and password.(e.g. <a
+					href="https://mychart.martinhealth.org/mychart/Authentication/Login">https://mychart.martinhealth.org/mychart/Authentication/Login</a>)
+				you do not have access to
+				your providers’ patient portals, contact your providers directly.</p>
+			<img src={alpha_bulb}><strong> Tip: </strong>Make sure to have your usernames and passwords for all your
+			online
+			provider portals ready.<br /><br />
+			<hr class="dash mt-2p mb-2p" />
+			<br />
+		</div>
+		<div>
+			<p><strong>If you need assistance, you can chat directly with our support team at any time during your
+					journey.
+					Just select the live chat button located bottom right of the next screen.</strong>
+			</p>
+
+		</div>
+		<div class="slds-float_left">
+			<lightning-button label="Exit" title="primary action" onclick={thankyouScreen}
+				class="btn_capsule slds-m-left_x-small"></lightning-button>
+		</div>
+		<div class="slds-float_right ">
+			<lightning-button label="Continue" variant="brand" title="Non-primary action" onclick={handleContinue}
+				class="btn_capsule slds-m-left_x-small float:right"></lightning-button>
+		</div>
+	</template>
+	<template if:true={isSpinner}>
+		<div>
+			<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+		</div>
+	</template>
+
+
+</template>

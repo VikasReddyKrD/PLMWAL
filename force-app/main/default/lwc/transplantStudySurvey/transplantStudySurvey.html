@@ -1,0 +1,94 @@
+<template>
+    <hr class="dash mt-10p mb-10p"/>
+    <!-- <div class="slds-col slds-size_11-of-12">
+			<b>Survey</b>
+			 <c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static> 
+		</div><br/> -->
+    <div>
+        <p style="font-size: 26px;"><b>Welcome to the post-transplant Experience Study: </b>
+        Patient and Care Partner Experience with post-transplant Effects on Quality of Life, CMV Symptom Management and Clinical Outcomes in
+        SOT or HSCT Patients survey! We are excited to hear about your transplant journey and learn
+        from your experience.</p>
+                <p  style="font-size:18px;"><b>Lets get started!</b></p>
+    </div>
+    <hr class="dash mt-10p mb-10p"/>
+    <div>
+        <lightning-radio-group name="radioGroup"
+        label="SELECT ONE OF THE FOLLOWING:"
+        options={options}
+        value={selectedValue}
+        type="radio" onchange={handleChange}></lightning-radio-group>
+    </div>
+    <hr class="solid mb-30p mt-20p">
+	<div>
+		<lightning-button label="Exit"  onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+        <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;" onclick={navigateToSurvey}
+		variant="brand"></lightning-button>
+		<lightning-button label="Cancel"  onclick={handleCancel} class="btn_capsule slds-float_right" style="margin-right: 25px;"></lightning-button>
+	</div>
+    <template if:true={isShowModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button" style="float:right;" onclick={hideModalBox}
+                        title="Close">X</button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+                </header>
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                   <center> <p>Are you sure you want to exit?</p></center>
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+                    <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                </footer>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+   
+
+
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+
+
+ <template if:true={isModalOpen}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+
+                <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Confirmation Details?</h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                <center><p>Thank you for your interest in the post-transplant Experience Study.</br>
+                    Unfortunately, your responses indicate that you are ineligible to continue in this study.
+                    To ensure that we only invite you to the studies that are the right fit for you, we ask that you please update your PatientsLikeMe profile. This will help us identify research opportunities that fit your experiences. We hope to continue to see you in our community.
+                    Thank you for your time!</p></center>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+
+<!--                     <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+ -->
+              <!-- <template if:true={displayExitbtn}> -->
+                <!-- <lightning-button label="Back"  onclick={handleBack} class="slds-button slds-button_brand"></lightning-button> -->
+                <button class="slds-button slds-button_brand" onclick={handleBack} title="Back">Back</button>    
+                <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                <!-- </template> -->
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+</template>

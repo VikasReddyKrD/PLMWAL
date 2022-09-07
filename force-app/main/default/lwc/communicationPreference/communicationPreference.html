@@ -1,0 +1,388 @@
+<template>
+   
+	<!-- <template if:true={islandingpage}> -->
+
+	<!---  <template if:false={studyConsentId.Existing_Record__c}>
+       
+        <c-study-consent-progress-bar selected-step="1"></c-study-consent-progress-bar>
+        <hr class="dash mt-30p mb-20p" /> -->
+
+	<!--studyconsent form screen1-->
+    <!-- <div style="text-align: right">IRB APPROVED</div>
+	<div style="text-align: right">Dec 09, 2021</div> -->
+	<center>
+		<h5 class="w800 text-normalcase fs-26 mb-10p" style="font-size: 1.50rem;">{label.Contentcentre}</h5>
+	</center>
+	<!-- <h5 class="w800 text-normalcase fs-26 mb-10p">{label.CONTENTHEADER1}</h5> -->
+	<!-- <div>{label.CONTENTHEADER2}</div> -->
+    <div style="text-align: center;">For more information about the study, please read this consent document carefully and in full.</div>
+	<hr class="solid mb-30p mt-20p"> 
+	<!-- style="overflow-y: scroll; height:200px;" -->
+	<div class="slds-theme_default">
+		<div class="slds-grid slds-grid_vertical scroll" style="size:30px;height:200px">
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.TITLE}</b>
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.Title_of_Study__c} -->
+					{label.TITLECONTENT}
+				</div>
+			</div>
+
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.PROTOCOLNO}</b>
+
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.PROTOCOL_NO__c} -->
+					{label.ProtocolDetails}
+				</div>
+			</div>
+
+
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.SPONSOR}</b>
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.Collaborator__c} -->
+					{label.SPONSORDETAILS}
+				</div>
+			</div>
+
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.Investigator}</b>
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.Investigator__c} -->
+					{label.InvestigatorDetails}
+				</div>
+			</div>
+
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.SRPhoneNumber}</b>
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.Phone_Number__c} -->
+					{label.SRNumber}
+				</div>
+			</div>
+			<div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+				<div class="slds-col slds-size_1-of-3">
+					<b>{label.COLLABORATOR}</b>
+				</div>
+				<div class="slds-col slds-size_2-of-3">
+					<!-- {studyConsentId.Collaborator__c} -->
+					{label.COLLABORATORDETAILS}
+				</div>
+			</div>
+			<br/>
+			<div class="slds-col">
+				<h5 class="w800 text-normalcase fs-26 mb-10p">{label.ComQue1}</h5>
+				<div style="padding-bottom:20px;">
+					<ul style="list-style-type:disc;">
+						<li>{label.comque11}</li>
+						<li>{label.conQue12}</li>
+						<li>{label.conque13}</li>
+						<li>{label.comQue14}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="slds-col">
+				<h5 class="w800 text-normalcase fs-26 mb-10p">{label.Study}</h5>
+				<div style="padding-bottom:20px;">
+			<ul style="list-style-type:disc;">
+                   <li>{label.Study1}</li>
+            </ul>
+				</div>
+			</div>
+			<div class="slds-col">
+				<h5 class="w800 text-normalcase fs-26 mb-10p">{label.INStudy}</h5>
+				<div style="padding-bottom:20px;">
+			<ul style="list-style-type:disc;">
+                   <li>{label.INStudy1}</li>
+			<ul style="list-style-type:circle;">
+                   <li>{label.INStudy2}</li>
+				   <li>{label.INStudy3}</li>
+				   <li>{label.INStudy4}</li>
+				   <li>{label.INStudy5}</li>
+            </ul>
+			</ul>
+				</div>
+			</div>
+            <div class="slds-col">
+				<h5 class="w800 text-normalcase fs-26 mb-10p">{label.Participating}</h5>
+				<div style="padding-bottom:20px;">
+			<ul style="list-style-type:disc;">
+                   <li>{label.Participating1}</li>
+            </ul>
+				</div>
+			</div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">What will happen during this study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>Participants without existing accounts on PatientsLikeMe.com will be asked to register
+                       for an account on PatientsLikeMe (PLM) with the help of the study coordinator. To
+                       register successfully, participants will be asked to review and accept PLM's Terms of Use
+                       Agreement and Privacy Policy.</li>
+				   <li>During this study, you will be asked to complete of three surveys about your experiences
+                       with MDD and medication satisfaction split into two parts each for your convenience,
+                       where data will be collected as follows: survey1 (baseline and week 1), survey 2 (week
+                       12 and week 13) and survey 3 (week 23 and week 24)</li>
+				   <li>Each survey will take approximately 30-45 minutes to complete and does not need to be
+                       completed all at once - This means that you can exit the survey and come back at a later
+                       time to complete it, up until the survey close date.
+                   </li>
+				   <li>By the 6th week of study enrollment, you will be asked to confirm your MDD diagnosis
+                       and current treatment by: </li>
+					   <ul style="list-style-type:circle;">
+                   <li>providing consent import your electronic medical records to your PLM profile; or</li>
+				   <li>by uploading physical medical records or documentation from a provider that
+                       shows an MDD diagnosis and current antidepressant medication (i.e., doctor visit
+                       summary, prescription note, a note from their physician confirming their MDD
+                       diagnosis); or</li>
+				   <li>By downloading, completing, and uploading a diagnosis confirmation form</li>
+            </ul>
+                   <li>In addition to the surveys, you will be asked to set goals at baseline and at 12 weeks and
+                       to track your goals weekly on the PatientsLikeMe.com goal attainment platform. Your
+                       depression severity will be assessed every 6 weeks as well.</li>
+				   <li>You will be sent periodic reminders to complete the survey. These reminders will stop
+                       when you:</li>
+					   <ul style="list-style-type:circle;">
+                   <li>complete the survey; or</li>
+				   <li>the survey closes; or</li>
+				   <li>if you tell us you do not want to participate in this study.
+                 </li>
+            </ul>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">What are the potential risks of being in the study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>We believe there are no more than minimal risks associated with this research study.
+                       However, you may feel uncomfortable answering some of the questions presented to you
+                       in this study. Your participation is voluntary, you may stop answering questions at any
+                       time, and you may withdraw your participation at any time. Your decision to not
+                       participate or to stop participating will not result in any penalty or loss of benefits to
+                       which you are otherwise entitled.</li>
+					   <ul style="list-style-type:circle;">
+						   <li>PatientsLikeMe is not a care provider in the normal course of its business, or as
+                               part of this study and should not be viewed as a substitute for a medical
+                               professional. Your responses and activity on the PatientsLikeMe platform will not
+                               be monitored in real time.</li>
+						   <li>You should contact your doctor directly if you have any thoughts of self-harm or
+                               concerns regarding your health, or call 911 in an emergency situation.</li>
+						   <li>Information from the study or PatientsLikeMe does not replace any care,
+                               appointments, or communications you have with your doctor and/or health care
+                               providers.</li>
+					   </ul>
+				   <li>We will minimize the risks of your being identified outside of PatientsLikeMe by sharing
+                       only de-identified information with our partner and study collaborator (Takeda
+                       Pharmaceuticals).</li>
+				   <li>As with any online activity, the risk of a data breach is always possible.</li>
+				   <ul style="list-style-type:circle;">
+					   <li>PatientsLikeMe takes commercially reasonable technical precautions to help keep
+                           your data secure and confidential.</li>
+				   </ul>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">What are the possible benefits from being in this study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>There is no direct benefit to you. By taking part in the study, you may help inform future
+                       MDD treatments and identify unmet needs.</li>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Will it cost me anything to be in this study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>There is no cost to you to take part in this study.</li>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Will I be paid for being in this study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>You will be compensated based on your level of participation in this study. You will
+                       receive the following amounts</li>
+				   <li>For participation up to 6 weeks, you will receive a $50 gift card</li>
+				   <li>For confirming your MDD diagnosis by week 6, you will receive a $50 gift card</li>
+				   <ul style="list-style-type:circle;">
+					   <li>If you are not able to confirm your diagnosis by week 6, you will be discontinued
+                           from the study</li>
+				   </ul>
+				   <li>For participation up to 13 weeks, you will receive a $75 gift card</li>
+				   <li>For participation up to 18 weeks, you will receive a $50 gift card</li>
+				   <li>For participation up to 24 weeks, you will receive a $75 gift card</li>
+				   <li>Participating for the full length of 24 weeks of the study means you are eligible to receive
+                      a total of $300 ($50 for participating the initial 6 weeks, $50 for confirming diagnosis,
+                      $75 for participating the initial 12 weeks, $50 for participating the initial 18 weeks, and
+                      $75 for participating the full 24 weeks).</li>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Do I have to be in this study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>Your participation in this study is completely voluntary. You can withdraw at any time
+                       before the study closes. Until data analysis starts (at Week 12 of your participation), you
+                       can elect to have your data removed from the study and that data will be deleted. If
+                       you explicitly withdraw from the study before your Week 12, but do not specify whether
+                       your data should be deleted, PLM will ask your permission to keep and use your data. No
+                       additional data will be collected from you by the study after withdrawal. If you don’t explicitly 
+					   withdraw from the study but fail to complete study activities, PLM will use the
+                       data that was collected during your study participation.</li>
+				   <li>If at any point you decide you no longer wish to participate, your experience will not be
+                       impacted in the PatientsLikeMe community.</li>
+				   <li>The Principal Investigator or the WCG IRB, our independent review board also can stop
+                       your participation at any time. WCG IRB is an ethics board that reviews and approves
+                       research studies in order to protect the rights of the participants.</li>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Who will have access to my study and/or medical information?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>Research staff at PatientsLikeMe and Takeda will use data from the survey to analyze
+                       results.</li>
+				   <li>If we publish the results of the research, we will include only aggregated, de-identified
+                       information.57-663-7576</li>
+				   <li>Your name or other identifiable information will not be included in the final report to
+                       Takeda or in any publications or presentations that come from this research. Additionally,
+                       a final analytic dataset with no individual identifying information (deidentified) will be
+                       shared with the study collaborator Takeda for future analytic use.</li>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Whom do I contact if I have questions about the study?</h5>
+                <div style="padding-bottom:20px;">
+            <ul style="list-style-type:disc;">
+                   <li>Dr. Mary C. Burke is the Principal Investigator (PI) on this study. For questions,
+                       concerns, complaints or more information about this research, or if you think you have
+                       been hurt by the research, or to obtain a copy of this Informed Consent Form, you may
+                       contact the PI at <a href="https://mail.google.com/mail/?view=cm&fs=1&to=researchstudy001@patientslikeme.com" target="_blank">researchstudy001@patientslikeme.com </a> 
+				        or at 857-663-7576</li>
+				   <li>This research is being overseen by WCG IRB. An IRB is a group of people who perform
+                       independent review of research studies. You may talk to them at 855-818-2289 or <a href="https://mail.google.com/mail/?view=cm&fs=1&to=researchquestions@wcgirb.com" target="_blank"> researchquestions@wcgirb.com</a> if:</li>
+					 <ul style="list-style-type:circle;">  
+				   <li>You have questions, concerns, or complaints that are not being answered by the
+                       research team.</li>
+				   <li>You are not getting answers from the research team.</li>
+				   <li>You cannot reach the research team.</li>
+				   <li>You want to talk to someone else about the research.</li>
+				    <li>You have questions about your rights as a research subject.</li>
+					 </ul>
+            </ul>
+                </div>
+            </div>
+			<div class="slds-col">
+				<div style="padding-bottom:20px;">
+					By clicking “Accept and Continue” below, you are indicating that you are at least 18 years old,
+                    have read and understood this research subject informed consent form, and consent to participate
+                    in this research study. If you do not wish to consent to participating in this study, click "Decline"
+                    or simply close your browser.
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<hr class="solid mb-30p mt-20p">
+	<h5 class="w800 text-capitalize fs-26 mb-10p">{label.CONTENTHEADER5}</h5>
+
+
+	<div> 
+		  <h5 class="w800 text-normalcase fs-26 mb-10p">Communication Preference (Optional)</h5> 
+		  <lightning-input type="checkbox" label="I would like to recieve study communications via my mobile number."
+			onchange={onCommunicationPreferenceHandle}></lightning-input> 
+		<!--   <input type="number" placeholder="(123) 456 - 7890" style="width:180px" class="slds-input" 
+   size="40" name="phone3" pattern="[0-9]{10}" maxlength="10" /> -->
+		<lightning-input type="number" name="input1" disabled={checkDisable} placeholder="(123) 456 - 7890" maxlength="10"
+			style="width:180px;margin-bottom:20px;margin-top:-20px;margin-left:24px;" pattern="[0-9]{10}"
+			message-when-bad-input="Invalid Phone Number" onkeypress={keyPressHandler}> 
+		</lightning-input>
+	</div>
+	<div> 
+		  <h5 class="w800 text-normalcase fs-26 mb-10p">Consent</h5> 
+		  <lightning-input type="checkbox"
+			label="I am atleast 18 years old, Have read and understood this research subject informed consent form, and consent to participate in this research study."
+			onchange={checkboxValidator}></lightning-input> 
+	</div>
+
+	</br>
+	<!--studyconsent form screen1 end-->
+
+	<hr class="solid mb-30p mt-20p">
+	<div>
+		<lightning-button label="Cancel" class="btn_capsule fs-16" title="primary action" onclick={handleCancel}
+			style="background-color:white;border:white;color:black"></lightning-button>
+		&nbsp;&nbsp;
+		<lightning-button label="Accept and continue" data-accept="ok" title="primary action" onclick={handleNext}
+			variant="" disabled={disable} class={buttoncolor} style="float:right;"></lightning-button>
+
+		<!-- <lightning-button label="Accept and continue" title="Non-primary action" onclick={handleContinue} class="slds-m-left_x-small"></lightning-button>
+                &nbsp;&nbsp;-->
+		<!--   <lightning-button label="Cancel" title="primary action" onclick={handleCancel} variant="brand"></lightning-button> 
+                &nbsp;&nbsp;
+        <lightning-button label="Continue" title="primary action" onclick={handleNext} variant="success" class="slds-m-left_x-small"></lightning-button> -->
+	</div>
+	<c-video-player show-video-template={showvideotemplate}></c-video-player>
+	
+
+<!-- </template > -->
+<!-- <template if:false={islandingpage}>
+	  <div class="slds-grid slds-gutters">
+  <div class="slds-col slds-size_2-of-12">
+  </div>
+  <div class="slds-col slds-size_8-of-12">
+	<div class="slds-m-around_medium">
+        <img src={Joinstudy1url}>
+    
+    <strong><h5 class="w800 text-normalcase fs-26 mb-10p" style="font-size: 1.50rem;">Welcome!</h5></strong>
+    <b>Thank you for your interst in the Real-World Comparsion study</b><br>
+    <b>of Antidepressant Treatments in Patients with Major Depressive</b><br>
+    <b>Disorder Study</b>
+    <div>
+        <p>
+            Your contribution can help us establish a better understanding of the Major Depressive <br>
+            Disorder(MDD) experience based on your real-life evidence.
+        </p>
+      <p> <b> Over the course of our 24-week study, we will ask you about</b><br>
+    </p> 
+    ● Your medication history and experience treating your MDD<br>
+    ● Patterns you notice in your symptoms<br>
+    ● Setting andtracking goals for treating your MDD <br>
+    <h3><b><img src={starsymbol}> The more you participate, the more you earn</b></h3>
+			<p class="fs-16lh24 slds-no-print" style="padding-bottom: 20px;margin-bottom: 0px;">You are eligible to
+				receive
+				Amazon gift cards depending on your level of participation<br>
+                in this study. Participating for the full 24 weeks means you are eligible to receive a <br>
+                total of $300.
+			</p>
+            <lightning-button variant="brand" label="Join the study" class="slds-m-left_x-small"
+							onclick={redirecttoconsent}></lightning-button>
+				
+    </div>
+	</div>
+	</div>
+  <div class="slds-col slds-size_2-of-12">
+  </div>
+</div>
+</template> -->
+</template>

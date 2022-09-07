@@ -1,0 +1,29 @@
+<template>
+    <hr class="dash mt-30p mb-20p" />
+    <div>
+        <p style="font-size: 20px;"><b>What's next?</b></p>
+        <p>We now to invite you to begin part one of the study. Share your experience of life after transplant by:
+        </p>
+        <p>1. Answering five (5) questions about your knowledge of the CMV infection (2-3 minutes).</p>
+        <p>2. Watching an educational webinar about Cytomegalovirus (CMV) infection and transplant patients (15
+            minutes).</p>
+        <p>3. Answering the same 5 questions you saw at the start (2-3 minutes).</p>
+        <p>4. Participating in a brief (approximately 60 questions) survey about your life post-transplant.</p>
+        <!-- <p style="font-size: 15px;"></p> -->
+        <div class="slds-grid slds-gutters slds-wrap" style="font-size: 15px;">
+            <img src={starsymbol}></img>
+            <div class="slds-col slds-size_11-of-12">
+              <p> <b> Just a reminder: we are offering compensation at the following levels:</b> </p>
+                <p>$50 for completing the educational materials and assessment</p>
+                <p>$50 for completing the questionnaire survey</p>
+                <template if:false={isCaretaker}>
+                    <p>$75 for review of your electronic medical record by enabling consented EMR access (after completion of the survey)</p>
+                </template>
+            </div>
+          </div>
+       
+        <p><b>Let's learn together!</b></p>
+
+    </div>
+
+</template>

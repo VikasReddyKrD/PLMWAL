@@ -1,0 +1,56 @@
+<template>
+<div class="pt-10p pb-10p pl-10p pr-10p">
+    <b style="font-size: 20px;">Thank you for watching our educational materials and answering questions<br>
+         about the Cytomegalovirus (CMV) infection and transplant patients. </b>
+    <p>Your contributions add value to our research efforts.</p>
+    <div style="background:rgba(255, 236, 180, 0.4);padding:10px">
+        <p><strong>What are the next steps?</strong></p>
+        <p>Keep an eye on your email inbox; in two to five days, we will send you a link to begin a survey questionnaire about your experience <br>
+            with CMV and transplant. We appreciate your participation; remember you will be compensated $50 for completing the survey.</p>
+            <p>We look forward to continuing to learn about your transplant journey!  </p>
+
+            <!-- <p><b>Note for testing :<a href="https://val-servicecloudtrial-155c0807bf-16246540dc1.cs2.force.com/wal/s/transplant-questions" >onclick={}</a></b></p> -->
+<p><b>Note for testing : <lightning-button variant="base" label="https://val-servicecloudtrial-155c0807bf-16246540dc1.cs2.force.com/wal/s/transplant-survey-welcome" title="Link" 
+  onclick={isprewebinarexit123} class="slds-m-left_x-small" style="border: none;color: blue;"></lightning-button></b></p>
+    </div>
+
+</div>
+
+
+<hr class="solid mb-30p mt-20p">
+<div >
+    <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+ <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+        onclick={redirectToNextThankyou} variant="brand"></lightning-button>
+ <!--   <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+        style="margin-right: 25px;"></lightning-button> -->
+
+</div>
+<template if:true={isShowModal}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button" style="float:right;" onclick={hideModalBox}
+                    title="Close">X</button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+            </header>
+
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+               <center> <p>Are you sure you want to exit?</p></center>
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+                <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+            </footer>
+
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+
+</template>

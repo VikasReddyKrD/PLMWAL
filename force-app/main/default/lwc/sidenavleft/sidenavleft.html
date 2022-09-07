@@ -1,0 +1,57 @@
+<template>
+    <!-- <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+        </lightning-spinner>
+   </template> -->
+    <div class="hide-for-tablet template-outer leftnav-m-n30p slds-no-print" role="main">
+        <div class="margin-bottom-triple nav-stretch nav-wrapper">
+            <nav class="secondary-nav" role="navigation">
+                <div data-widget="expando_menu"> 
+                    <nav class="secondary-nav nav-account no-icons" role="navigation">
+                        <ul>
+                            <!--<li class="yah" >-->
+                            <li data-id="Home">
+                               <!-- <a class="nav-item" href="/wal/s">DASHBOARD</a> -->
+                               <!-- <template if:true = {survey1Status}>
+                                    <a class="nav-item"  onclick={handleClickdashboard}>DASHBOARD</a>
+                               </template>
+                               <template if:false = {survey1Status}>
+                                <div class="nav-item">DASHBOARD</div>
+                               </template> -->
+                                 <a class="nav-item"  onclick={handleClickdashboard}>DASHBOARD</a>
+                            </li>
+                             <!-- <li>
+                                <a class="nav-item" href="/wal/s/goals">GOALS</a>
+                            </li> -->
+                            <li data-id="Surveys__c">
+                                <a class="nav-item"  onclick={handleClickSurveys}>SURVEYS & PROS</a>
+                            </li>
+
+                            <!-- <li data-id="Goals__c">
+                                <a class="nav-item"  onclick={handleClickGoals}>GOALS</a>
+                            </li> -->
+                            
+                            <li data-id="Resources__c">
+                                <a class="nav-item"  onclick={handleClickResources}>RESOURCES</a>
+                            </li>
+                            <li data-id="Support__c">
+                                <a class="nav-item"  onclick={handleClickSupport}>SUPPORT</a>
+                            </li>
+
+                            <!-- <li data-match="/activity_trackers"><a data-initialize="add_click_metric"
+                                    data-metric-event-args="[&quot;nav.secondary.clicked&quot;,{&quot;click_text&quot;:&quot;activity_trackers&quot;}]"
+                                    class="nav-item" href="/activity_trackers"><span
+                                        class="sprite-activity_trackers"></span>Activity trackers</a></li> -->
+                        </ul>
+                    </nav>
+                    <div class="text-center">
+                    <a href="https://www.patientslikeme.com/member_home" class="button treatment-see-evaluations">Exit Study</a>
+                    </div>
+
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+</template>

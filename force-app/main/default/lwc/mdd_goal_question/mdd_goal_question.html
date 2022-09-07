@@ -1,0 +1,92 @@
+<template>
+
+    <!--<div style="padding-left:2rem;padding-top:5rem;position:relative"> -->
+    <div>
+        <span>
+            <h2 class="slds-card__header-title mt-20p">{questionText}</h2>
+        </span>
+    </div>
+    <template if:true={isComboRadio}>
+        <lightning-combobox
+            options={optionValues}
+            onchange={handleChange} data-name="comboRadioInput"
+            value={category}
+        ></lightning-combobox>
+        <lightning-radio-group name="sub categories"
+                          label=""
+                          options={relatedOptions}
+                          value={subcategory}
+                          type="radio"
+                          data-name="radioComboInput"
+                          onchange={handleClick}></lightning-radio-group>
+    </template>
+    <template if:true={isRadio}>
+        <lightning-radio-group name={question.Order__c}
+                          label=""
+                          options={optionValues}
+                          value=""
+                          type="radio"
+                          onchange={handleChange}></lightning-radio-group>
+    </template>
+    <template if:true={isComboBox}>
+        <lightning-combobox
+            options={optionValues}
+            onchange={handleChange}
+            value=""
+        ></lightning-combobox>
+    </template>
+
+    <template if:true={isSearchComboBox}>
+        <lightning-combobox
+            options={optionValues}
+            onchange={handleChange}
+            value=""
+            data-dependentcombo = "combo"
+        ></lightning-combobox>
+    </template>
+    
+
+    <template if:true={isSearch}>
+        <lightning-combobox
+            options={optionValues}
+            onchange={handleChange}
+            value=""
+        ></lightning-combobox>
+    </template>
+    
+    <div style="position:relative;" class="slds-m-top_xx-small slds-m-bottom_small dx-customcombo_result" >
+
+    <template if:true={isSearchable}>
+        <lightning-input type="text" name='searchableText' onclick={handleChangeSearch} data-qno
+            onchange={handleChangeSearch}  autocomplete="off" 
+            placeholder="Select an option or add your own" class="dx-combocrtl" onblur={handleBlur}>
+        </lightning-input>
+        <!-- <template if:true = {inputType}> -->
+            <template if:true={showSearchBox}>
+                    <div class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                        role="listbox" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation"  >
+                            <template for:each={options} for:item="record">
+                                <li key={record.label} onmousedown={testHandler}
+                                    data-id={record.label} data-label={record.label} role="presentation"
+                                    data-name={record.label}>
+                                    <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                        role="option" >
+                                        <span
+                                            class="slds-media__figure slds-listbox__option-icon"></span>
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" data-optionvalue={record.label}>{record.label}</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+            </template>
+        <!-- </template> -->
+    </template>
+    </div>
+    <hr class="dash mt-30p" />
+
+
+</template>

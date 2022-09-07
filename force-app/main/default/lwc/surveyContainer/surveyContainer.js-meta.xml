@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs >
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="surveyId" type="String" label="Survey Id" description="Salesforce Id of the Survey"></property>
+            <property name="surveyNumber" type="Integer" label="Survey Number" description="Survey Number to be displayed"></property>
+            <property name="isQnoDisplay" type="Boolean" label="Display Question Numbers?" description="Do you want to display Question Numbers?"></property>
+            <property name="nextQuestionJson" type="String" label="Next Question to be displayed in JSON format" description="Provide the next question to be displayed in JSON format, optional"></property>
+            <property name="accountId" type="String" label="Account Id" description="Account Id"></property>
+            <property name="responseId" type="String" label="Advance Survery Response Id" description="Id of the Advanced Survey Respnose"></property>
+            <property name="lastAnsweredQn" type="Integer" label="last Answered Question" description="Optional, Number of the question last answered"></property>
+            <property name="lastAnswerObj" type="@salesforce/schema/Advanced_Survey_Answer__c" label="last answer Object" description="Optional, object representing the values of last answer depending on DataType"></property>
+            <property name="saveandExitPage" type="String" label="URL/Page to navigate on SaveAndExit" description="Optional, by default goes to Homepage of the community"></property>
+            <!--<property name="finishPage" type="String" label="URL/Page to navigate on Save&Exit" description="Optional, by default goes to Homepage of the community"></property>  -->
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>

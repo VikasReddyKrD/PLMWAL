@@ -1,0 +1,9 @@
+.slds-radio [type=radio]{
+height: 10px;
+ margin-left: 20px;
+ padding-left: 50px;
+}
+.slds-table th, .slds-table td {
+        position: relative;
+
+}

@@ -1,0 +1,84 @@
+<template>
+    <div>
+        <h2 class="h2plus">Support</h2>
+        <p class="pt-20p fs-16lh24">If you have any questions or concerns about the study please do not hesitate to
+            contact us. </p>
+    </div>
+    <div style="background: #FFD580;padding:10px;">
+        <p> <b>From our team: </b></p>
+        <p>PatientsLikeMe also has a vibrant community of people with a similar experience to you. If you are looking
+            for another space for conversation and connection, check out our&nbsp;
+            <a href="https://www.patientslikeme.com/forum/mental_health/topics" target="_blank">Mental Health and
+                Behavior forum </a>to engage with
+            people like you.<br /><br />
+            Keep in mind that if you've been having thoughts about self-harm, it's essential to get help right away
+            because
+            the forum isn't a substitute for professional service. In an emergency, please call 911 or seek out
+            professional
+            support, such as a therapist or medical professional, immediately.”
+        </p>
+    </div>
+    <!-- <div class="slds-grid slds-wrap dx-wal-goals1">
+        <div class="slds-col--padded slds-size--12-of-12 comm-layout-column pb-2">
+            <h4><b><strong></strong></b></h4>
+        </div>
+    </div> -->
+    <hr class="dash mt-10p mb-10p" style="margin-top:28px;" />
+    <div class="slds-grid slds-wrap dx-wal-goals1">
+        <div
+            class="slds-col--padded slds-size--12-of-12 slds-medium-size--12-of-12 slds-large-size--11-of-12 comm-layout-column" >
+            <b>Contact us</b>
+            <lightning-card class="slds-size--12-of-12" style="font-style: italic;" title="MDD Survey Support">
+                <hr class="dash" />
+                <!--<textarea onchange={handleChange} class="slds-size--12-of-12 border-0" rows="12">
+                </textarea> -->
+                <lightning-textarea onchange={handleChange} style="min-height: 201px !important;"
+                    placeholder="How can we help? Send your questions, comments or concerns."></lightning-textarea>
+            </lightning-card>
+            <div class="slds-grid slds-wrap" style="padding-top: 10px;">
+                <div class="slds-size_3-of-1" style="padding-top: 25px;">
+                    <div>You can
+                        <lightning-file-upload label="" name="fileUploader" class="slds-button dx-fileupload" accept={acceptedFormats}
+                            file-field-name="Guest_Record_fileupload__c" file-field-value={accId}
+                            onuploadfinished={handleUploadFinished} multiple>
+                        </lightning-file-upload>
+                        the following: Physician Notes, Diagnosis Verification forms, images, and documents.
+
+                    </div>
+                </div>
+                <!-- <div class="slds-size_3-of-1">
+                    <div>
+                        <lightning-file-upload label="" name="fileUploader" class="slds-button dx-fileupload" accept={acceptedFormats}
+                            file-field-name="Guest_Record_fileupload__c" file-field-value={accId}
+                            onuploadfinished={handleUploadFinished} multiple>
+                        </lightning-file-upload>
+                    </div>
+                </div> -->
+                <!-- <div class="slds-size_2-of-3" style="padding-top: 25px;">
+                    <div>the following: Physician Notes, Diagnosis Verification forms, images, and documents.</div>
+                </div> -->
+                <!-- <div class="slds-size_2-of-3">
+                    and documents.
+                </div> -->
+            </div>
+
+            <div class="flex-container large-control px-0 pd-top-25">
+                <button onclick={sendEmailHandler} class="slds-button slds-button_brand">
+                    <div>Send email</div>
+                </button>
+                &nbsp;
+                <button onclick={clearHandler} class="slds-button slds-button_neutral">
+                    <div>Clear</div>
+                </button>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- <hr class="mt-10 mb-10"/> -->
+    <template if:true={error}>
+        <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+    </template>
+
+</template>

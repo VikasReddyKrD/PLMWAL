@@ -1,0 +1,59 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,lightning:hasPageReference" controller="SurveyController" access="global" >
+    <!-- <aura:handler name="render" value="{!this}" action="{!c.onRender}"/> -->
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleRouteChange}"/>
+    <!-- <aura:attribute name="pageReference" type="Object"/> -->
+     <aura:attribute name="status" type="boolean" /> 
+    <aura:attribute name="link" type="String" />
+    <aura:attribute name="dashboardClass" type="String" />
+    <aura:attribute name="surveyClass" type="String" />
+    <aura:attribute name="resourcesClass" type="String" />
+    <aura:attribute name="supportClass" type="String" />
+    <div id="footermenu">
+    <div class="slds-box show-for-tablet">
+        <lightning:layout horizontalAlign="space" class="slds-p-top--xx-small">
+            <lightning:layoutItem class="slds-size_1-of-4"> 
+                <!-- <aura:if isTrue="{!v.status == true}"> -->
+                    <a aura:id="Home" href="{!v.link}" id ="dashboard" class="{!v.dashboardClass}" alternativeText="DASHBOARD" title="DASHBOARD"> 
+                        <span class="fmcicon slds-avatar slds-avatar--medium"><img src="{!$Resource.iconfooternavDashboard}" class="slds-" alt="DASHBOARD"/></span><br/>
+                        <span class="fmctext">DASHBOARD</span>
+                    </a>
+                <!-- </aura:if> -->
+                <!-- <aura:if isTrue="{!v.status != true}">
+                    <a href="" id ="dashboard" class="disabled" alternativeText="DASHBOARD" title="DASHBOARD"> 
+                        <span class="fmcicon slds-avatar slds-avatar-medium "><img src="{!$Resource.iconfooternavDashboard}" class="slds-" alt="DASHBOARD"/></span><br/>
+                        <span class="fmctext">DASHBOARD</span>
+                    </a>
+                </aura:if> -->
+            </lightning:layoutItem>
+            <!-- <lightning:layoutItem class="slds-size_1-of-5">
+                <a href="/wal/s/goals" id ="goals" alternativeText="GOALS" title="GOALS">
+                    <span class="fmcicon slds-avatar slds-avatar-medium"><img src="{!$Resource.iconfooternavGoals}"/></span><br/>
+                    <span class="fmctext">GOALS</span>
+                </a>
+            </lightning:layoutItem> -->
+            <lightning:layoutItem class="slds-size_1-of-4"> 
+                <a aura:id="Surveys" href="/wal/s/surveys" id ="surveys" class="{!v.surveyClass}" alternativeText="SURVEYS" title="SURVEYS">
+                    <span class="fmcicon slds-avatar slds-avatar--medium"><img src="{!$Resource.iconfooternavSurveys}" alt="SURVEYS"/></span><br/>
+                    <span class="fmctext">SURVEYS</span>
+                </a>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-size_1-of-4">
+                <a aura:id="Resources" href="/wal/s/resources" id ="resources" class="{!v.resourcesClass}" alternativeText="RESOURCES" title="RESOURCES">
+                    <span class="fmcicon slds-avatar slds-avatar--medium"><img src="{!$Resource.iconfooternavResources}" alt="RESOURCES"/></span><br/>
+                    <span class="fmctext">RESOURCES</span>
+                </a>
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-size_1-of-4">
+                <a aura:id="Support" href="/wal/s/support" class ="{!v.supportClass}" id ="support" alternativeText="SUPPORT" title="SUPPORT">
+                    <span class="fmcicon slds-avatar slds-avatar--medium"><img src="{!$Resource.iconfooternavSupport}" alt="SUPPORT"/></span><br/>
+                    <span class="fmctext">SUPPORT</span>
+                </a>
+            </lightning:layoutItem>
+
+        </lightning:layout>
+    </div>
+    <div>
+
+    </div>
+</div>
+</aura:component>

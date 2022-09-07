@@ -1,0 +1,49 @@
+<template>
+
+	<template if:false={isSpinner}>
+		<div >
+			<template if:true={isLoading}>
+			
+				<lightning-spinner alternative-text="Loading" variant="brand" size="large">
+				</lightning-spinner>
+			</template>
+		</div>
+
+		<div style="color: #097CAA!important;border-radius: 10px;padding: 10px; width: 100%;height: 50px;" class="slds-no-print">
+			<lightning-button variant="base" label="Download survey results" title="Download survey results"
+			 icon-name="utility:download" icon-position="right" style="color: #097CAA!important;background: none!important;border: none;padding: 0!important;font-family: arial, sans-serif;text-decoration: underline;cursor: pointer;"
+			 class="slds-m-right_x-small slds-float_right slds-show_small" onclick={downloadSurvey}> </lightning-button>
+			 
+		</div>
+    
+    
+
+		<div class="mv-10p">
+			
+			<h2 class="fs-26 mt-10p">{sectionName}</h2>
+		</div>
+		<div class="fs-18">
+			{transitionmessage}
+		</div>
+		<!-- <c-survey-container-progressbar-static progress={progress} survey-number={surveyNumber} ></c-survey-container-progressbar-static> -->
+        <template for:each={sectionsData} for:item="section">
+			
+		<template for:each={section.surveyInformation} for:item="survey">
+			<div   key={survey.questions.Id}>
+				
+				<article class="slds-card flowRuntimeForFlexipage forceCommunityFlowCommunity"
+					style="padding-right:10px;margin-top:20px;" key={survey.questions.Id}>
+					<div style="padding-left:30px;margin-top:20px;">
+				
+
+					Question #{survey.questions.Order__c}
+					
+					<c-survey-question question={survey.questions} surveyanswer={survey.answers} key={survey.questions.Id} ontolastpage = {handleLastPage}></c-survey-question>
+			        </div>
+				</article>
+			</div> 
+		</template> 
+    </template>
+		
+	</template>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <img src={transplantlanding1url} width="100%"><br/>
+
+    <div class="pt-10p pb-10p pl-10p pr-10p">
+        <b style="font-size: 20px;">Thank you for watching our educational materials and answering questions<br>
+             about the Cytomegalovirus (CMV) infection and transplant patients. </b>
+        <p>Your contributions add value to our research efforts.</p>
+        <div style="background:rgba(255, 236, 180, 0.4);padding:10px">
+            <p><strong>What are the next steps?</strong></p>
+            <p>Keep an eye on your email inbox; in two to five days, we will send you a link to begin a survey questionnaire about your experience <br>
+                with CMV and transplant. We appreciate your participation; remember you will be compensated $50 for completing the survey.</p>
+                <p>We look forward to continuing to learn about your transplant journey!  </p>
+        </div>
+
+    </div>
+    <hr class="solid mb-30p mt-20p">
+    <div >
+        <!-- <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button> -->
+        <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+            onclick={redirectToDataSync} variant="brand"></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+            style="margin-right: 25px;"></lightning-button>
+
+    </div>
+    
+</template>

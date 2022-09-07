@@ -1,0 +1,56 @@
+<template>
+    <!--<div style="position:relative;  width:100%">
+        <div class="chart" lwc:dom="manual"></div>
+    </div> -->
+   <!--  Commented session strt -->
+   <template if:true={goals}>
+        <h2 class="h2plus">Goals</h2>		
+			<p class="pt-10p fs-16lh24">Below are the goals you are tracking and your completed PRO responses; to the
+				right are the guide tools that will change and adapt to help you along your way.
+			</p>
+   </template>
+   <div style="padding-top:7px; " class="slds-no-print">
+        <span>Show:
+            <lightning-button variant={variant1} label="Session 1" name="session1" title="Goals of Session 1"
+                onclick={handleGoalsButton} disabled={isSession1Dis} class="ml-10p"></lightning-button>
+            <lightning-button variant={variant2} label="Session 2" name="session2" title="Goals of Session 2"
+                onclick={handleGoalsButton} disabled={isSession2Dis} class="ml-10p"></lightning-button>
+          <!--   <lightning-button variant="neutral" label="Session 3" name="session2"  title="Goals of Session 2" onclick={handleGoalsButton}  class="ml-10p"></lightning-button>-->
+            <lightning-button variant="base" label="Download my goals report" title="Download my goals report"
+                icon-name="utility:download" icon-position="right"
+                class="slds-m-right_x-small slds-float_right slds-show_small" onclick={downloadCharts}
+                disabled={isDownloadDis}></lightning-button>
+        </span>
+    </div>
+    <!--  Commented session end -->
+    <template if:true={goals}>
+ 
+      
+
+        <div class="dx-chartjs" style="position:relative">
+            <template for:each={goals} for:item="goal">
+                <!--<h4 key ={goal.id}>{goal.title}</h4>-->
+                <div key={goal.id} class="pt-20p  slds-no-print"></div>
+                <h4 key={goal.id} class="pt-10p ml-10p slds-m-bottom_xx-small">GOAL {goal.goalNum}
+                    <template if:false={goal.isDummy}> 
+                        <div class="yourtarget"><span>your target</span> <img src={yourtargeticonUrl}
+                                class="yourtargeticon" alt="" /></div>
+                    </template>
+                </h4>
+                <c-mdd-report-chart-j-s-chart-l-w-c key={goal.id} goal={goal} period-type={periodType}
+                    current-wk={currentWk} account-id={accountId} current-goal-count={currentActualGoals}
+                    refresh-view={reloadChartView} onrefresh_charts={handleRefreshCharts}>
+                </c-mdd-report-chart-j-s-chart-l-w-c>
+            </template>      
+    </div>
+    </template>
+    
+    <!-- <lightning-button variant="base" label="Download my PRO's report" title="Download my PRO report"
+        icon-name="utility:download" icon-position="right" class="slds-m-right_x-small slds-float_right slds-show_small"
+        onclick={downloadPros} disabled={isDownloadProDis}></lightning-button> 
+         <c-pro-results ></c-pro-results> -->
+        
+    <template if:true={error}>
+        <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+    </template>
+</template>

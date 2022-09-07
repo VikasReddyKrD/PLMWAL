@@ -1,0 +1,41 @@
+<template>
+    <article class="slds-card" >
+        <div class="slds-card__body slds-var-m-vertical_xx-small">
+            <template if:true ={goal} >
+                <div class="chartbase">
+                    <div class="chart slds-var-m-horizontal_medium" lwc:dom="manual"></div>
+                    <!-- if this is dummy goal then show the hyperlink to open Goal setting Survey-->
+                    <template if:true={isDummy}>
+                        <div style="position:absolute; width:100%; bottom:35%;" key={goal.id}>
+                            <div style="width:70%; border-radius:5px; background:#f4f4f4; padding:10px; margin:auto; text-align:center;">
+                                <a href="javascript:void(0);" onclick={openGoalSettingModal}>Set up</a> your goal for  {periodType}
+                                <c-mdd_content_main period-type={periodType}  account-id={accountId} current-goal-count={currentGoalCount} oncmprefresh={refreshHandler}></c-mdd_content_main>
+                            </div>
+                        </div>
+                    </template>
+
+                    <div class="btntrackaligner">
+                        <!-- to enable the buttons -->
+                        <template if:true={isTrackBtnDis}>
+                            <!--  + Track button-->
+                            <a href="javascript:void(0);" onclick={handleTrackClick} class="active" aria-label="Track button">
+                                <div class="btntrack"></div>
+                            </a>
+                            <c-mdd_goal_tracking period-type={periodType} account-id={accountId} current-wk={currentWk} goal-id={goal.id} missing-wks={missingWks} performance={goal.Performance} condition={goal.Condition} criterion={goal.criterion} baseline={goal.baseline} goal-number={goal.goalNum}></c-mdd_goal_tracking>
+                        </template>
+                        <!-- to disable the buttons-->
+                        <template if:false={isTrackBtnDis}>
+                            <!--  + Track button-->
+                            <a href="javascript:void(0)"  class="disabled" aria-label="Track button">
+                                <div class="btntrack"></div>
+                            </a>
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <template if:true ={error}  >
+                <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+            </template>
+        </div>
+    </article>
+</template>

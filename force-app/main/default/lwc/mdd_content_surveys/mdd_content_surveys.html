@@ -1,0 +1,562 @@
+<template>
+
+    
+    <!-- <div style="border-radius: 10px;background: #E5E5E5;padding: 10px; width: 100%;height: 50px;" class="slds-no-print"> -->
+       <div style="border-radius: 10px;padding: 10px; width: 100%;height: 50px;" class="slds-no-print">
+           <lightning-button variant="base" label="Download survey results" title="Download survey results"
+            icon-name="utility:download" icon-position="right" style="background: none!important;border: none;padding: 0!important;font-family: arial, sans-serif;color: #097CAA;text-decoration: underline;cursor: pointer;"
+            class="slds-m-right_x-small slds-float_right slds-show_small" onclick={downloadSurvey}> </lightning-button>
+            
+      </div>
+
+
+<!-- 
+      <template if:true={introScreen}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small" >
+            <div class="slds-modal__container" >
+               
+                <header class="slds-modal__header" style="border-top: 5px solid #FEE019;">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeThanksModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate" style="font-family:Nunito Sans"><b>Introduction participating the MDD study</b></h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    
+       <p style="font-family:Nunito Sans;font-size:16px">Your time is important to us and if this is your first time participating in one of our
+                     studies it’s helpful to have a guide along your journey. You’ll have access to help
+                     resources like this video, every step of the way.</p><br>
+       
+       <p><b>Next step:</b></p><br>
+       <p style="font-family:Nunito Sans;font-size:16px">If you were able to watch Dr. Kate Burke’s welcome video, your next step is to complete survey 1.</p><br>
+       <p style="font-family:Nunito Sans;font-size:16px">Either way, Dr. Kate Burke’s video will be available to you throughout <br> the course of the study.</p>
+                </div>
+              
+                <footer class="slds-modal__footer" style="background-color:white">
+                    <lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small" data-surveynumber='MDD-Survey-1' data-week ='Week0' data-surveyname='Survey 1'
+					style="font-size: 88%;line-height: normal;"	onclick={modalPopupHandler}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div> -->
+    
+          <!-- <lightning-button variant="brand" label="Take the Survey" class="slds-m-left_x-small" data-surveynumber='MDD-Survey-1' data-week ='Week0' data-surveyname='Survey 1'
+           style="font-size: 88%;line-height: normal;"	onclick={modalPopupHandler}></lightning-button>
+         -->
+        <!-- </template>  -->
+   
+
+    <div class="slds-grid slds-wrap dx-wal-goals1 slds-no-print">    
+        <div
+            class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-4 comm-layout-column" >                     
+            <div style="">
+                 <!-- onclick={handleClickSurvey1part1} -->
+                <div style="height:180px;text-align:center;height:200px" class="card-style card ph-30p  pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                    <h6>WEEK 1</h6>
+                    <h4 style="padding-top:10px;color:black;"><b>SURVEY 1</b></h4>
+                    <h4 style="color:black;"><b>Part 1</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" style="padding-top:7px" data-survey="active" data-surveynumber='MDD-Survey-1' class="display-block surveytbtn slds-m-left_x-small" data-week ='Week0' data-surveyname='Survey One'
+						onclick={modalPopupHandler}></lightning-button>
+                    <!-- class={status.week1surveylock} -->
+                    <!-- <div class="mb-10p fs-18">{status.week1}</div> -->
+                    <template if:true={checkStatusweek1}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week1}
+                                    </li></ul></div>
+                    </template>
+                    <!-- <div class="checklist" style="margin: auto;width: fit-content;">
+                        <ul style="width:auto; text-align-last: left;">
+                                <li class="active" style=" padding-left: 30px;">
+                                    {status.week1}
+                                </li></ul></div> -->
+                    <div class="mb-10p fs-18">{status.week1completiondate}</div>
+                    
+                    <!-- <div class={week1toggle}>
+                        <div class={lock.week1}></div>
+                        <div class="text-center mt-10p">
+                            <template if:true={statusSurvey1open}> 
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1open}</strong></div>
+                            </template>                           
+                            <template if:true={statusSurvey1progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week1date}</div>
+                            </template>
+                            <template if:true={statusSurvey1complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week1date}</div>
+                            </template>
+                        </div><br/>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                               <h4 class="w800 text-capitalize">WEEK 1</h4>
+                            </span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            
+        </div>
+       
+       <div
+            class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-4 comm-layout-column">            
+                      
+            <div>
+                <div style="height:180px;text-align:center;height:200px" class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                     <h6>WEEK 2</h6>
+                    <!-- <h4 style="padding-top:10px;"><b>SURVEY 1</b></h4> -->
+                    <h4 style="padding-top:10px;color:black;"><b>SURVEY 1</b></h4>
+                    <h4 style="color:black;"><b>Part 2</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" style="padding-top:7px" class="display-block surveytbtn slds-m-left_x-small"  data-surveynumber='MDD-Survey-1' data-week ='Week1'
+					onclick={modalPopupHandler} data-surveyname='Survey One'></lightning-button>
+                    <!-- class={status.week2surveylock} -->
+                    <!-- <div class="mb-10p fs-18">{status.week2}</div> -->
+                    <template if:true={checkStatusweek2}>
+                        <div class="checklist" style="margin: auto;width: fit-content;">
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week2}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week2completiondate}</div>
+
+                    <!-- <div class={week1toggle}>
+                        <div class={lock.week1}></div>
+                        <div class="text-center mt-10p">
+                            <template if:true={statusSurvey1open}>                             
+                                <div class="fs-12">available until {week1date}</div>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1open}</strong></div>
+                            </template>                           
+                            <template if:true={statusSurvey1progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week1date}</div>
+                            </template>
+                            <template if:true={statusSurvey1complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey1complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week1date}</div>
+                            </template>
+                        </div><br/>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                               <h4 class="w800 text-capitalize">WEEK 1</h4>
+                            </span> 
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            
+        </div>
+
+        <div
+           class="slds-no-print slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-4 comm-layout-column">
+            
+            <div>
+                <div style="height:180px;text-align:center;height:200px" class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                   >
+                    <h6>WEEK 6</h6>
+                     <h4 style="padding-top:10px;color:black;"><b>PHQ 9 </b></h4> 
+                    <!-- <h4 style="padding-top:10px;color:black;"><b>PHQ 9</b></h4> -->
+                     <h4 style="visibility:hidden;"><b>Part 2</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='PHQ-9' data-week ='Week6'
+					style="font-size: 88%;line-height: normal; padding-top:7px"	onclick={modalPopupHandler}></lightning-button>
+                    <template if:true={checkStatusweek6}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week6}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week6completiondate}</div>
+                   <!-- <div>
+                        <div class={week6toggle}>
+                            <div class={lock.week6}></div>
+                            
+                            <div class="text-center mt-10p">
+                                <template if:true={statusWeek6Inactive}>
+                                <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                                    <div class="fs-12">until {week2date}</div>
+                            </template>
+                                <div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                                <template if:true={statusWeek6complete}>
+                                    <div class="status-transform mb-10p fs-18"><strong>{statusWeek6complete}</strong>
+                                    </div>
+                                    <div class="fs-12">on {week2date}</div>
+                                </template>
+                                <template if:true={statusWeek6progress}>
+                                    <div class="status-transform mb-10p fs-18"><strong>{statusWeek6progress}</strong>
+                                    </div>
+                                    <div class="fs-12">available until {week2date}</div>
+                                </template>
+                                <template if:true={statusWeek6open}>
+                                    <div class="status-transform mb-10p fs-18"><strong>{statusWeek6open}</strong></div>
+                                    <div class="fs-12">available until {week2date}</div>
+                                </template>
+                                 <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h4 class="w800 text-capitalize">WEEK 0</h4>
+                            </span>
+                        </div> 
+                            </div><br/>
+                            <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                                <span class="helptext">
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <hr class="treatment-divider">  -->
+                </div>
+            </div>
+        </div>
+
+           
+        <div
+             class={displayweeks.week12}>
+            <div>
+                <div style="height:180px;text-align:center;height:200px"  class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                   <h6>WEEK 12</h6>
+                    <h4 style="padding-top:10px;color:black"><b>SURVEY 2</b></h4>
+                    <h4 style="color:black;"><b>Part 1</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='MDD-Survey-2' data-week ='Week12'
+						onclick={modalPopupHandler} style="padding-top:7px" data-surveyname='Survey Two'></lightning-button>
+                        <!-- class={status.week12surveylock} -->
+                        <!-- <div class="mb-10p fs-18">{status.week12}</div> -->
+                        <template if:true={checkStatusweek12}>
+                            <div class="checklist" style="margin: auto;width: fit-content;" >
+                                <ul style="width:auto; text-align-last: left;">
+                                        <li class="active" style=" padding-left: 30px;">
+                                            {status.week12}
+                                        </li></ul></div>
+                        </template>
+                            <div class="mb-10p fs-18">{status.week12completiondate}</div>
+                    <!-- <div class={week12toggle}>
+                        <div class={lock.week12}></div>
+                        
+                        <div class="text-center mt-10p">
+                            <div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>-->
+                         <!--   <template if:true={statusSurvey2Inactive}>
+                               <template if:true={goalStartDate}>-->                                   
+                             <!--    <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                                  <div class="fs-12">until {week3date}</div>
+ </template> -->                          
+                        <!--    </template>
+                            <template if:true={statusSurvey2open}>                                                               
+                                <div class="fs-12">available until {week3date}</div>
+                                 <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2open}</strong></div>
+                            </template>
+                            <template if:true={statusSurvey2progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week3date}</div>
+                            </template>
+                            <template if:true={statusSurvey2complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week3date}</div>
+                            </template>
+                        </div><br/>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                               
+                            </span>
+                        </div>
+                    </div> -->
+                    <!--<hr class="treatment-divider"> -->
+                </div>
+            </div>
+        </div>
+
+        <div
+             class={displayweeks.week12}>
+            <div>
+                <div style="height:180px;text-align:center;height:200px"  class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                    <h6>WEEK 13</h6>
+                    <h4 style="padding-top:10px;color:black;"><b>SURVEY 2</b></h4>
+                    <h4 style="color:black;"><b>Part 2</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='MDD-Survey-2' data-week ='Week13'
+						onclick={modalPopupHandler} style="padding-top:7px" data-surveyname='Survey Two'></lightning-button>
+                    <!-- class={status.week13surveylock} -->
+                    <!-- <div class="mb-10p fs-18">{status.week13}</div> -->
+                    <template if:true={checkStatusweek13}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week13}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week13completiondate}</div>
+                    <!-- <div class={week12toggle}>
+                        <div class={lock.week12}></div>
+                        
+                        <div class="text-center mt-10p">
+                            <div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>-->
+                      <!--      <template if:true={statusSurvey2Inactive}>
+                                 <template if:true={goalStartDate}>
+ -->                                   
+    <!--                         <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                             <div class="fs-12">until {week3date}</div>
+                               </template>
+ -->                       <!--  </template>
+                            <template if:true={statusSurvey2open}>
+                                <div class="fs-12">part2</div>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2open}</strong></div>
+                                <div class="fs-12">available until {week3date}</div>
+                            </template>
+                            <template if:true={statusSurvey2progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week3date}</div>
+                            </template>
+                            <template if:true={statusSurvey2complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey2complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week3date}</div>
+                            </template>
+                        </div><br/>
+                         <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h4 class="w800 text-capitalize">WEEK 12</h4>
+                            </span>
+                        </div> -->
+                   <!-- </div> -->
+                    <!--<hr class="treatment-divider"> -->
+                </div>
+            </div>
+        </div>
+        
+         <div
+            class="slds-no-print slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-3 slds-large-size--1-of-4 comm-layout-column">
+            
+            <div>
+                <div style="height:180px;text-align:center;height:200px"  class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                   <h6>WEEK 18</h6>
+                    <h4 style="padding-top:10px;color:black;"><b>PHQ 9</b></h4>
+                    <h4 style="visibility:hidden"><b>Part 2</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='PHQ-9' data-week ='Week18'
+					style="font-size: 88%;line-height: normal;padding-top:7px"	onclick={modalPopupHandler}></lightning-button>
+                    <!-- <div class="mb-10p fs-18">{status.week18}</div> -->
+                    <template if:true={checkStatusweek18}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week18}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week18completiondate}</div>
+                    <!-- <div class={week18toggle}>
+                        <div class={lock.week18}></div>
+                        
+                        <div class="text-center mt-10p">
+                            <div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div>
+                             <template if:true={statusWeek18Inactive}>
+                                <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                                    <div class="fs-12">until {week4date}</div>
+                            </template>
+                            <template if:true={statusWeek18complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusWeek18complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week4date}</div>
+                            </template>
+                            <template if:true={statusWeek18progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusWeek18progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week4date}</div>
+                            </template>
+                            <template if:true={statusWeek18open}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusWeek18open}</strong></div>
+                                <div class="fs-12">available until {week4date}</div>
+                            </template>
+                             <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                        <span class="helptext">
+                            <h4 class="w800 text-capitalize">WEEK 0</h4>
+                        </span>
+                    </div> 
+                         </div><br/>
+                       <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                               
+                            </span>
+                        </div>
+                    </div>  -->
+                    <!-- <hr class="treatment-divider"> -->
+                </div>
+            </div>
+        </div> 
+
+       
+        <div
+            class={displayweeks.week24}>
+            
+            <div>
+                <div style="height:180px;text-align:center;height:200px"  class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                    <h6>WEEK 23</h6>
+                    <h4 style="padding-top:10px;color:black;"><b>SURVEY 3</b></h4>
+                    <h4 style="color:black;"><b>Part 1</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='MDD-Survey-3' data-week ='Week23'
+						onclick={modalPopupHandler} style="padding-top:7px" data-surveyname='Survey Three'></lightning-button>
+                    <!-- class={status.week23surveylock} -->
+                    <!-- <div class="mb-10p fs-18">{status.week23}</div> -->
+                    <template if:true={checkStatusweek23}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week23}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week23completiondate}</div>
+                    <!-- <div class={week24toggle}>
+                        <div class={lock.week24}></div>
+                        
+                        <div class="text-center mt-10p">
+                             <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                            <div class="fs-12">until March 07,2022</div> -->
+                            <!--<div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div> -->
+                            <!-- <template if:true={statusSurvey3Inactive}>
+                                <template if:true={goalStartDate_Sess2}>
+                                  <div class="fs-12">  available on {week5date}</div>
+                                </template> -->
+                                
+                            <!--     <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                                    <div class="fs-12">until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3open}>
+                                <div class="fs-12">part1</div>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3open}</strong></div>
+                                <div class="fs-12">available until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week5date}</div>
+                            </template>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h4 class="w800 text-capitalize">WEEK 24</h4>
+                            </span>
+                        </div> -->
+                    <!-- </div> -->
+
+                </div>
+            </div>
+        </div>
+
+        <div
+            class={displayweeks.week24}>
+            <div>
+                <div style="height:180px;text-align:center;height:200px"  class="card-style card ph-30p pb-30p border-box mx-0 b_radius-12 min-height175"
+                    >
+                    <h6>WEEK 24</h6>
+                    <h4 style="padding-top:10px;color:black"><b>SURVEY 3</b></h4>
+                    <h4 style="color:black;"><b>Part 2</b></h4>
+                    <lightning-button variant="brand" label="Take the Survey" data-survey="active" class="display-block surveytbtn slds-m-left_x-small" data-surveynumber='MDD-Survey-3' data-week ='Week24'
+						onclick={modalPopupHandler} style="padding-top:7px" data-surveyname='Survey Three'></lightning-button>
+                        <!-- class={status.week24surveylock} -->
+                    <!-- <div class="mb-10p fs-18">{status.week24}</div> -->
+                    <template if:true={checkStatusweek24}>
+                        <div class="checklist" style="margin: auto;width: fit-content;" >
+                            <ul style="width:auto; text-align-last: left;">
+                                    <li class="active" style=" padding-left: 30px;">
+                                        {status.week24}
+                                    </li></ul></div>
+                    </template>
+                    <div class="mb-10p fs-18">{status.week24completiondate}</div>
+                    <!-- <div class={week24toggle}>
+                        <div class={lock.week24}></div>
+                        
+                        <div class="text-center mt-10p">
+                             <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                            <div class="fs-12">until March 07,2022</div> -->
+                            <!--<div class="mb-10p">Lorem ipsum dolor sit amet, consectetur adipiscing elit </div> -->
+                           <!-- <template if:true={statusSurvey3Inactive}>
+                                <template if:true={goalStartDate_Sess2}>
+                                  <div class="fs-12">  available on {week5date}</div>
+                                </template> -->
+                          <!--      <div class="mb-10p fs-16"><strong>Not Available</strong></div>
+                                    <div class="fs-12">until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3open}>
+                                <div class="fs-12">part2</div>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3open}</strong></div>
+                                <div class="fs-12">available until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3progress}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3progress}</strong>
+                                </div>
+                                <div class="fs-12">available until {week5date}</div>
+                            </template>
+                            <template if:true={statusSurvey3complete}>
+                                <div class="status-transform mb-10p fs-18"><strong>{statusSurvey3complete}</strong>
+                                </div>
+                                <div class="fs-12">on {week5date}</div>
+                            </template>
+                        </div>
+                        <br/>
+                         <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h4 class="w800 text-capitalize">WEEK 24</h4>
+                            </span>
+                        </div> -->
+                   <!-- </div> -->
+
+                </div>
+            </div>
+        </div>
+        <!-- </div>-->
+    </div>
+    <div>
+        <c-pro-results></c-pro-results>
+
+    </div>
+    <!-- <hr class="dash" /> -->
+
+    <!--------------------------modal popup for surveys start--------------------->
+
+    
+    <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container dx-modal__container" data-custommodal="true">
+                <!-- Modal/Popup Box LWC body starts here -->
+               
+                  <span style="font-size:26px;width:100%;" title="Close" onclick={closeModal} ><b style="float:right;color:lightgray;cursor: POINTER;">X</b></span>
+                    <hr style="border: none;height: 12px;background: rgb(246, 214, 0);width: 100%;margin-top: 0px;margin-bottom: 0px; ">
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="padding-top: 0px;">
+                    
+                    <c-survey-container-new  week = {questionWeek} survey-number={surveyNumber} survey-name={surveyName} ontotop={popupScrollHandler}></c-survey-container-new>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <!-- <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer> -->
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+ 
+    <!--------------------------modal popup for surveys end--------------------->
+</template>

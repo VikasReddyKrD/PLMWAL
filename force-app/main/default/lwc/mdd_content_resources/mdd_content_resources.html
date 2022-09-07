@@ -1,0 +1,76 @@
+<template>
+
+    
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col--padded slds-size--12-of-12 comm-layout-column pb-2">
+            <h4>Documents</h4>
+        </div>
+    </div>
+    <div style="height:160px; overflow-x: hidden;overflow-y: scroll; ">
+    <div class="slds-grid slds-wrap">
+
+        <div class="slds-col--padded slds-size--12-of-12 comm-layout-column">
+            <div>
+                <div class="slds-grid slds-wrap">
+                  
+                </div>
+
+            </div>
+            
+            <template if:true={docsList}>
+                <template for:each={docsList} for:item="url">
+                <div key={url.id} class="">
+                    <div>
+                        <div class="slds-grid slds-gutters slds-wrap">
+                            <div class="slds-col--padded slds-p-around_xx-small">
+                                <img style="height:30px;width:30px;" src={pdfimage}></img>
+                                <a  class="iconpdf" target="_blank"></a>
+                                <a  href={url.Value__c} download>{url.Description__c}</a>
+                            </div>                             
+                        </div>
+        
+                    </div>
+                   
+                </div>
+                </template>
+            </template>
+        </div>
+      
+
+    </div>
+</div>
+
+<hr class="mt-10 mb-10"/>
+
+<div class="slds-grid slds-wrap dx-wal-goals1">
+    <div class="slds-col--padded slds-size--12-of-12 comm-layout-column pb-2">
+        <h4>Videos</h4>
+    </div>
+</div>
+<div style="height:250px; overflow-x: hidden;overflow-y: scroll; ">
+<div class="slds-grid slds-wrap dx-wal-goals1">
+    
+    <template if:true={videosList}>
+        <template for:each={videosList} for:item="url">
+    <div class="slds-col--padded slds-size--12-of-12 slds-medium-size--4-of-12 slds-large-size--4-of-12 comm-layout-column" key={url.id}>
+        <div>
+            <div class="slds-grid slds-wrap" style="margin-left: 100px;">
+            
+                <c-basic-you-tube-player you-tube-id={url.value} onpauseallvideos={pausePlayingVideos}></c-basic-you-tube-player>
+            </div>
+
+        </div>
+        <div class="row justify-content-center align-items-center margin-top-half">
+            <span class="helptext">
+                <h4 class="color-plm-gray">{url.title}</h4>
+            </span>
+        </div>
+        <div class="text-center mt-2 color-plm-gray">{url.desc} </div>
+    </div>
+    </template>
+    </template>
+</div>
+</div>
+
+</template>

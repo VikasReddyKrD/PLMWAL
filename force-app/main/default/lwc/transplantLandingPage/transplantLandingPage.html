@@ -1,0 +1,381 @@
+<template>
+            <c-transplant-study-consent-progress-bar selected-step="1"></c-transplant-study-consent-progress-bar>
+    
+            <hr class="dash mt-30p mb-20p" />
+            <!--studyconsent form screen1-->
+    
+            <!-- {label.CONTENTHEADER1} -->
+            <div class="slds-text-align_center">
+                <h5 class="w800 text-normalcase fs-26 mb-10p">Informed Consent to Take Part in a Research Study</h5>
+                <div>{label.CONTENTHEADER2}</div>
+            </div>
+            <hr class="solid mb-30p mt-20p">
+    
+            <div class=" slds-theme_default">
+                <div class="slds-grid slds-grid_vertical scroll" data-scroll onscroll={scrollHandler} style="size:30px;height:200px">
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>TITLE:</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <!--{studyConsentId.Title_of_Study__c}-->
+                            <ul>
+                                <li>
+                                    Post-transplant Experience Study: Understanding Patient
+                                    and Care Partner Experience post-transplant with Quality of
+                                    Life, CMV Symptom Management, Care Coordination and
+                                    Patient Clinician Engagement in SOT and HSCT Patients
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>PROTOCOL NO.:</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <ul>
+                                <li>CCR-2021-200145</li>
+                                <li>IRB Protocol #20216417</li>
+                            </ul>
+    
+                        </div>
+                    </div>
+    
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>SPONSOR:</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <ul>
+                                <li>
+                                    PatientsLikeMe, LLC
+                                </li>
+                            </ul>
+    
+    
+                        </div>
+                    </div>
+    
+    
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>INVESTIGATOR:</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <!--                                     {studyConsentId.Investigator__c}
+     -->
+                            <div>
+                                <ul>
+                                    <li>Alicia McAuliffe-Fogarty, Ph.D.</li>
+                                    <li>6 Liberty Square</li>
+                                    <li>Suite 2602</li>
+                                    <li>Boston, Massachusetts 02109</li>
+                                    <li>United States</li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>STUDY-RELATED
+                                     PHONE NUMBER(S):</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <!--                                     {studyConsentId.Phone_Number__c}
+     -->
+                            <ul>
+                                <li>
+                                    617-229-6530 (24 hours)
+                                </li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                    <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+                        <div class="slds-col slds-size_1-of-3">
+                            <b>COLLABORATOR:</b>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3">
+                            <!--                                     {studyConsentId.Collaborator__c}
+     -->
+                            <ul>
+                                <li>
+                                    Takeda Pharmaceuticals
+                                </li>
+                            </ul>
+    
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">What should I know about this research?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>You are being asked to take part in this research.</li>
+                                <li>This form explains what is involved if you choose to participate.</li>
+                                <li>Participating in this research is completely voluntary. You can choose not to
+                                    participate or to stop participating at any time without any penalty or loss of
+                                    benefit to which you are otherwise entitled. Your choice will not affect your
+                                    PatientsLikeMe membership.
+                                </li>
+                                <li>Feel free to ask any questions before you decide. </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Why is this study being done?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>This study is being done to better understand the patient and care partner
+                                    experience post-transplant.</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Why am I invited to be in this study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>You are being asked to be in this study because you:</li>
+                                <ul>
+                                    <li>A) Expressed interest in participating in research</li>
+                                    <li>B) Indicated you are a patient or care partner of a patient who has had a solid organ transplant or hematopoietic stem cell transplant in the last 3 years
+                                    </li>
+                                    <li>C) You are at least 18 years old and</li>
+                                    <li>D) You currently reside in the United States of America</li>
+    
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">How many people will participate in this study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>Up to 60 participants will participate in this study.</li>
+    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">What will happen during this study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <!-- <li>If you do not have a PLM account/profile you will be asked to register for an
+                                    account on PatientsLikeMe (PLM).</li>
+                                <li>When registering, you must review and accept PLM's Terms of Use Agreement
+                                    and Privacy Policy.</li>
+                                <li>User IDs associated with your PLM account will be recorded by the study
+                                    coordinator and shared with study staff at PLM.</li> -->
+                                <li>During this study, you will be asked to view an educational webinar and complete
+                                    5 questions before and after the webinar. The webinar will provide education
+                                    about Cytomegalovirus (CMV) infection post-transplant. This webinar along with
+                                    assessment will take approximately 20-25 minutes.</li>
+                                <li>After the webinar you will be asked to complete a one-time survey about your
+                                    experiences and journey post-transplant. The survey will take approximately 45
+                                    minutes to complete and does not need to be completed all at once --that is, you
+                                    can leave the survey and come back to it later to complete it, up until the survey
+                                    close date.</li>
+                                <li>On completion of the survey, you will be asked to consent to import your
+                                    electronic medical record to your PLM profile. This step is optional.</li>
+                                <li>You may be sent periodic reminders to complete the survey. These reminders
+                                    will stop when you:</li>
+                                <ul>
+                                    <li>A) Complete the survey; or</li>
+                                    <li>B) The survey closes; or</li>
+                                    <li>C) If you tell us, you do not want to participate in this study.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">What are the potential risks of being in the study?
+                        </h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>We believe there are no more than minimal risks associated with this research
+                                    study. However, you may feel uncomfortable answering some of the questions
+                                    presented to you in this study. You may stop answering questions at any time,
+                                    and you may withdraw your participation at any time.</li>
+                                <li>We will minimize the risks of your being identified outside of PatientsLikeMe by
+                                    sharing only de-identified information with our partner and study collaborator
+                                    (Takeda Pharmaceuticals).</li>
+                                <li>PatientsLikeMe takes commercially reasonable technical precautions to help keep your data secure and confidential, but there is always a risk of data breach when data is stored.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">What are the possible benefits from being in this
+                            study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>There is no direct benefit to you. By taking part in the study, you may help inform
+                                    care gaps and identify unmet needs of transplant patients and care partners.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Will it cost me anything to be in this study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>There is no cost to you to take part in this study.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Will I be paid for being in this study?</h5>
+                            
+                                You will be compensated based on your level of participation in this study. You will
+                                    receive the following amounts:
+                                <ul style="list-style-type:disc;">
+                                    <li>For participating in the webinar and completing 5 questions before and after the
+                                        webinar, you will receive a $50 gift card</li>
+                                    <li>For participating in the one-time survey, you will receive a $50 gift card</li>
+                                    <li>For consenting to import your medical records to your PLM profile, you will
+                                        receive $75 gift card</li>
+                                
+                            </ul>
+                    </div><br/>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Do I have to be in this study?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>This is not a treatment study and your alternative is not to participate.</li>
+                                <li>Your participation in this study is completely voluntary. You can withdraw at any
+                                    time before the study closes and analysis begins.</li>
+                                <li>If at any point you decide you no longer wish to participate, your experience with PatientsLikeMe will not be impacted.</li>
+                                <li>The Principal Investigator or the WCG IRB, our independent review board, also
+                                    can stop your participation at any time. WCG IRB is an ethics board that reviews
+                                    and approves research studies in order to protect the rights of the participants.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Who will have access to my study and/or medical
+                            information?</h5>
+                        <div style="padding-bottom:20px;">
+                            <ul style="list-style-type:disc;">
+                                <li>Research staff at PatientsLikeMe and Takeda will use data from the survey to analyze results.</li>
+                                <li>If we publish the results of the research, we will include only aggregated, deidentified
+                                    information.</li>
+                                <li>Your name or other identifiable information will not be included in the final report
+                                    to Takeda or in any publications or presentations that come from this research.</li>
+                                <li>Your private information and your medical record may also be shared with
+                                    individuals and organizations that conduct or watch over this research, including:</li>
+                                <ul style="list-style-type:circle;">
+                                    <li>The research sponsor</li>
+                                    <li>People who work with the research sponsor</li>
+                                    <li>Government agencies, such as the US Department Health and Human
+                                        Services</li>
+                                    <li> The Institutional Review Board (IRB) that reviewed this research</li>
+                                </ul>
+                                <li>We protect your information from disclosure to others to the extent required by
+                                    law. We cannot promise complete secrecy.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <h5 class="w800 text-normalcase fs-26 mb-10p">Whom do I contact if I have questions about the study?
+                        </h5>
+                        <div>
+                            <ul style="list-style-type:disc;">
+                                <li>Alicia McAuliffe-Fogarty is the Principal Investigator (PI) on this study. For
+                                    questions, concerns, complaints or more information about this research, or if
+                                    you think you have been hurt by the research, or to obtain a copy of this Informed
+                                    Consent Form, you may contact the PI at
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=researchstudy003@patientslikeme.com"
+                                        target="_blank"> researchstudy003@patientslikeme.com </a>
+                                    or at 617-229-6530 (24 hours)</li>
+                                <li>This research is being overseen by WCG IRB. An IRB is a group of people who
+                                    perform independent review of research studies. You may talk to them at 855-818-2289 or
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=researchquestions@wcgirb.com"
+                                        target="_blank"> researchquestions@wcgirb.com </a> <br></li></ul>
+                                        </div>
+                            <div style="padding-right:5px"><strong>If:</strong></div>
+                                <ul style="list-style-type:circle;">
+                                    <li>You have questions, concerns, or complaints that are not being answered
+                                        by the research team.</li>
+                                    <li>You are not getting answers from the research team.</li>
+                                    <li>You cannot reach the research team.</li>
+                                    <li>You want to talk to someone else about the research.</li>
+                                    <li>You have questions about your rights as a research subject.</li>
+                            </ul>
+                    </div>
+                    <br/>
+                    <div class="slds-col">
+                        <div style="padding-bottom:20px;">
+                            By clicking “Accept and Continue” below, you are indicating that you are at least 18 years old,
+                            have read and understood this research subject informed consent form, and consent to participate
+                            in this research study. If you do not wish to consent to participating in this study, click
+                            "Decline"
+                            or simply close your browser.
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <hr class="solid mb-30p mt-20p">
+            <!-- <h5 class="w800 text-capitalize fs-26 mb-10p">{label.CONTENTHEADER5}</h5> -->
+            <template if:true={isGreyed}>
+                <p class="w800 text-capitalize fs-26 mb-10p">{label.CONTENTHEADER5}</p>
+                <div>
+                    <lightning-input type="checkbox" label={label.CONTENTHEADER6} onclick={checkboxValidator}></lightning-input>
+                </div>
+              </template>
+              <template if:false={isGreyed}>
+                <p class="w800 text-capitalize fs-26 mb-10p" style="color:grey">{label.CONTENTHEADER5}</p>
+                <div>
+                    <lightning-input type="checkbox" label={label.CONTENTHEADER6} onclick={checkboxValidator} disabled="true"></lightning-input>
+                </div>
+                 </template>
+                 <p class="w800 text-capitalize fs-26 mb-10p">Contact for Future Studies:</p>
+                 <p>Would you be interested in any future opportunities to participate in studies related to your transplant experience? If yes, please check the box below.</p>
+                 <div>
+                     <lightning-input type="checkbox" label='I agree to be contacted directly for future studies related to my transplant experience.' onclick={checkboxExtaraValidator}></lightning-input>
+                 </div>
+            </br>
+            <!--studyconsent form screen1 end-->
+            <hr class="solid mb-30p mt-20p">
+            <div>
+                <!-- <lightning-button label={exit} class="btn_capsule fs-16" onclick={exitHandler}></lightning-button> -->
+    
+                <lightning-button label={acceptLabel} class={buttoncolor} style="border-radius: 20px;" disabled={disable}
+                    onclick={handleAccept} variant="brand"></lightning-button>
+    
+                    <template if:true={isShowModal}>
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <!-- modal header start -->
+                                <header class="slds-modal__header">
+                                    <button class="slds-button" style="float:right;" onclick={hideModalBox}
+                                        title="Close">X</button>
+                                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+                                </header>
+                
+                                <!-- modal body start -->
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                   <center> <p>Are you sure you want to exit?</p></center>
+                                </div>
+                
+                                <!-- modal footer start-->
+                                <footer class="slds-modal__footer">
+                                    <button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+                                    <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                                </footer>
+                
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </template>
+                    <lightning-button label={exitLabel} class="btn_capsule fs-16 slds-float_right mr-3" onclick={exitHandler}></lightning-button>
+    
+                <!-- <lightning-button label="Save and continue later" title="Non-primary action" onclick={handleContinue} class="slds-m-left_x-small"></lightning-button>
+                    &nbsp;&nbsp;
+            <lightning-button label="Next" title="primary action" onclick={handleNext} variant="brand"></lightning-button> -->
+            </div>
+       
+    
+</template>

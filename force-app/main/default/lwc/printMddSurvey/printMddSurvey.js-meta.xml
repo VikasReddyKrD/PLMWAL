@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>51.0</apiVersion>
+	<isExposed>true</isExposed>
+	<targets>
+		<target>lightning__RecordPage</target>
+		<target>lightning__FlowScreen</target>
+		<target>lightning__Tab</target>	
+		<target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+	</targets>
+	<targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="week" type="String" label="Week of the Survey" ></property>
+			<property name="responseId" type="String" label="Advance Survery Response Id" description="Id of the Advanced Survey Respnose"></property>
+			<property name="surveyId" type="String" label="Survey id" ></property>
+			<property name="accountId" type="String" label="Account Id" description="Account Id"></property>
+			<property name="surveyNumber" type="Integer" label="Survey Number" description="Survey Number to be displayed"></property>
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

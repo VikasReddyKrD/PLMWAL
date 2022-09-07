@@ -1,0 +1,10 @@
+.dx-setwidth {min-width:50%; max-width:70%; margin: auto;}
+.dx-setwidth dl {margin-bottom:15px;}
+.dx-setwidth dt { width:115px; display:inline-block; vertical-align: top;}
+.dx-setwidth dd { width: calc(100% - 120px); display:inline-block;}
+
+@media only screen and (max-width: 62em) {
+    .dx-setwidth {min-width:50%; max-width:95%; margin: auto;}
+    .dx-setwidth dt {width:100%}
+    .dx-setwidth dd {width:100%; margin-left:13px;}
+}

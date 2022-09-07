@@ -1,0 +1,9 @@
+<aura:component>
+    <lightning:progressIndicator currentStep="3" type="path" variant="base">
+        <lightning:progressStep label="Contacted" value="1"/>
+        <lightning:progressStep label="Open" value="2"/>
+        <lightning:progressStep label="Unqualified" value="3"/>
+        <lightning:progressStep label="Nurturing" value="4"/>
+        <lightning:progressStep label="Closed" value="5"/>
+    </lightning:progressIndicator>
+</aura:component>

@@ -1,0 +1,68 @@
+<template>
+  
+    <template if:false={studyConsentId.Existing_Record__c}>
+       
+       
+       
+             <!--studyconsent form screen1-->
+                
+                
+                <h5 class="w800 text-normalcase fs-26 mb-10p">{label.CONTENTHEADER1}</h5>
+                <div>{label.CONTENTHEADER2}</div>
+                <hr class="solid mb-30p mt-20p">
+                
+                <div class="slds-theme_default scroll">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <b>Title</b>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    {studyConsentId.Title_of_Study__c}
+                                  </div>                            
+                            </div>
+    
+                            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <b>Investigator:</b>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    {studyConsentId.Investigator__c}
+                                  </div>                            
+                            </div>
+                            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <b>Phone Number:</b>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    {studyConsentId.Phone_Number__c}
+                                  </div>                            
+                            </div>
+                            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px; padding-bottom:20px">
+                                <div class="slds-col slds-size_1-of-3">
+                                    <b>Collaborator:</b>
+                                  </div>
+                                  <div class="slds-col slds-size_2-of-3">
+                                    {studyConsentId.Collaborator__c}
+                                  </div>                            
+                            </div>
+                        </div>
+                     </div>  
+                <hr class="solid mb-30p mt-20p">
+                <h5 class="w800 text-capitalize fs-26 mb-10p">{label.CONTENTHEADER5}</h5>
+                <div>
+                    <lightning-input type="checkbox" label={label.CONTENTHEADER6} onclick={checkboxValidator}></lightning-input>
+                </div>
+                </br>
+            <!--studyconsent form screen1 end-->
+        <hr class="solid mb-30p mt-20p">
+        <div>
+        <lightning-button   label={exitLabel} class="btn_capsule fs-16"></lightning-button>
+        <lightning-button label={acceptLabel} class={buttoncolor} style="border-radius: 20px;" disabled={disable} onclick={handleAccept} variant="brand"></lightning-button>
+    
+        <!-- <lightning-button label="Save and continue later" title="Non-primary action" onclick={handleContinue} class="slds-m-left_x-small"></lightning-button>
+                &nbsp;&nbsp;
+        <lightning-button label="Next" title="primary action" onclick={handleNext} variant="brand"></lightning-button> -->
+        </div>
+    </template>
+    </template>

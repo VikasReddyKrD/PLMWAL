@@ -1,0 +1,1 @@
+<apex:page standardController="Contact" extensions="gkn_sms.ChatHistoryController"><gkn_sms:Chat userId="{!JSENCODE(userId)}" recordId="{!JSENCODE(recordId)}"/></apex:page>

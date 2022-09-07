@@ -1,0 +1,18 @@
+.bx_tbl tr:nth-child(odd) {
+    background: #CEDCFF;
+  }
+  .bx_tbl tr:nth-child(odd) td:last-child {
+    /*background: #dddddd;*/
+    width:60px;
+  }
+  /* .bx_tbl tr:nth-child(even) td:last-child {
+    background: #dddddd;
+    width:60px;
+  } */
+  .td-question2 {padding: 8px; }
+
+  .bx_base, .box, .selectedbox { position:relative;text-align:center }
+  .bx_number {position: absolute; top:0px; right:0px; font-size:10px; padding:0px 1px;z-index: 1;}
+  .selectedbox {background-color: #ffffff!important;}
+  .selectedbox:after { content:'X'; color:#333333; font-weight:900; text-align:center; font-size:18px;position: absolute; top:3px; left:8px; }
+  .slds-checkbox_faux {border:1px solid!important;}

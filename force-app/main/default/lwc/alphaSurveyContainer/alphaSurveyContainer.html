@@ -1,0 +1,57 @@
+<template>
+    <div >
+        <template if:true={isLoading}>
+         
+             <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+             </lightning-spinner>
+        </template>
+    </div> 
+    <div class="dx-surveycontainer_base">
+        <template if:true={questionList}>
+
+
+         <!--   <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size--12-of-12 slds-medium-size--2-of-12 slds-large-size--2-of-12"><h5 class="mv-10p fs-12 font-weight-bold text-uppercase">Survey {surveyNumber}:</h5></div>
+                <div class="slds-col slds-size--12-of-12 slds-medium-size--10-of-12 slds-large-size--10-of-12"><h5 class="mv-10p fs-12 text-uppercase float-left" style="   width:80px;">Progress:</h5>
+                <div class="d-inline-block mv-10p" style="width:calc(100% - 80px);"><lightning-progress-bar value={progress} size="large" variant="circular"></lightning-progress-bar></div>
+                </div>
+            </div>-->
+            <div class="fs-26">
+                <b>{question.Section_Name__c}</b>  
+             </div>
+             <div class="fs-18">
+                 {question.Transition_Message__c} 
+             </div><br/>
+            <c-survey-container-progressbar-static progress={progress} survey-number={surveyNumber} ></c-survey-container-progressbar-static>
+            <template if:true={isQnoDisplay}>
+                <div class="fs-10">
+                      Question #{question.Order__c} of {totalNoofQuestions}  
+                </div>                 
+            </template>
+
+            <!-- <h2 class="fs-26 mt-10p">Is this a question for the participant to answer?</h2> -->
+            <c-alpha-survey-question question={question}  checkboxvalue={checkboxValue} surveyanswer={surveyanswer} otherexistinganswer = {otherexistinganswer} ontolastpage={navigateEndScreen} onvalidation={validationForModalPopup}></c-alpha-survey-question>
+            <hr class="solid mb-30p mt-20p" />
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+                    <lightning-button label="Save and continue later" title="Non-primary action" onclick={handleContinue} class="btn_capsule slds-m-left_x-small"></lightning-button>
+                </div>
+               
+                <div class="slds-col slds-size--1-of-1 slds-small-size--1-of-1 slds-medium-size--1-of-2">
+                    <template if:false={isContinue}>
+                    <lightning-button label="Next" title="primary action" onclick={handleNext} variant="brand" class="btn_capsule mr-1" style="float:right;"></lightning-button>
+                </template>
+                    <template if:true={flagForBack}>
+                        <lightning-button label="Back" title="primary action" class="btn_capsule mr-3" style="float:right;" onclick={previousQuestion}></lightning-button>
+                    </template>
+                </div>
+              </div>
+            
+        </template>
+        <template if:true={error}>
+            <c-mdd-error-panel errors={error}></c-mdd-error-panel>
+        </template>
+
+    </div>
+
+</template>

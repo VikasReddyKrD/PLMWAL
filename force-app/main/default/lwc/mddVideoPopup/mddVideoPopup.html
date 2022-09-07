@@ -1,0 +1,30 @@
+<template>
+    <template if:true={doPlayVideo}>
+        <div class="slds-modal slds-fade-in-open slds-backdrop dx-videopopup">
+            <div class="slds-modal__container">
+                <!-- HEADER Section-->
+                <div class="slds-modal__header">
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"
+                        variant="bare-inverse" onclick={hideModal} class="slds-modal__close mb-n5">
+                    </lightning-button-icon>
+
+                </div>
+                 
+                <div class="slds-modal__content pa-20p text-left">
+                    
+                    <div class="slds-grid slds-wrap pt-20p">
+                    <span style="font-size:20px;width:580px;" title="Close" onclick={hideModal} ><b style="float:right;color:lightgray;cursor: POINTER;">X</b></span>
+                     <!--   <iframe width="100%" height="auto" src={myUrl}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" onclick={handleVideoClick} allowfullscreen></iframe> -->
+                        <!--<template if:true={doPlayVideo}> -->
+                            <c-basic-you-tube-player you-tube-id={myUrl} onpauseallvideos={handlePausePlaying} class="ytpbig"></c-basic-you-tube-player>
+                        <!--</template>  -->
+                    </div>
+
+                </div>
+                <!-- <div class="slds-modal__footer text-center">
+
+                </div> -->
+            </div>
+        </div>
+    </template>
+</template>

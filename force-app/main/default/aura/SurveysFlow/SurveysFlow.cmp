@@ -1,0 +1,92 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <div class="slds-grid slds-wrap dx-wal-goals1">
+        <div
+            class="slds-col--padded slds-size--12-of-12 slds-medium-size--4-of-12 slds-large-size--4-of-12 comm-layout-column">
+            <h4>Week 1</h4><br />
+            <div>
+                <div class="card-style card ph-30p pt-40p pb-30p border-box mx-0">
+                    <div class="disabled-color">
+                        <div class="lock"></div>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h5 class="w800 text-capitalize">Survey 1</h5>
+                                    <lightning:flow aura:id="flowId" />
+                            </span>
+                        </div>
+
+                        <div class="text-center mt-10p">
+
+                        </div>
+                    </div>
+                  <!--  <hr class="treatment-divider"> -->
+                    <div class="margin-top-half">
+                        <div class="align-center">
+                            <a href="https://www.patientslikeme.com" class="comment-count-link">&nbsp;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="slds-col--padded slds-size--12-of-12 slds-medium-size--4-of-12 slds-large-size--4-of-12 comm-layout-column">
+            <h4>Week 12</h4><br />
+            <div>
+                <div class="card-style card ph-30p pt-40p pb-30p border-box mx-0">
+                    <div class="disabled-color">
+                        <div class="lock"></div>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h5 class="w800 text-capitalize">Survey 2</h5>
+                            </span>
+                        </div>
+
+                        <div class="text-center mt-10p">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </div>
+                    </div>
+
+                    <!--<hr class="treatment-divider"> -->
+                    <div class="margin-top-half">
+                        <div class="align-center">
+                            <!--<a href="javascript:void(0);" class="comment-count-link">Claim my Amazon gift card</a> -->
+                            <a href="javascript:void(0);" class="comment-count-link">&nbsp;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="slds-col--padded slds-size--12-of-12 slds-medium-size--4-of-12 slds-large-size--4-of-12 comm-layout-column">
+            <h4>Week 24</h4><br />
+            <div>
+                <div class="card-style card ph-30p pt-40p pb-30p border-box mx-0">
+                    <div class="disabled-color">
+                        <div class="lock"></div>
+                        <div class="row justify-content-center align-items-center margin-bottom-half ml-2 mr-2">
+                            <span class="helptext">
+                                <h5 class="w800 text-capitalize">Survey 3</h5>
+                            </span>
+                        </div>
+
+                        <div class="text-center mt-10p">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </div>
+                    </div>
+
+                   <!-- <hr class="treatment-divider"> -->
+                    <div class="margin-top-half">
+                        <div class="align-center">
+                           <!-- <a href="javascript:void(0);" class="comment-count-link">Claim my Amazon gift card</a> -->
+                            <a href="javascript:void(0);" class="comment-count-link">&nbsp;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</aura:component>

@@ -1,0 +1,12 @@
+<template>
+    <template if:false={isNextPage}>
+    <div>
+        <lightning-button variant="brand" label="Finish" title="finish" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </div>
+    </template>
+    <template if:true={isNextPage}>
+    <div style="padding-left:89%">
+        <lightning-button variant="brand" label="Next" title="Next" onclick={handleNext} class="slds-m-right_x-small" ></lightning-button>
+    </div>
+    </template>
+</template>

@@ -1,0 +1,313 @@
+<template>
+
+    <!--     <hr class="solid mb-30p mt-20p">
+ -->
+ <template if:true={isprewebinarexit}>
+    <img src={transplantlanding1url} width="100%"><br/>
+    <div style="padding:20px;" >
+        <p style="font-size: 20px;"><b>Welcome back!</b></p>
+        <p>
+            We appreciate you taking the time to share your experience with us. This survey should take approximately 45-60 minutes<br>
+             for you to complete. You can see your progress by following the tracker at the top of the page. Completing the survey helps<br>
+              us in our research efforts, so we thank you!</p>
+            <!-- <p>
+                Care partners do not give care; instead, they are partners in the care. Care partners aid an individual with
+                 a health condition to meet their self-care needs. For the purposes of this study, we will ask you a variety of
+                 questions related to your experience as a care partner. We appreciate your time and
+                 willingness to share your experiences with us.
+            </p> -->
+            <p><b>Let's get started.</b></p>
+    </div>
+    <hr class="solid mb-30p mt-20p">
+    <div>
+        <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+        <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+            onclick={navigateToSurveyWelcomePage} variant="brand"></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+            style="margin-right: 25px;"></lightning-button>
+
+    </div>
+</template>
+<template if:true={isShowModal}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button" style="float:right;" onclick={hideModalBox}
+                    title="Close">X</button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+            </header>
+
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+               <center> <p>Are you sure you want to exit?</p></center>
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={plmRedirection}>OK</button>
+                <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+            </footer>
+
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+<!-- <template if:true={controlFlow}> -->
+    <template if:true={isthankyouscreen}>
+        <!--  <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                
+                <div class="slds-col slds-size_11-of-12">
+                    <b>Diagnostic Journey and insights</b>
+                    <c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+                </div><br/>
+                <div class="slds-size_4-of-12">
+                </div>
+            </div> 
+        </div>
+       
+        <br/> -->
+        <hr class="dash mt-30p mb-20p" />
+        <div>
+            <p style="font-size: 20px;"><b>What's next?</b></p>
+            <p>We now to invite you to begin part one of the study. Share your experience of life after transplant by:
+            </p>
+            <p>1. Answering five (5) questions about your knowledge of the CMV infection (2-3 minutes).</p>
+            <p>2. Watching an educational webinar about Cytomegalovirus (CMV) infection and transplant patients (15
+                minutes).</p>
+            <p>3. Answering the same 5 questions you saw at the start (2-3 minutes).</p>
+            <p><b>Let's learn together!</b></p>
+            </p>
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div>
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={navigateToNextstep} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+<!-- </template> -->
+    <template if:true={introSurveythankyouScreen}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+
+                <div class="slds-col slds-size_11-of-12">
+                    <b>Webinar</b>
+                    <c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+                </div><br />
+                <div class="slds-size_4-of-12">
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div>
+            <p style="font-size: 20px;"><b>Welcome to the Post-Transplant Experienece:</b>
+                Patient and Care Partner Experience with Post-transplant Effects on Quality of Life,
+                CMV Symptom Management and Clinical in SOT or HSCT Patients <strong>Survey!</strong>
+            </p>
+            <br />
+            <p>We appriciate you taking the time to share you experience with us.This survey should take approximately
+                40-60 minutes
+                for you to complete. You can see your progress by following the tracker at the top of the page.
+                completing the survey helps
+                us in our research efforts, so we thank you!
+            </p>
+            <p><strong>Let's get started</strong></p>
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div>
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={navigateToSurveyWelcomePage} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+    <template if:true={CompletePatientSurveythankyouScreen}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+
+                <div class="slds-col slds-size_11-of-12">
+                    <b>Webinarrr</b>
+                    <c-survey-container-progressbar-static progress={progress}></c-survey-container-progressbar-static>
+                </div><br />
+                <div class="slds-size_4-of-12">
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div>
+            <p style="font-size: 20px;"><b>Thank You!</b></p>
+            <br />
+            <p>We appriciate the time and effort you devorted to completing our quetionnaire. Your answers help us
+                establish a better
+                understanding of the transplant and care partner experience. If you are lookinfg for a community to
+                connect with other
+                Patient, Visit us at PatientLikeMe.com today!
+            </p>
+            <p><strong>Let's get started</strong></p>
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div>
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={navigateToSurveyWelcomePage} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+    <template if:true={issameThankYou}>
+    <template if:true={isPreWebinarNew}>
+        <img src={transplantlanding1url} width="100%"><br/>
+
+    <div class="pt-10p pb-10p pl-10p pr-10p">
+        <b style="font-size: 20px;">Thank you for watching our educational materials and answering questions<br>
+             about the Cytomegalovirus (CMV) infection and transplant patients. </b>
+        <p>Your contributions add value to our research efforts.</p>
+        <div style="background:rgba(255, 236, 180, 0.4);padding:10px">
+            <p><strong>What are the next steps?</strong></p>
+            <p>Keep an eye on your email inbox; in two to five days, we will send you a link to begin a survey questionnaire about your experience <br>
+                with CMV and transplant. We appreciate your participation; remember you will be compensated $50 for completing the survey.</p>
+                <p>We look forward to continuing to learn about your transplant journey!  </p>
+
+                <!-- <p><b>Note for testing :<a href="https://val-servicecloudtrial-155c0807bf-16246540dc1.cs2.force.com/wal/s/transplant-questions" >onclick={}</a></b></p> -->
+   <p><b>Note for testing : <lightning-button variant="base" label="https://val-servicecloudtrial-155c0807bf-16246540dc1.cs2.force.com/wal/s/transplant-questions" title="Link" 
+      onclick={isprewebinarexit123} class="slds-m-left_x-small" style="border: none;color: blue;"></lightning-button></b></p>
+        </div>
+
+    </div>
+    <hr class="solid mb-30p mt-20p">
+    <div >
+        <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+    <!-- <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+            onclick={redirectToNextThankyou} variant="brand"></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+            style="margin-right: 25px;"></lightning-button> -->
+
+    </div>
+
+    </template>
+</template>
+
+    <template if:true={istransplantbaseline}>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-grid slds-gutters" style="padding-top: 20px;">
+                <div class="slds-col slds-size_11-of-12">
+                </div><br />
+                <div class="slds-size_4-of-12">
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div>
+            <p style="font-size: 20px;"><b>Thank you for participating in our study!</b><br>
+
+                <b> Thank you for your interest in the Post-transplant Experience: Patient and Care Partner Experience with Post-</b><br>
+                    <b>   transplant Effects on Quality of Life, CMV Symptom Management and Clinical Outcomes in SOT or HSCT</b><br>
+                        <b>  Patients Survey.</b>
+            </p>
+            <p>
+                Unfortunately, your responses indicate that you are ineligible to continue in this study.
+            </p>
+            <br />
+            <p>To ensure that we only invite you to the studies that are the right fit for you, we ask that you please update your PatientsLikeMe<br>
+                profile. This will help us identify research opportunities that fit your experiences. We hope to continue to see you in our community.<br>
+                Thank you for your time!
+            </p>
+            <!-- <p><strong>Let's get started</strong></p> -->
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div>
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={navigateToSurveyWelcomePage} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+    <template if:true={careTakerThankYou}>
+       
+        <div>
+            <img src={transplantlanding1url} width="100%"><br/>
+            <div style="padding:20px;" >
+            <p style="font-size: 20px;"><b>Thank You!</b></p>
+            <p>We appreciate the time and effort you devoted to completing our quetionnaire. Your answers help us establish a better<br>
+                understanding of the transplant and care partner experience. If you are looking to connect with a community of other people who are<br>
+              on a transplant journey, Visit us at PatientLikeMe.com today!
+            </p>
+        </div>
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div>
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={afterCompleteSurveyThankyou} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+    <template if:true={afterPatientSurveyThankYou}>
+        <img src={transplantlanding1url} width="100%"><br/>
+
+        <div class="pt-10p pb-10p pl-10p pr-10p">
+            <b style="font-size: 20px;">Thank you for sharing your transplant experience and completing our survey.</b>
+            <p>Your participation has provided valuable contributions to transplant and CMV research. Let's keep going!</p>
+            <div style="background:rgba(255, 236, 180, 0.4);padding:10px">
+                <p><strong>What are the next steps?</strong></p>
+                <p>The next step is to import your electronic healthcare record (EHR) to your PLM profile. Along with the survey, certain fields from your<br>
+                    PLM profile will be leveraged for analysis. Once you consent, you will be directed to start the process.</p>
+                    <p>Your participation in this phase of the study is completely voluntary. If you choose to consent to sharing your electronic health data,<br>
+                        you will receive a gift card in the amount of $75 as compensation for your participation in this phase of the study.</p>
+            </div>
+
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div >
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={redirectToDataSync} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+ 
+    <!-- <template if:true={beforePrewebinar}>
+        <img src={transplantlanding1url} width="100%"><br/>
+
+        <div class="pt-10p pb-10p pl-10p pr-10p">
+           <p> <b style="font-size: 20px;">Thank you for participating in our study!</b></p>
+            <p><b>Thank you for your interest in the Post-transplant Experience Study: Understanding Patient and Care Partner<br>
+                 Experience Post-transplant with Quality of Life, CMV Symptom Management, Care Coordination and Patient <br>
+                 Clinician Engagement in SOT and HSCT Patients.</b></p>
+            <p>Unfortunately, your responses indicate that you are ineligible to continue in this study.</p>
+                <p>To ensure that we only invite you to the studies that are the right fit for you, we ask that you please update your PatientsLikeMe <br>
+                    profile. This will help us identify research opportunities that fit your experiences. We hope to continue to see you in our community.<br>
+                     Thank you for your time!</p>
+                    
+            
+        </div>
+        <hr class="solid mb-30p mt-20p">
+        <div >
+            <lightning-button label="Exit" onclick={handleExit} class="btn_capsule fs-16"></lightning-button>
+            <lightning-button label="Continue" class="btn_capsule slds-float_right" style="border-radius: 20px;"
+                onclick={redirectToPreWebinar} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} class="btn_capsule slds-float_right"
+                style="margin-right: 25px;"></lightning-button>
+
+        </div>
+    </template>
+       -->
+</template>
